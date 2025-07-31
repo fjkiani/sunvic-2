@@ -49,7 +49,7 @@ export const enhancedPortfolioProjects: EnhancedProject[] = [
     overview: "A groundbreaking kitchen transformation that integrates health monitoring, beauty stations, and smart technology to create Manhattan's first certified wellness kitchen sanctuary.",
     challenge: "The clients, both health-conscious professionals, wanted a kitchen that would actively support their wellness goals while maintaining luxury aesthetics in a compact Manhattan space.",
     solution: "We designed a comprehensive wellness ecosystem featuring air/water purification, circadian lighting, beauty prep areas, and AI-powered health monitoring systems integrated seamlessly into a stunning modern design.",
-    results: "40% improvement in air quality, 65% reduction in cooking time through smart automation, and a dedicated beauty station that has transformed the clients' daily routines. The project was featured in Architectural Digest's 2025 Wellness Homes issue.",
+    results: "40% improvement in air quality, 65% reduction in cooking time through smart automation, and a dedicated beauty station that has transformed the clients' daily routines. The project received excellent client reviews and referrals.",
     heroImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     images: [
       {
@@ -114,10 +114,6 @@ export const enhancedPortfolioProjects: EnhancedProject[] = [
       "Air quality monitoring equipment",
       "Water filtration installation systems",
       "Professional lighting installation tools"
-    ],
-    awards: [
-      "2024 Kitchen & Bath Design Award - Innovation Category",
-      "Architectural Digest Best Wellness Kitchen 2024"
     ],
     clientTestimonial: {
       quote: "This kitchen has literally transformed our health and daily routines. The air quality monitoring alerts us to cooking adjustments, the beauty station has professional-grade lighting for our skincare routine, and the smart systems learn our preferences. It's like having a wellness coach built into our kitchen.",
@@ -288,10 +284,6 @@ export const enhancedPortfolioProjects: EnhancedProject[] = [
       "Structural engineering tools",
       "Energy monitoring equipment",
       "Biophilic design installation systems"
-    ],
-    awards: [
-      "2024 Green Building Excellence Award",
-      "NYC Sustainable Home Addition of the Year 2024"
     ],
     clientTestimonial: {
       quote: "The addition feels like it was always part of our home, but it's actually producing more energy than our entire house used before. The air quality monitoring helped us discover our daughter's allergies were triggered by specific conditions, and now the system automatically adjusts to prevent them. It's like having a health guardian for our family.",

@@ -16,6 +16,7 @@ import TermsOfServicePage from './pages/TermsOfServicePage';
 import SitemapPage from './pages/SitemapPage';
 import CareersPage from './pages/CareersPage';
 import WarrantiesPage from './pages/WarrantiesPage';
+import InvoicePage from './pages/InvoicePage';
 import ConsultationForm from './components/forms/ConsultationForm';
 import { useConsultationForm } from './hooks/useConsultationForm';
 
@@ -33,7 +34,7 @@ function App() {
           <Route path="/enhanced-service/:serviceId" element={<EnhancedServiceDetailsPage openConsultationForm={openForm} />} />
           <Route path="/service-details/:serviceId" element={<ServiceDetailsPage openConsultationForm={openForm} />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/project/:projectId" element={<ProjectDetailsPage openConsultationForm={openForm} />} />
+          <Route path="/project/:projectId" element={<ProjectDetailsPage />} />
           <Route path="/rentals" element={<RentalsPage openConsultationForm={openForm} />} />
           <Route path="/rental/:equipmentId" element={<EquipmentDetailsPage openConsultationForm={openForm} />} />
           <Route path="/contact" element={<ContactPage />} />
@@ -42,6 +43,7 @@ function App() {
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/warranties" element={<WarrantiesPage />} />
+          <Route path="/invoice" element={<InvoicePage />} />
         </Routes>
         
         {/* Global Consultation Form */}
