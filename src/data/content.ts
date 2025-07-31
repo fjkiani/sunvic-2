@@ -99,7 +99,7 @@ export const coreDifferentiators = [
   },
   {
     title: 'Proven Reliability',
-    description: 'Built on Sunny Ritu\'s established reputation for delivering projects on time and within budget.',
+    description: 'Built on Sunny Rattu\'s established reputation for delivering projects on time and within budget.',
     icon: 'reliability'
   }
 ];

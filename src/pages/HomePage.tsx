@@ -70,7 +70,7 @@ const HomePage: React.FC<HomePageProps> = ({ openConsultationForm }) => {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Rutgers Engineering Precision</h3>
               <p className="text-gray-600">
-                Founded by engineer Sunny Ritu, we apply systematic methodologies to deliver 
+                Founded by engineer Sunny Rattu, we apply systematic methodologies to deliver 
                 measurable results where others rely on guesswork.
               </p>
             </motion.div>
