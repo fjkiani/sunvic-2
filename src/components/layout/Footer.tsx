@@ -1,13 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  PhoneIcon, 
-  EnvelopeIcon, 
-  MapPinIcon,
-  ClockIcon,
-} from '@heroicons/react/24/outline';
-import { companyInfo } from '../../data/content';
-import { navigationItems, serviceAreas, legalPages } from '../../config/navigation';
+import { PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon } from '@heroicons/react/24/outline';
+import { mainNavigation, footerLinks, companyData } from '../../data/navigation';
 import logoImage from '../../assets/logo/sunvic.png';
 
 interface FooterProps {
@@ -18,22 +12,7 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
   const currentYear = new Date().getFullYear();
 
   // Extract navigation items for footer (excluding dropdowns)
-  const mainNavigationLinks = navigationItems.map(item => ({
-    label: item.label,
-    href: item.href
-  }));
-
-  // Get service dropdown items for services section
-  const servicesNavItem = navigationItems.find(item => item.id === 'services');
-  const serviceLinks = servicesNavItem?.dropdownItems?.slice(0, -1) || []; // Exclude "View All"
-
-  // Get innovations dropdown for innovations section
-  const innovationsNavItem = navigationItems.find(item => item.id === 'innovations');
-  const innovationLinks = innovationsNavItem?.dropdownItems?.slice(0, -1) || []; // Exclude "View All"
-
-  // Get equipment categories for equipment section
-  const equipmentNavItem = navigationItems.find(item => item.id === 'equipment-rentals');
-  const equipmentLinks = equipmentNavItem?.dropdownItems?.slice(0, -1) || []; // Exclude "View All"
+  const quickLinks = mainNavigation.filter(item => !item.dropdown);
 
   return (
     <footer className={`bg-secondary-900 text-white ${className}`}>
@@ -46,59 +25,57 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             <div className="flex items-center space-x-3 mb-6">
               <img 
                 src={logoImage} 
-                alt={companyInfo.name}
+                alt={companyData.name}
                 className="h-10 w-auto"
               />
-              <span className="font-display font-bold text-2xl">SunVic</span>
-            </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              Engineering excellence in home remodeling. Founded by Rutgers-trained engineer Sunny Rattu, 
-              we bring precision, reliability, and uncompromising quality to every project.
-            </p>
-            <div className="text-sm text-gray-400 mb-6">
-              Licensed & Insured • NJ Certified • Tri-State Leader
+              <span className="text-xl font-bold">
+                {companyData.name}
+              </span>
             </div>
             
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <PhoneIcon className="w-4 h-4 text-primary-400 flex-shrink-0" />
-                <a 
-                  href={`tel:${companyInfo.contact.phone}`}
-                  className="text-gray-300 hover:text-primary-400 transition-colors text-sm"
-                >
-                  {companyInfo.contact.phone}
+            <p className="text-gray-300 mb-6 leading-relaxed">
+              {companyData.tagline}. Founded by Rutgers-trained engineer Sunny Raftu, 
+              we bring precision, reliability, and uncompromising 
+              quality to every project.
+            </p>
+            
+            <div className="space-y-2 text-sm">
+              <p className="text-gray-400">Licensed & Insured • NJ Certified • Tri-State Leader</p>
+            </div>
+            
+            <div className="space-y-3 mt-6">
+              <div className="flex items-center text-gray-300">
+                <PhoneIcon className="h-4 w-4 mr-3 text-primary-400" />
+                <a href={`tel:${companyData.phone}`} className="hover:text-primary-400 transition-colors">
+                  {companyData.phone}
                 </a>
               </div>
-              <div className="flex items-center space-x-3">
-                <EnvelopeIcon className="w-4 h-4 text-primary-400 flex-shrink-0" />
-                <a 
-                  href={`mailto:${companyInfo.contact.email}`}
-                  className="text-gray-300 hover:text-primary-400 transition-colors text-sm"
-                >
-                  {companyInfo.contact.email}
+              <div className="flex items-center text-gray-300">
+                <EnvelopeIcon className="h-4 w-4 mr-3 text-primary-400" />
+                <a href={`mailto:${companyData.email}`} className="hover:text-primary-400 transition-colors">
+                  {companyData.email}
                 </a>
               </div>
-              <div className="flex items-center space-x-3">
-                <MapPinIcon className="w-4 h-4 text-primary-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">{companyInfo.contact.address}</span>
+              <div className="flex items-center text-gray-300">
+                <MapPinIcon className="h-4 w-4 mr-3 text-primary-400" />
+                <span>{companyData.address}</span>
               </div>
-              <div className="flex items-center space-x-3">
-                <ClockIcon className="w-4 h-4 text-primary-400 flex-shrink-0" />
-                <span className="text-gray-300 text-sm">{companyInfo.contact.hours}</span>
+              <div className="flex items-center text-gray-300">
+                <ClockIcon className="h-4 w-4 mr-3 text-primary-400" />
+                <span>{companyData.hours}</span>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              {mainNavigationLinks.map((link) => (
+            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link 
-                    to={link.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-300 text-sm"
+                    to={link.href} 
+                    className="text-gray-300 hover:text-primary-400 transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -109,13 +86,13 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
 
           {/* Services */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-6">Our Services</h3>
-            <ul className="space-y-3">
-              {serviceLinks.map((service) => (
-                <li key={service.id}>
+            <h3 className="text-lg font-semibold mb-4 text-white">Services</h3>
+            <ul className="space-y-2">
+              {footerLinks.services.map((service) => (
+                <li key={service.href}>
                   <Link 
-                    to={service.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-300 text-sm"
+                    to={service.href} 
+                    className="text-gray-300 hover:text-primary-400 transition-colors text-sm"
                   >
                     {service.label}
                   </Link>
@@ -126,13 +103,13 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
 
           {/* 2025 Innovations */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-6">2025 Innovations</h3>
-            <ul className="space-y-3">
-              {innovationLinks.map((innovation) => (
-                <li key={innovation.id}>
+            <h3 className="text-lg font-semibold mb-4 text-white">2025 Innovations</h3>
+            <ul className="space-y-2">
+              {footerLinks.innovations.map((innovation) => (
+                <li key={innovation.href}>
                   <Link 
-                    to={innovation.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-300 text-sm"
+                    to={innovation.href} 
+                    className="text-gray-300 hover:text-primary-400 transition-colors text-sm"
                   >
                     {innovation.label}
                   </Link>
@@ -143,13 +120,13 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
 
           {/* Equipment Rentals */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-6">Equipment</h3>
-            <ul className="space-y-3">
-              {equipmentLinks.map((equipment) => (
-                <li key={equipment.id}>
+            <h3 className="text-lg font-semibold mb-4 text-white">Equipment</h3>
+            <ul className="space-y-2">
+              {footerLinks.equipment.map((equipment) => (
+                <li key={equipment.href}>
                   <Link 
-                    to={equipment.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-300 text-sm"
+                    to={equipment.href} 
+                    className="text-gray-300 hover:text-primary-400 transition-colors text-sm"
                   >
                     {equipment.label}
                   </Link>
@@ -160,19 +137,22 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
         </div>
 
         {/* Service Areas Section */}
-        <div className="border-t border-secondary-800 mt-12 pt-8">
-          <h3 className="font-display font-semibold text-lg mb-6 text-center">Tri-State Service Areas</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-6">
-            {serviceAreas.map((area) => (
-              <div key={area.state} className="text-center">
-                <h4 className="font-semibold text-primary-400 mb-3 text-sm">{area.state}</h4>
-                <ul className="space-y-1">
-                  {area.cities.map((city) => (
-                    <li key={city} className="text-gray-400 text-xs">
-                      {city}
-                    </li>
-                  ))}
-                </ul>
+        <div className="mt-16 pt-8 border-t border-secondary-800">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-semibold text-white mb-4">Tri-State Service Areas</h3>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Professional home remodeling and equipment rental services across the DMV region
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+            {footerLinks.serviceAreas.map((area) => (
+              <div key={area.href} className="space-y-2">
+                <Link 
+                  to={area.href}
+                  className="text-primary-400 hover:text-primary-300 transition-colors font-medium text-sm"
+                >
+                  {area.label}
+                </Link>
               </div>
             ))}
           </div>
@@ -189,10 +169,10 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
         <div className="section-container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400 text-sm">
-              © {currentYear} SunVic Home Remodeling. All rights reserved.
+              © {currentYear} {companyData.name} Home Remodeling. All rights reserved.
             </div>
             <div className="flex flex-wrap justify-center space-x-6 text-sm text-gray-400">
-              {legalPages.map((page) => (
+              {footerLinks.legal.map((page) => (
                 <Link 
                   key={page.href} 
                   to={page.href} 
@@ -201,6 +181,12 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                   {page.label}
                 </Link>
               ))}
+              <Link to="/careers" className="hover:text-primary-400 transition-colors">
+                Careers
+              </Link>
+              <Link to="/warranties" className="hover:text-primary-400 transition-colors">
+                Warranties
+              </Link>
             </div>
           </div>
         </div>

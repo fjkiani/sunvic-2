@@ -93,10 +93,9 @@ export const mainNavigation: NavItem[] = [
   { label: 'Contact', href: '/contact' }
 ];
 
-// Footer-specific links
+// Footer Links Configuration
 export const footerLinks = {
-  quickLinks: mainNavigation.filter(item => !item.dropdown),
-  services: servicesDropdown,
+  services: servicesDropdown.slice(0, 5), // Top 5 for footer
   innovations: innovationsDropdown.slice(0, 4), // Top 4 for footer
   equipment: equipmentDropdown.slice(0, 6), // Top 6 for footer
   legal: [

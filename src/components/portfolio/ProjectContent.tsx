@@ -7,8 +7,7 @@ import {
   PhotoIcon,
   WrenchScrewdriverIcon,
   SparklesIcon,
-  CheckCircleIcon,
-  ChatBubbleLeftRightIcon
+  CheckCircleIcon
 } from '@heroicons/react/24/outline';
 import type { EnhancedProject } from '../../data/portfolioProjects';
 
@@ -87,21 +86,24 @@ const ProjectContent: React.FC<ProjectContentProps> = ({ project }) => {
                   </p>
 
                   {project.clientTestimonial && (
-                    <div className="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
-                      <div className="flex items-start space-x-3">
-                        <ChatBubbleLeftRightIcon className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-4">Client Testimonial</h3>
+                      <blockquote className="text-gray-700 mb-4 leading-relaxed">
+                        "{project.clientTestimonial.quote}"
+                      </blockquote>
+                      <div className="flex items-center">
+                        <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center mr-3">
+                          <span className="text-white font-semibold text-sm">
+                            {project.clientTestimonial.author.split(' ').map((n: string) => n[0]).join('').toUpperCase()}
+                          </span>
+                        </div>
                         <div>
-                          <blockquote className="text-gray-700 italic mb-3">
-                            "{project.clientTestimonial.quote}"
-                          </blockquote>
-                          <div className="text-sm">
-                            <div className="font-semibold text-gray-900">
-                              {project.clientTestimonial.author}
-                            </div>
-                            <div className="text-gray-600">
-                              {project.clientTestimonial.title}
-                            </div>
-                          </div>
+                          <cite className="font-semibold text-gray-900 not-italic">
+                            {project.clientTestimonial.author}
+                          </cite>
+                          <p className="text-gray-600 text-sm">
+                            {project.clientTestimonial.title}
+                          </p>
                         </div>
                       </div>
                     </div>

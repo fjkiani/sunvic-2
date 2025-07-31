@@ -1,211 +1,136 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { navigationItems, serviceAreas, legalPages } from '../config/navigation';
-import { enhancedServices } from '../data/enhancedServices';
-import { enhancedPortfolioProjects } from '../data/portfolioProjects';
-import { rentalCategories } from '../data/rentalEquipment';
+import { mainNavigation, footerLinks, companyData } from '../data/navigation';
 
 const SitemapPage: React.FC = () => {
-  const lastUpdated = new Date().toLocaleDateString();
+  const currentYear = new Date().getFullYear();
 
   return (
-    <div className="pt-20 min-h-screen bg-gray-50">
-      <div className="section-container section-padding">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-6xl mx-auto"
-        >
-          <div className="bg-white rounded-xl shadow-lg p-8 lg:p-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Website Sitemap</h1>
-            <p className="text-gray-600 mb-8">
-              Complete overview of SunVic Home Remodeling website structure. Last updated: {lastUpdated}
-            </p>
-
-            <div className="grid lg:grid-cols-2 gap-12">
-              
-              {/* Main Navigation */}
-              <section>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6 border-b border-gray-200 pb-2">
-                  Main Navigation
-                </h2>
-                <div className="space-y-6">
-                  {navigationItems.map((item) => (
-                    <div key={item.id}>
-                      <Link 
-                        to={item.href}
-                        className="text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                      {item.dropdownItems && (
-                        <ul className="mt-3 ml-4 space-y-2">
-                          {item.dropdownItems.map((dropdownItem) => (
-                            <li key={dropdownItem.id}>
-                              <Link
-                                to={dropdownItem.href}
-                                className="text-gray-700 hover:text-blue-600 transition-colors flex items-center"
-                              >
-                                <span className="mr-2">{dropdownItem.icon}</span>
-                                {dropdownItem.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Enhanced Services */}
-              <section>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6 border-b border-gray-200 pb-2">
-                  2025 Innovation Services
-                </h2>
-                <div className="space-y-3">
-                  <Link 
-                    to="/enhanced-services"
-                    className="text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors block"
-                  >
-                    All Innovations Overview
-                  </Link>
-                  <ul className="ml-4 space-y-2">
-                    {enhancedServices.map((service) => (
-                      <li key={service.id}>
-                        <Link
-                          to={`/enhanced-service/${service.id}`}
-                          className="text-gray-700 hover:text-blue-600 transition-colors"
-                        >
-                          {service.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </section>
-
-              {/* Portfolio Projects */}
-              <section>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6 border-b border-gray-200 pb-2">
-                  Portfolio Projects
-                </h2>
-                <div className="space-y-3">
-                  <Link 
-                    to="/portfolio"
-                    className="text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors block"
-                  >
-                    Portfolio Overview
-                  </Link>
-                  <ul className="ml-4 space-y-2">
-                    {enhancedPortfolioProjects.map((project) => (
-                      <li key={project.id}>
-                        <Link
-                          to={`/project/${project.id}`}
-                          className="text-gray-700 hover:text-blue-600 transition-colors"
-                        >
-                          {project.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </section>
-
-              {/* Equipment Rentals */}
-              <section>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6 border-b border-gray-200 pb-2">
-                  Equipment Rentals
-                </h2>
-                <div className="space-y-3">
-                  <Link 
-                    to="/rentals"
-                    className="text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors block"
-                  >
-                    Equipment Fleet Overview
-                  </Link>
-                  <ul className="ml-4 space-y-2">
-                    {rentalCategories.filter(cat => cat.id !== 'all').map((category) => (
-                      <li key={category.id}>
-                        <Link
-                          to={`/rentals?category=${category.id}`}
-                          className="text-gray-700 hover:text-blue-600 transition-colors flex items-center"
-                        >
-                          <span className="mr-2">{category.icon}</span>
-                          {category.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </section>
-
-              {/* Service Areas */}
-              <section>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6 border-b border-gray-200 pb-2">
-                  Service Areas
-                </h2>
-                <div className="space-y-4">
-                  <p className="text-gray-600">SunVic serves the tri-state region:</p>
-                  {serviceAreas.map((area) => (
-                    <div key={area.state}>
-                      <h3 className="font-medium text-gray-900 mb-2">{area.state}</h3>
-                      <ul className="ml-4 grid grid-cols-2 gap-1 text-sm text-gray-600">
-                        {area.cities.map((city) => (
-                          <li key={city}>{city}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Legal & Information */}
-              <section>
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6 border-b border-gray-200 pb-2">
-                  Legal & Information
-                </h2>
-                <div className="space-y-3">
-                  {legalPages.map((page) => (
-                    <Link
-                      key={page.href}
-                      to={page.href}
-                      className="block text-gray-700 hover:text-blue-600 transition-colors"
-                    >
-                      {page.label}
-                    </Link>
-                  ))}
-                </div>
-              </section>
-
+    <div className="min-h-screen bg-gray-50 pt-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">Sitemap</h1>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Main Navigation */}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Main Pages</h2>
+              <ul className="space-y-2">
+                <li><Link to="/" className="text-blue-600 hover:text-blue-800">Home</Link></li>
+                <li><Link to="/about" className="text-blue-600 hover:text-blue-800">About Us</Link></li>
+                <li><Link to="/contact" className="text-blue-600 hover:text-blue-800">Contact</Link></li>
+                <li><Link to="/portfolio" className="text-blue-600 hover:text-blue-800">Portfolio</Link></li>
+              </ul>
             </div>
 
-            {/* Quick Stats */}
-            <div className="mt-12 pt-8 border-t border-gray-200">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">Website Statistics</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div className="bg-blue-50 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-blue-600">{navigationItems.length}</div>
-                  <div className="text-sm text-gray-600">Main Pages</div>
+            {/* Services */}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Services</h2>
+              <ul className="space-y-2">
+                <li><Link to="/services" className="text-blue-600 hover:text-blue-800">All Services</Link></li>
+                {mainNavigation.find(item => item.label === 'Services')?.dropdown?.map((service) => (
+                  <li key={service.href}>
+                    <Link to={service.href} className="text-blue-600 hover:text-blue-800 text-sm pl-4">
+                      {service.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* 2025 Innovations */}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">2025 Innovations</h2>
+              <ul className="space-y-2">
+                <li><Link to="/enhanced-services" className="text-blue-600 hover:text-blue-800">All Innovations</Link></li>
+                {mainNavigation.find(item => item.label === '2025 Innovations')?.dropdown?.map((innovation) => (
+                  <li key={innovation.href}>
+                    <Link to={innovation.href} className="text-blue-600 hover:text-blue-800 text-sm pl-4">
+                      {innovation.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Equipment Rentals */}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Equipment Rentals</h2>
+              <ul className="space-y-2">
+                <li><Link to="/rentals" className="text-blue-600 hover:text-blue-800">All Equipment</Link></li>
+                {mainNavigation.find(item => item.label === 'Equipment Rentals')?.dropdown?.map((equipment) => (
+                  <li key={equipment.href}>
+                    <Link to={equipment.href} className="text-blue-600 hover:text-blue-800 text-sm pl-4">
+                      {equipment.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Service Areas */}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Service Areas</h2>
+              <ul className="space-y-2">
+                {footerLinks.serviceAreas.map((area) => (
+                  <li key={area.href}>
+                    <Link to={area.href} className="text-blue-600 hover:text-blue-800 text-sm">
+                      {area.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Legal Pages */}
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Legal & Company</h2>
+              <ul className="space-y-2">
+                {footerLinks.legal.map((page) => (
+                  <li key={page.href}>
+                    <Link to={page.href} className="text-blue-600 hover:text-blue-800">
+                      {page.label}
+                    </Link>
+                  </li>
+                ))}
+                <li><Link to="/careers" className="text-blue-600 hover:text-blue-800">Careers</Link></li>
+                <li><Link to="/warranties" className="text-blue-600 hover:text-blue-800">Warranties</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Additional Information */}
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Company Information</h3>
+                <div className="space-y-2 text-gray-700">
+                  <p><strong>{companyData.name} Home Remodeling</strong></p>
+                  <p>{companyData.tagline}</p>
+                  <p>Phone: {companyData.phone}</p>
+                  <p>Email: {companyData.email}</p>
+                  <p>Location: {companyData.address}</p>
+                  <p>Service Area: {companyData.serviceArea}</p>
                 </div>
-                <div className="bg-green-50 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-green-600">{enhancedServices.length}</div>
-                  <div className="text-sm text-gray-600">Innovation Services</div>
-                </div>
-                <div className="bg-purple-50 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-purple-600">{enhancedPortfolioProjects.length}</div>
-                  <div className="text-sm text-gray-600">Portfolio Projects</div>
-                </div>
-                <div className="bg-orange-50 p-4 rounded-lg">
-                  <div className="text-2xl font-bold text-orange-600">{rentalCategories.length - 1}</div>
-                  <div className="text-sm text-gray-600">Equipment Categories</div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Quick Links</h3>
+                <div className="space-y-2">
+                  <p><Link to="/contact" className="text-blue-600 hover:text-blue-800">Get Free Consultation</Link></p>
+                  <p><Link to="/portfolio" className="text-blue-600 hover:text-blue-800">View Our Work</Link></p>
+                  <p><Link to="/rentals" className="text-blue-600 hover:text-blue-800">Rent Equipment</Link></p>
+                  <p><Link to="/enhanced-services" className="text-blue-600 hover:text-blue-800">2025 Innovations</Link></p>
                 </div>
               </div>
             </div>
+
+            <div className="mt-8 pt-4 border-t border-gray-100 text-center text-gray-500">
+              <p>&copy; {currentYear} {companyData.name} Home Remodeling. All rights reserved.</p>
+              <p className="text-sm mt-1">Engineering excellence in home remodeling since our founding.</p>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

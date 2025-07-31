@@ -11,6 +11,11 @@ import ProjectDetailsPage from './pages/ProjectDetailsPage';
 import RentalsPage from './pages/RentalsPage';
 import EquipmentDetailsPage from './pages/EquipmentDetailsPage';
 import ContactPage from './pages/ContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsOfServicePage from './pages/TermsOfServicePage';
+import SitemapPage from './pages/SitemapPage';
+import CareersPage from './pages/CareersPage';
+import WarrantiesPage from './pages/WarrantiesPage';
 import ConsultationForm from './components/forms/ConsultationForm';
 import { useConsultationForm } from './hooks/useConsultationForm';
 
@@ -32,6 +37,11 @@ function App() {
           <Route path="/rentals" element={<RentalsPage openConsultationForm={openForm} />} />
           <Route path="/rental/:equipmentId" element={<EquipmentDetailsPage openConsultationForm={openForm} />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms" element={<TermsOfServicePage />} />
+          <Route path="/sitemap" element={<SitemapPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/warranties" element={<WarrantiesPage />} />
         </Routes>
         
         {/* Global Consultation Form */}

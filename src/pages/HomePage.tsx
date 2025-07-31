@@ -21,6 +21,7 @@ import {
 import HeroSlider from '../components/ui/HeroSlider';
 import { testimonials } from '../data/content';
 import { enhancedServices } from '../data/enhancedServices';
+import engineeringImage from '../assets/images/engineering.png';
 
 interface HomePageProps {
   openConsultationForm: (serviceType?: string) => void;
@@ -342,7 +343,7 @@ const HomePage: React.FC<HomePageProps> = ({ openConsultationForm }) => {
             
             <div className="relative">
               <img
-                src="/src/assets/images/engineering.png"
+                src={engineeringImage}
                 alt="Professional construction equipment fleet"
                 className="rounded-xl shadow-2xl"
               />
@@ -389,11 +390,19 @@ const HomePage: React.FC<HomePageProps> = ({ openConsultationForm }) => {
                   "{testimonial.content}"
                 </p>
                 <div className="flex items-center">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="h-12 w-12 rounded-full object-cover mr-4"
-                  />
+                  {testimonial.avatar ? (
+                    <img
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      className="h-12 w-12 rounded-full object-cover mr-4"
+                    />
+                  ) : (
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center mr-4">
+                      <span className="text-white font-semibold text-lg">
+                        {testimonial.name.split(' ').map((n: string) => n[0]).join('').toUpperCase()}
+                      </span>
+                    </div>
+                  )}
                   <div>
                     <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
                     <p className="text-gray-600">{testimonial.project}</p>
