@@ -1,160 +1,172 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeftIcon, ScaleIcon } from '@heroicons/react/24/outline';
-import { companyData } from '../data/navigation';
+import { companyInfo } from '../data/content';
 
 const TermsPage: React.FC = () => {
+  const lastUpdated = "January 1, 2025";
+
   return (
-    <div className="pt-16 lg:pt-20">
-      {/* Header */}
-      <section className="bg-gray-50 py-16">
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <Link 
-              to="/" 
-              className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-6"
-            >
-              <ArrowLeftIcon className="h-4 w-4 mr-2" />
-              Back to Home
-            </Link>
-            
-            <div className="flex items-center justify-center mb-6">
-              <ScaleIcon className="h-12 w-12 text-blue-600" />
-            </div>
-            
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Terms of Service
-            </h1>
-            <p className="text-xl text-gray-600">
-              Legal terms and conditions for {companyData.name} services
-            </p>
-            <p className="text-sm text-gray-500 mt-4">
-              Last updated: January 2025
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <div className="pt-20 min-h-screen bg-gray-50">
+      <div className="section-container section-padding">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="bg-white rounded-xl shadow-lg p-8 lg:p-12">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">Terms of Service</h1>
+            <p className="text-gray-600 mb-8">Last updated: {lastUpdated}</p>
 
-      {/* Terms Content */}
-      <section className="py-16">
-        <div className="section-container max-w-4xl mx-auto">
-          <div className="prose prose-lg max-w-none">
-            
-            <h2>1. Acceptance of Terms</h2>
-            <p>
-              By engaging {companyData.name} for construction, remodeling, or equipment rental services, 
-              you agree to be bound by these Terms of Service. These terms apply to all services 
-              provided within our service area of {companyData.serviceArea}.
-            </p>
+            <div className="prose prose-lg max-w-none">
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Acceptance of Terms</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  By accessing and using SunVic Home Remodeling services, you accept and agree to be bound by 
+                  the terms and provision of this agreement. If you do not agree to abide by the above, 
+                  please do not use this service.
+                </p>
+              </section>
 
-            <h2>2. Services Provided</h2>
-            <p>{companyData.name} provides the following services:</p>
-            <ul>
-              <li>Luxury home remodeling and renovation</li>
-              <li>Engineering planning and structural analysis</li>
-              <li>Kitchen and bathroom renovations</li>
-              <li>Home additions and extensions</li>
-              <li>Professional equipment rental</li>
-              <li>Construction consultation services</li>
-            </ul>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Services Description</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  SunVic provides professional home remodeling services including but not limited to:
+                </p>
+                <ul className="list-disc pl-6 text-gray-700 mb-4">
+                  <li>Engineering-led structural planning and design</li>
+                  <li>Kitchen and bathroom renovations</li>
+                  <li>Home additions and extensions</li>
+                  <li>Smart home technology integration</li>
+                  <li>Construction equipment rental services</li>
+                  <li>Project management and consultation</li>
+                </ul>
+              </section>
 
-            <h2>3. Project Agreements</h2>
-            <p>
-              All construction projects require a signed contract detailing scope, timeline, 
-              materials, and costs. Changes to approved plans must be documented and may 
-              result in additional charges.
-            </p>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Project Agreements</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  All renovation projects require a separate signed contract detailing scope, timeline, 
+                  costs, and specific terms. These terms of service govern general interactions and 
+                  website usage, while project-specific contracts govern actual construction work.
+                </p>
+              </section>
 
-            <h2>4. Equipment Rental Terms</h2>
-            <h3>4.1 Rental Conditions</h3>
-            <ul>
-              <li>Equipment must be returned in the same condition as received</li>
-              <li>Renter is responsible for damage beyond normal wear and tear</li>
-              <li>Late returns subject to additional daily charges</li>
-              <li>Operator training required for specified equipment</li>
-            </ul>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Equipment Rental Terms</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Equipment rental services are subject to:
+                </p>
+                <ul className="list-disc pl-6 text-gray-700 mb-4">
+                  <li>Valid driver's license and insurance verification</li>
+                  <li>Security deposit as specified in rental agreement</li>
+                  <li>Equipment must be returned in same condition</li>
+                  <li>Operator training requirements for specified equipment</li>
+                  <li>Liability for damage during rental period</li>
+                </ul>
+              </section>
 
-            <h3>4.2 Safety Requirements</h3>
-            <ul>
-              <li>All operators must be properly trained and certified</li>
-              <li>Safety equipment must be used at all times</li>
-              <li>Equipment inspections required before and after use</li>
-            </ul>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Liability and Insurance</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  SunVic maintains comprehensive general liability and workers' compensation insurance. 
+                  Clients are advised to notify their homeowner's insurance provider of renovation work. 
+                  Equipment rental clients must provide proof of adequate insurance coverage.
+                </p>
+              </section>
 
-            <h2>5. Payment Terms</h2>
-            <ul>
-              <li>Deposit required to secure project start date</li>
-              <li>Progress payments due per contract schedule</li>
-              <li>Final payment due upon project completion</li>
-              <li>Equipment rentals: payment due upon pickup or delivery</li>
-            </ul>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibent text-gray-900 mb-4">6. Payment Terms</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Payment schedules are established in individual project contracts. Generally:
+                </p>
+                <ul className="list-disc pl-6 text-gray-700 mb-4">
+                  <li>Consultations may require initial deposit</li>
+                  <li>Project payments follow industry-standard milestone schedule</li>
+                  <li>Equipment rentals require advance payment or approved credit</li>
+                  <li>Late payments may incur fees as specified in contracts</li>
+                </ul>
+              </section>
 
-            <h2>6. Warranties</h2>
-            <p>
-              {companyData.name} provides industry-standard warranties on workmanship and 
-              materials. Specific warranty terms are outlined in individual contracts.
-            </p>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Permits and Compliance</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  SunVic assists with permit applications where required. Clients are responsible for 
+                  providing accurate property information and cooperating with inspection processes. 
+                  All work complies with local building codes and engineering standards.
+                </p>
+              </section>
 
-            <h2>7. Limitation of Liability</h2>
-            <p>
-              {companyData.name} maintains comprehensive liability insurance. Our liability 
-              is limited to the scope of work outlined in signed agreements.
-            </p>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Warranties</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  SunVic provides warranties on workmanship as specified in individual project contracts. 
+                  Material warranties are provided by manufacturers. Equipment rentals include basic 
+                  functionality guarantees but exclude normal wear and user damage.
+                </p>
+              </section>
 
-            <h2>8. Permits and Regulations</h2>
-            <p>
-              All work performed complies with local building codes and regulations. 
-              Permit acquisition and inspection coordination included in project scope 
-              unless otherwise specified.
-            </p>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Intellectual Property</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Design plans, engineering calculations, and proprietary methodologies remain 
+                  SunVic intellectual property. Clients receive usage rights for their specific 
+                  project but may not distribute or commercialize designs without written permission.
+                </p>
+              </section>
 
-            <h2>9. Force Majeure</h2>
-            <p>
-              Project delays due to weather, material shortages, permit delays, or other 
-              circumstances beyond our control will not result in penalties. Timeline 
-              adjustments will be communicated promptly.
-            </p>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Privacy and Data</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Client information is protected according to our Privacy Policy. Project photos 
+                  may be used for portfolio purposes unless specifically declined in writing. 
+                  Personal and financial information is kept confidential.
+                </p>
+              </section>
 
-            <h2>10. Dispute Resolution</h2>
-            <p>
-              Any disputes will first be addressed through direct communication. 
-              If necessary, disputes will be resolved through arbitration in New Jersey.
-            </p>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">11. Dispute Resolution</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Disputes are addressed first through direct communication. If resolution cannot 
+                  be achieved, binding arbitration in New Jersey will be used. Legal proceedings 
+                  are governed by New Jersey state law.
+                </p>
+              </section>
 
-            <h2>11. Privacy</h2>
-            <p>
-              Client information is protected according to our Privacy Policy. 
-              Project photos may be used for marketing purposes unless explicitly declined.
-            </p>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">12. Service Area</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  SunVic primarily serves the tri-state area including New Jersey, New York, 
+                  Pennsylvania, Delaware, Maryland, Virginia, and Washington DC. Service availability 
+                  may vary by location and project scope.
+                </p>
+              </section>
 
-            <h2>12. Modifications</h2>
-            <p>
-              These terms may be updated periodically. Clients will be notified of 
-              significant changes to terms affecting active projects.
-            </p>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">13. Modifications</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  SunVic reserves the right to modify these terms at any time. Clients will be 
+                  notified of significant changes. Continued use of services after changes 
+                  constitutes acceptance of new terms.
+                </p>
+              </section>
 
-            <div className="bg-blue-50 border-l-4 border-blue-400 p-6 mt-8">
-              <h3 className="text-lg font-semibold text-blue-900 mb-2">
-                Questions About These Terms?
-              </h3>
-              <p className="text-blue-800 mb-4">
-                Contact us for clarification on any terms or conditions.
-              </p>
-              <div className="space-y-2 text-sm text-blue-700">
-                <p>Email: {companyData.email}</p>
-                <p>Phone: {companyData.phone}</p>
-                <p>Address: {companyData.address}</p>
-              </div>
+              <section className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">14. Contact Information</h2>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Questions about these terms should be directed to:
+                </p>
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <p className="font-semibold">{companyInfo.name}</p>
+                  <p>{companyInfo.contact.address}</p>
+                  <p>Phone: {companyInfo.contact.phone}</p>
+                  <p>Email: {companyInfo.contact.email}</p>
+                </div>
+              </section>
             </div>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </div>
     </div>
   );
 };

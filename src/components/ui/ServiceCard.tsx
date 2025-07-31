@@ -43,9 +43,8 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({
   service,
   variant = 'standard',
-  index = 0,
-  showCompetitorAdvantage = true,
-  showPricing = true,
+  showCompetitorAdvantage = false,
+  showPricing = false,
   showEquipment = false
 }) => {
   const getServiceIcon = (iconName: string) => {
@@ -75,11 +74,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   const IconComponent = getServiceIcon(service.icon);
 
   const fadeInVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.6, delay: index * 0.1 }
+      transition: { duration: 0.6 }
     }
   };
 

@@ -3,7 +3,6 @@
 
 import { enhancedServices } from './enhancedServices';
 import { rentalCategories } from './rentalEquipment';
-import { advancedRenovationServices } from './content';
 
 export interface NavItem {
   label: string;

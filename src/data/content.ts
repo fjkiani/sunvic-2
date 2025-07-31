@@ -451,28 +451,36 @@ export const projects: ProjectData[] = [
 // Testimonials
 export const testimonials: Testimonial[] = [
   {
-    id: 'sarah-johnson',
-    name: 'Sarah Johnson',
-    role: 'Manhattan Homeowner',
-    content: 'SunVic transformed our outdated kitchen into a modern masterpiece. Sunny\'s engineering background really showed in the precision of the work.',
+    id: 'fahad-kiani',
+    name: 'Fahad Kiani',
+    role: 'Local Guide • 41 reviews • 30 photos',
+    content: 'Sunny is a highly skilled professional who excels in home remodeling, renovations, and construction services. The quality of work is both dependable and impeccable. I highly recommend Sunvic for anyone looking to remodel or design their home.',
     rating: 5,
-    project: 'Kitchen Remodeling'
+    project: 'Home Remodeling & Design'
   },
   {
-    id: 'michael-chen',
-    name: 'Michael Chen',
-    role: 'Brooklyn Resident',
-    content: 'The project was completed on time and within budget. The quality of workmanship exceeded our expectations.',
+    id: 'a-shah',
+    name: 'A Shah',
+    role: 'Verified Customer',
+    content: 'Highly professional. Very reasonable price for the flooring he did for my home. Will recommend his service to friends and family.',
+    rating: 5,
+    project: 'Flooring Installation'
+  },
+  {
+    id: 'ambikasamar',
+    name: 'Ambikasamar',
+    role: 'Verified Customer • 5 reviews',
+    content: 'Great Contractor. Very nice people. Excellent job done for my bathroom. I highly recommend him.',
     rating: 5,
     project: 'Bathroom Renovation'
   },
   {
-    id: 'lisa-rodriguez',
-    name: 'Lisa Rodriguez',
-    role: 'Queens Homeowner',
-    content: 'Having their own equipment rental business made a huge difference. No delays waiting for tools or machinery.',
+    id: 'preet-s',
+    name: 'Preet S',
+    role: 'Verified Customer • 5 reviews',
+    content: 'The amount of quality work SR provide is beyond amazing.. I\'m amazed with SR service him and his team did a great job in our whole house. He always answered our phone when contractors ignore your calls after the deposit that can be scary but SR he always answered my phone calls.. just amazing. I definitely recommend this company. Thank you so much for making our house look so beautiful :) we get so many compliments.',
     rating: 5,
-    project: 'Home Addition'
+    project: 'Whole House Renovation'
   }
 ];
 
