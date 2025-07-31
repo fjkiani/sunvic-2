@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Consultation Request - SunVic Home Remodeling</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc;">
+    
+    <!-- Email Container -->
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+        
+        <!-- Header -->
+        <tr>
+            <td style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); padding: 30px 40px; text-align: center;">
+                <div style="color: #ffffff; font-size: 28px; font-weight: bold; margin-bottom: 10px;">
+                    🏗️ SunVic Home Remodeling
+                </div>
+                <div style="color: #dbeafe; font-size: 16px; font-weight: 500;">
+                    Engineering Excellence in Luxury Home Transformation
+                </div>
+            </td>
+        </tr>
+        
+        <!-- Alert Banner -->
+        <tr>
+            <td style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px 40px;">
+                <div style="color: #92400e; font-size: 14px; font-weight: 600;">
+                    🚨 NEW CONSULTATION REQUEST - Priority Response Required
+                </div>
+                <div style="color: #78350f; font-size: 12px; margin-top: 5px;">
+                    Received: {{submission_time}}
+                </div>
+            </td>
+        </tr>
+        
+        <!-- Client Information -->
+        <tr>
+            <td style="padding: 40px;">
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        👤 Client Information
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top; width: 30%;">
+                                <strong style="color: #374151;">Name:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                {{from_name}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Email:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                <a href="mailto:{{from_email}}" style="color: #2563eb; text-decoration: none;">{{from_email}}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Phone:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                <a href="tel:{{phone}}" style="color: #2563eb; text-decoration: none;">{{phone}}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Property Address:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                {{property_address}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Project Details -->
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        🏡 Project Details
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top; width: 30%;">
+                                <strong style="color: #374151;">Project Type:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                                <span style="background-color: #dbeafe; color: #1e40af; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 500;">
+                                    {{project_type}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Budget Range:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                                <span style="background-color: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 500;">
+                                    {{budget_range}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Timeline:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                                <span style="background-color: #fef3c7; color: #92400e; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 500;">
+                                    {{timeline}}
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Project Description -->
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        📝 Project Description
+                    </h2>
+                    <div style="background-color: #f9fafb; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 4px; font-size: 16px; line-height: 1.6; color: #374151;">
+                        {{project_description}}
+                    </div>
+                </div>
+                
+                <!-- Contact Preferences -->
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        📞 Contact Preferences
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top; width: 30%;">
+                                <strong style="color: #374151;">Preferred Method:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937; text-transform: capitalize;">
+                                {{preferred_contact}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; vertical-align: top;">
+                                <strong style="color: #374151;">Best Time to Call:</strong>
+                            </td>
+                            <td style="padding: 12px 0; color: #1f2937;">
+                                {{preferred_time}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        
+        <!-- Action Items -->
+        <tr>
+            <td style="background-color: #f3f4f6; padding: 30px 40px;">
+                <h2 style="color: #1f2937; font-size: 20px; margin: 0 0 20px 0;">
+                    🎯 Next Steps
+                </h2>
+                <ul style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 8px;">📅 <strong>Schedule consultation call within 24 hours</strong></li>
+                    <li style="margin-bottom: 8px;">📧 Send welcome packet and project questionnaire</li>
+                    <li style="margin-bottom: 8px;">🏠 Arrange initial site visit if local to NYC area</li>
+                    <li style="margin-bottom: 8px;">💰 Prepare budget breakdown and timeline estimate</li>
+                    <li>📋 Add to CRM and assign project manager</li>
+                </ul>
+            </td>
+        </tr>
+        
+        <!-- Footer -->
+        <tr>
+            <td style="background-color: #1f2937; padding: 30px 40px; text-align: center;">
+                <div style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 10px;">
+                    SunVic Home Remodeling
+                </div>
+                <div style="color: #9ca3af; font-size: 14px; margin-bottom: 15px;">
+                    Engineering Excellence • Luxury Transformations • On-Time Delivery
+                </div>
+                <div style="color: #6b7280; font-size: 12px; line-height: 1.4;">
+                    This consultation request was submitted through sunvichome.com<br>
+                    Please respond within 24 hours to maintain our service standards.
+                </div>
+            </td>
+        </tr>
+        
+    </table>
+</body>
+</html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Consultation Request - SunVic Home Remodeling</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc;">
+    
+    <!-- Email Container -->
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+        
+        <!-- Header -->
+        <tr>
+            <td style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); padding: 30px 40px; text-align: center;">
+                <div style="color: #ffffff; font-size: 28px; font-weight: bold; margin-bottom: 10px;">
+                    🏗️ SunVic Home Remodeling
+                </div>
+                <div style="color: #dbeafe; font-size: 16px; font-weight: 500;">
+                    Engineering Excellence in Luxury Home Transformation
+                </div>
+            </td>
+        </tr>
+        
+        <!-- Alert Banner -->
+        <tr>
+            <td style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px 40px;">
+                <div style="color: #92400e; font-size: 14px; font-weight: 600;">
+                    🚨 NEW CONSULTATION REQUEST - Priority Response Required
+                </div>
+                <div style="color: #78350f; font-size: 12px; margin-top: 5px;">
+                    Received: {{submission_time}}
+                </div>
+            </td>
+        </tr>
+        
+        <!-- Client Information -->
+        <tr>
+            <td style="padding: 40px;">
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        👤 Client Information
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top; width: 30%;">
+                                <strong style="color: #374151;">Name:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                {{from_name}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Email:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                <a href="mailto:{{from_email}}" style="color: #2563eb; text-decoration: none;">{{from_email}}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Phone:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                <a href="tel:{{phone}}" style="color: #2563eb; text-decoration: none;">{{phone}}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Property Address:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                {{property_address}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Project Details -->
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        🏡 Project Details
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top; width: 30%;">
+                                <strong style="color: #374151;">Project Type:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                                <span style="background-color: #dbeafe; color: #1e40af; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 500;">
+                                    {{project_type}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Budget Range:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                                <span style="background-color: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 500;">
+                                    {{budget_range}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Timeline:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                                <span style="background-color: #fef3c7; color: #92400e; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 500;">
+                                    {{timeline}}
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Project Description -->
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        📝 Project Description
+                    </h2>
+                    <div style="background-color: #f9fafb; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 4px; font-size: 16px; line-height: 1.6; color: #374151;">
+                        {{project_description}}
+                    </div>
+                </div>
+                
+                <!-- Contact Preferences -->
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        📞 Contact Preferences
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top; width: 30%;">
+                                <strong style="color: #374151;">Preferred Method:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937; text-transform: capitalize;">
+                                {{preferred_contact}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; vertical-align: top;">
+                                <strong style="color: #374151;">Best Time to Call:</strong>
+                            </td>
+                            <td style="padding: 12px 0; color: #1f2937;">
+                                {{preferred_time}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        
+        <!-- Action Items -->
+        <tr>
+            <td style="background-color: #f3f4f6; padding: 30px 40px;">
+                <h2 style="color: #1f2937; font-size: 20px; margin: 0 0 20px 0;">
+                    🎯 Next Steps
+                </h2>
+                <ul style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 8px;">📅 <strong>Schedule consultation call within 24 hours</strong></li>
+                    <li style="margin-bottom: 8px;">📧 Send welcome packet and project questionnaire</li>
+                    <li style="margin-bottom: 8px;">🏠 Arrange initial site visit if local to NYC area</li>
+                    <li style="margin-bottom: 8px;">💰 Prepare budget breakdown and timeline estimate</li>
+                    <li>📋 Add to CRM and assign project manager</li>
+                </ul>
+            </td>
+        </tr>
+        
+        <!-- Footer -->
+        <tr>
+            <td style="background-color: #1f2937; padding: 30px 40px; text-align: center;">
+                <div style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 10px;">
+                    SunVic Home Remodeling
+                </div>
+                <div style="color: #9ca3af; font-size: 14px; margin-bottom: 15px;">
+                    Engineering Excellence • Luxury Transformations • On-Time Delivery
+                </div>
+                <div style="color: #6b7280; font-size: 12px; line-height: 1.4;">
+                    This consultation request was submitted through sunvichome.com<br>
+                    Please respond within 24 hours to maintain our service standards.
+                </div>
+            </td>
+        </tr>
+        
+    </table>
+</body>
+</html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Consultation Request - SunVic Home Remodeling</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc;">
+    
+    <!-- Email Container -->
+    <table role="presentation" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+        
+        <!-- Header -->
+        <tr>
+            <td style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); padding: 30px 40px; text-align: center;">
+                <div style="color: #ffffff; font-size: 28px; font-weight: bold; margin-bottom: 10px;">
+                    🏗️ SunVic Home Remodeling
+                </div>
+                <div style="color: #dbeafe; font-size: 16px; font-weight: 500;">
+                    Engineering Excellence in Luxury Home Transformation
+                </div>
+            </td>
+        </tr>
+        
+        <!-- Alert Banner -->
+        <tr>
+            <td style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px 40px;">
+                <div style="color: #92400e; font-size: 14px; font-weight: 600;">
+                    🚨 NEW CONSULTATION REQUEST - Priority Response Required
+                </div>
+                <div style="color: #78350f; font-size: 12px; margin-top: 5px;">
+                    Received: {{submission_time}}
+                </div>
+            </td>
+        </tr>
+        
+        <!-- Client Information -->
+        <tr>
+            <td style="padding: 40px;">
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        👤 Client Information
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top; width: 30%;">
+                                <strong style="color: #374151;">Name:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                {{from_name}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Email:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                <a href="mailto:{{from_email}}" style="color: #2563eb; text-decoration: none;">{{from_email}}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Phone:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                <a href="tel:{{phone}}" style="color: #2563eb; text-decoration: none;">{{phone}}</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Property Address:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937;">
+                                {{property_address}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Project Details -->
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        🏡 Project Details
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top; width: 30%;">
+                                <strong style="color: #374151;">Project Type:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                                <span style="background-color: #dbeafe; color: #1e40af; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 500;">
+                                    {{project_type}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Budget Range:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                                <span style="background-color: #dcfce7; color: #166534; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 500;">
+                                    {{budget_range}}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top;">
+                                <strong style="color: #374151;">Timeline:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6;">
+                                <span style="background-color: #fef3c7; color: #92400e; padding: 4px 8px; border-radius: 4px; font-size: 14px; font-weight: 500;">
+                                    {{timeline}}
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <!-- Project Description -->
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        📝 Project Description
+                    </h2>
+                    <div style="background-color: #f9fafb; border-left: 4px solid #3b82f6; padding: 20px; border-radius: 4px; font-size: 16px; line-height: 1.6; color: #374151;">
+                        {{project_description}}
+                    </div>
+                </div>
+                
+                <!-- Contact Preferences -->
+                <div style="margin-bottom: 30px;">
+                    <h2 style="color: #1f2937; font-size: 22px; margin: 0 0 20px 0; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                        📞 Contact Preferences
+                    </h2>
+                    
+                    <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; vertical-align: top; width: 30%;">
+                                <strong style="color: #374151;">Preferred Method:</strong>
+                            </td>
+                            <td style="padding: 12px 0; border-bottom: 1px solid #f3f4f6; color: #1f2937; text-transform: capitalize;">
+                                {{preferred_contact}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px 0; vertical-align: top;">
+                                <strong style="color: #374151;">Best Time to Call:</strong>
+                            </td>
+                            <td style="padding: 12px 0; color: #1f2937;">
+                                {{preferred_time}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        
+        <!-- Action Items -->
+        <tr>
+            <td style="background-color: #f3f4f6; padding: 30px 40px;">
+                <h2 style="color: #1f2937; font-size: 20px; margin: 0 0 20px 0;">
+                    🎯 Next Steps
+                </h2>
+                <ul style="color: #374151; font-size: 16px; line-height: 1.6; margin: 0; padding-left: 20px;">
+                    <li style="margin-bottom: 8px;">📅 <strong>Schedule consultation call within 24 hours</strong></li>
+                    <li style="margin-bottom: 8px;">📧 Send welcome packet and project questionnaire</li>
+                    <li style="margin-bottom: 8px;">🏠 Arrange initial site visit if local to NYC area</li>
+                    <li style="margin-bottom: 8px;">💰 Prepare budget breakdown and timeline estimate</li>
+                    <li>📋 Add to CRM and assign project manager</li>
+                </ul>
+            </td>
+        </tr>
+        
+        <!-- Footer -->
+        <tr>
+            <td style="background-color: #1f2937; padding: 30px 40px; text-align: center;">
+                <div style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 10px;">
+                    SunVic Home Remodeling
+                </div>
+                <div style="color: #9ca3af; font-size: 14px; margin-bottom: 15px;">
+                    Engineering Excellence • Luxury Transformations • On-Time Delivery
+                </div>
+                <div style="color: #6b7280; font-size: 12px; line-height: 1.4;">
+                    This consultation request was submitted through sunvichome.com<br>
+                    Please respond within 24 hours to maintain our service standards.
+                </div>
+            </td>
+        </tr>
+        
+    </table>
+</body>
+</html> 
