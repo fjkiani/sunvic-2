@@ -526,7 +526,7 @@ const InvoicePage: React.FC = () => {
                 />
                 <div className="flex items-center gap-2 text-xs text-orange-600 font-medium">
                   <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                  <span>Licensed & Insured • NJ Certified | www.sunvicnj.com | (732) 824-9203</span>
+                  <span>Licensed & Insured • 13VH12429600 License Number | www.sunvicnj.com | (732) 824-9203</span>
                 </div>
               </div>
             </div>
@@ -1054,7 +1054,7 @@ const InvoicePage: React.FC = () => {
             <p>At Sunvic Construction, we stand behind the quality of our work. This project is more than just a structure; it's your home. We are committed to delivering a final product that is safe, durable, and built to the highest standards of craftsmanship. Your peace of mind is our top priority.</p>
             <div>
               <h3 className="text-lg sm:text-xl font-semibold text-orange-600 mb-2">Licensed & Insured</h3>
-              <p>Sunvic Construction is a fully licensed Home Improvement Contractor in the state of New Jersey (License #13VH00000000). We carry comprehensive general liability and workers' compensation insurance. Certificates of insurance are available upon request. You can rest assured that your project is in the hands of qualified and protected professionals.</p>
+              <p>Sunvic Construction is a fully licensed Home Improvement Contractor in the state of New Jersey (License #13VH12429600). We carry comprehensive general liability and workers' compensation insurance. Certificates of insurance are available upon request. You can rest assured that your project is in the hands of qualified and protected professionals.</p>
             </div>
             <div>
               <h3 className="text-lg sm:text-xl font-semibold text-orange-600 mb-2">Quality of Materials & Workmanship</h3>

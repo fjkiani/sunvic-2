@@ -360,7 +360,7 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({
           </View>
           <Text style={styles.companyDetails}>123 Main Street, Aberdeen Township, NJ 07747</Text>
           <Text style={styles.companyDetails}>(732) 824-9203 • sunvicnj@gmail.com</Text>
-          <Text style={styles.licensed}>Licensed & Insured • NJ Certified | www.sunvicnj.com</Text>
+          <Text style={styles.licensed}>Licensed & Insured • 13VH12429600 License Number | www.sunvicnj.com</Text>
         </View>
         <View>
           <Text style={styles.invoiceTitle}>INVOICE</Text>
@@ -467,7 +467,7 @@ export const InvoicePDF: React.FC<InvoicePDFProps> = ({
         <Text style={styles.warrantyTitle}>Our Commitment & Warranty</Text>
         <Text style={styles.warrantyText}>
           We stand behind our work with comprehensive warranties on all materials and craftsmanship. 
-          All structural work includes a 5-year warranty, while finish work is covered for 2 years. 
+          All structural work includes warrant. 
           We use only high-quality materials from trusted suppliers and all work is performed by licensed professionals.
         </Text>
         <Text style={styles.warrantyText}>
