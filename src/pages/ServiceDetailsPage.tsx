@@ -66,7 +66,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ openConsultatio
       id: '1',
       type: 'image' as const,
       title: `${service.title} - Before`,
-      src: service.image,
+      src: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop',
       description: 'Before renovation',
       category: 'before'
     },
@@ -74,7 +74,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ openConsultatio
       id: '2', 
       type: 'image' as const,
       title: `${service.title} - After`,
-      src: service.image,
+      src: service.image, // Use the actual service image as the "after" result
       description: 'After renovation',
       category: 'after'
     },
@@ -82,7 +82,7 @@ const ServiceDetailsPage: React.FC<ServiceDetailsPageProps> = ({ openConsultatio
       id: '3',
       type: 'image' as const,
       title: `${service.title} - Process`,
-      src: service.image,
+      src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop',
       description: 'Construction process',
       category: 'process'
     }

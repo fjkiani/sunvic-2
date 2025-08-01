@@ -67,7 +67,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                         slide.secondaryCtaText.toLowerCase().includes('quote')) && openConsultationForm ? (
                         <button
                           onClick={() => {
-                            const serviceType = slide.id === 'hero-kitchen' ? 'Luxury Kitchen Renovation' :
+                            const serviceType = slide.id === 'hero-kitchen' ? 'Full Home Construction' :
                                              slide.id === 'hero-bathroom' ? 'Spa Bathroom Sanctuary' :
                                              slide.id === 'hero-additions' ? 'Energy-Smart Home Addition' : '';
                             openConsultationForm(serviceType);

@@ -17,6 +17,7 @@ import SitemapPage from './pages/SitemapPage';
 import CareersPage from './pages/CareersPage';
 import WarrantiesPage from './pages/WarrantiesPage';
 import InvoicePage from './pages/InvoicePage';
+import ServiceAreaPage from './pages/ServiceAreaPage';
 import ConsultationForm from './components/forms/ConsultationForm';
 import { useConsultationForm } from './hooks/useConsultationForm';
 
@@ -33,11 +34,12 @@ function App() {
           <Route path="/enhanced-services" element={<EnhancedServicesPage openConsultationForm={openForm} />} />
           <Route path="/enhanced-service/:serviceId" element={<EnhancedServiceDetailsPage openConsultationForm={openForm} />} />
           <Route path="/service-details/:serviceId" element={<ServiceDetailsPage openConsultationForm={openForm} />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/project/:projectId" element={<ProjectDetailsPage />} />
-          <Route path="/rentals" element={<RentalsPage />} />
+          <Route path="/portfolio" element={<PortfolioPage openConsultationForm={openForm} />} />
+          <Route path="/project/:projectId" element={<ProjectDetailsPage openConsultationForm={openForm} />} />
+          <Route path="/rentals" element={<RentalsPage openConsultationForm={openForm} />} />
           <Route path="/rental/:equipmentId" element={<EquipmentDetailsPage openConsultationForm={openForm} />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/service-areas/:area" element={<ServiceAreaPage openConsultationForm={openForm} />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
           <Route path="/terms" element={<TermsOfServicePage />} />
           <Route path="/sitemap" element={<SitemapPage />} />

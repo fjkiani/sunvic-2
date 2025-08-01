@@ -289,7 +289,7 @@ const HomePage: React.FC<HomePageProps> = ({ openConsultationForm }) => {
           >
             <div>
               <h2 className="font-display text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Why We Own Our Equipment
+                Our Equipment Advantage = Your Project Advantage
               </h2>
               <p className="text-xl text-gray-600 mb-8">
                 While competitors scramble for rental equipment, causing delays and cost overruns, 

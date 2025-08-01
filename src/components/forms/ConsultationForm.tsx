@@ -242,7 +242,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({
                   className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                     errors.phone ? 'border-red-500' : 'border-gray-300'
                   }`}
-                  placeholder="(555) 123-4567"
+                  placeholder="sunvicnj@gmail.com"
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-sm mt-1">{errors.phone}</p>

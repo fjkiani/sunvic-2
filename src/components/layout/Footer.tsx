@@ -92,50 +92,41 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                 </ul>
               </div>
 
-              {/* Services */}
+              {/* 2025 Innovations */}
               <div>
                 <h3 className="text-lg font-bold mb-6 text-white border-b border-orange-400 pb-2">
-                  Our Services
+                  2025 Innovations
                 </h3>
                 <ul className="space-y-3">
-                  {footerLinks.services.slice(0, 6).map((service) => (
-                    <li key={service.href}>
-                      <Link 
-                        to={service.href} 
-                        className="text-gray-300 hover:text-orange-400 transition-colors flex items-center group"
-                      >
-                        <span className="w-2 h-2 bg-orange-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                        {service.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Innovations & Equipment */}
-              <div>
-                <h3 className="text-lg font-bold mb-6 text-white border-b border-orange-400 pb-2">
-                  Specialties
-                </h3>
-                <ul className="space-y-3">
-                  {footerLinks.innovations.slice(0, 3).map((innovation) => (
+                  {footerLinks.innovations.map((innovation) => (
                     <li key={innovation.href}>
                       <Link 
                         to={innovation.href} 
                         className="text-gray-300 hover:text-orange-400 transition-colors flex items-center group"
                       >
                         <span className="w-2 h-2 bg-orange-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        {innovation.icon && <span className="mr-2">{innovation.icon}</span>}
                         {innovation.label}
                       </Link>
                     </li>
                   ))}
-                  {footerLinks.equipment.slice(0, 3).map((equipment) => (
+                </ul>
+              </div>
+
+              {/* Equipment Rentals */}
+              <div>
+                <h3 className="text-lg font-bold mb-6 text-white border-b border-orange-400 pb-2">
+                  Equipment Rentals
+                </h3>
+                <ul className="space-y-3">
+                  {footerLinks.equipment.slice(0, 5).map((equipment) => (
                     <li key={equipment.href}>
                       <Link 
                         to={equipment.href} 
                         className="text-gray-300 hover:text-orange-400 transition-colors flex items-center group"
                       >
                         <span className="w-2 h-2 bg-orange-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                        {equipment.icon && <span className="mr-2">{equipment.icon}</span>}
                         {equipment.label}
                       </Link>
                     </li>
@@ -156,14 +147,17 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
           </div>
           
           <div className="bg-gray-800 rounded-2xl p-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            <h3 className="text-xl font-bold mb-6 text-white text-center">
+              Service Areas
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {footerLinks.serviceAreas.map((area) => (
                 <div key={area.href} className="text-center">
                   <Link 
                     to={area.href}
-                    className="block p-4 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors group"
+                    className="block p-3 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors group"
                   >
-                    <span className="text-orange-400 group-hover:text-orange-300 font-semibold">
+                    <span className="text-orange-400 group-hover:text-orange-300 font-semibold text-sm">
                       {area.label}
                     </span>
                   </Link>
@@ -171,8 +165,8 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               ))}
             </div>
             
-            <div className="text-center mt-8 pt-6 border-t border-gray-700">
-              <p className="text-gray-400">
+            <div className="text-center mt-6 pt-4 border-t border-gray-700">
+              <p className="text-gray-400 text-sm">
                 <span className="text-orange-400 font-semibold">Serving the entire tri-state region</span> with professional construction and renovation services
               </p>
             </div>

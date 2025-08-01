@@ -13,6 +13,19 @@ import {
   BuildingOfficeIcon,
   UserGroupIcon
 } from '@heroicons/react/24/outline';
+import { serviceConfig } from '../../data/enhancedServices';
+
+// Dynamic icon mapping using configuration
+const iconComponents = {
+  Cog6ToothIcon,
+  WrenchScrewdriverIcon,
+  HomeIcon,
+  SparklesIcon,
+  BuildingOfficeIcon,
+  UserGroupIcon,
+  // Add fallback
+  default: WrenchScrewdriverIcon
+};
 
 // Define interface locally to avoid import issues
 interface AdvancedService {
@@ -22,7 +35,9 @@ interface AdvancedService {
   fullDescription: string;
   image: string;
   icon: string;
+  iconComponent?: string;
   category: string;
+  categoryColor?: string;
   competitorAdvantage: string;
   features: string[];
   equipment: string[];
@@ -47,31 +62,31 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   showPricing = false,
   showEquipment = false
 }) => {
-  const getServiceIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'smart-structural-engineering':
-        return Cog6ToothIcon;
-      case 'rapid-demolition-reconstruction':
-        return WrenchScrewdriverIcon;
-      case 'luxury-smart-kitchens':
-        return HomeIcon;
-      case 'spa-bathroom-sanctuaries':
-        return SparklesIcon;
-      case 'outdoor-living-ecosystems':
-        return BuildingOfficeIcon;
-      case 'energy-smart-additions':
-      case 'basement-transformation-suites':
-        return HomeIcon;
-      case 'whole-home-automation':
-        return Cog6ToothIcon;
-      case 'luxury-aging-in-place':
-        return UserGroupIcon;
-      default:
-        return WrenchScrewdriverIcon;
+  // Dynamic icon resolution
+  const getServiceIcon = (service: AdvancedService) => {
+    // First try the iconComponent from service data
+    if (service.iconComponent && iconComponents[service.iconComponent as keyof typeof iconComponents]) {
+      return iconComponents[service.iconComponent as keyof typeof iconComponents];
     }
+    
+    // Fallback to config mapping
+    const iconName = serviceConfig.icons[service.icon] || serviceConfig.icons.default;
+    return iconComponents[iconName as keyof typeof iconComponents] || iconComponents.default;
   };
 
-  const IconComponent = getServiceIcon(service.icon);
+  // Dynamic category color resolution
+  const getCategoryColor = (service: AdvancedService) => {
+    // First try the categoryColor from service data
+    if (service.categoryColor) {
+      return service.categoryColor;
+    }
+    
+    // Fallback to config mapping
+    return serviceConfig.categoryColors[service.category] || serviceConfig.categoryColors.default;
+  };
+
+  const IconComponent = getServiceIcon(service);
+  const categoryColor = getCategoryColor(service);
 
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -79,31 +94,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       opacity: 1, 
       y: 0,
       transition: { duration: 0.6 }
-    }
-  };
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case 'Engineering & Planning':
-        return 'bg-blue-600';
-      case 'Demolition & Reconstruction':
-        return 'bg-red-600';
-      case 'Kitchen Innovation':
-        return 'bg-orange-600';
-      case 'Bathroom Innovation':
-        return 'bg-cyan-600';
-      case 'Outdoor Innovation':
-        return 'bg-green-600';
-      case 'Sustainable Expansion':
-        return 'bg-emerald-600';
-      case 'Space Expansion':
-        return 'bg-purple-600';
-      case 'Smart Home Technology':
-        return 'bg-indigo-600';
-      case 'Accessibility & Wellness':
-        return 'bg-pink-600';
-      default:
-        return 'bg-blue-600';
     }
   };
 
@@ -125,7 +115,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
           <div className="absolute top-4 left-4">
-            <div className={`${getCategoryColor(service.category)} text-white px-3 py-1 rounded-full text-sm font-medium`}>
+            <div className={`${categoryColor} text-white px-3 py-1 rounded-full text-sm font-medium`}>
               {service.category}
             </div>
           </div>
@@ -184,7 +174,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
           <div className="absolute top-6 left-6">
-            <div className={`${getCategoryColor(service.category)} text-white px-4 py-2 rounded-full text-sm font-semibold`}>
+            <div className={`${categoryColor} text-white px-4 py-2 rounded-full text-sm font-semibold`}>
               {service.category}
             </div>
           </div>
@@ -294,7 +284,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
         <div className="absolute top-4 left-4">
-          <div className={`${getCategoryColor(service.category)} text-white px-3 py-1 rounded-full text-xs font-medium`}>
+          <div className={`${categoryColor} text-white px-3 py-1 rounded-full text-xs font-medium`}>
             {service.category}
           </div>
         </div>

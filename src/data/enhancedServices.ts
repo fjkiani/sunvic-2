@@ -8,7 +8,9 @@ export interface EnhancedService {
   fullDescription: string;
   image: string;
   icon: string;
+  iconComponent?: string; // For dynamic icon mapping
   category: string;
+  categoryColor?: string; // For dynamic color mapping
   competitorAdvantage: string;
   features: string[];
   equipment: string[];
@@ -27,104 +29,226 @@ export interface EnhancedService {
   trends2025: string[];
 }
 
+// Icon and color mapping configuration
+export const serviceConfig = {
+  icons: {
+    'ground-up-construction': 'BuildingOfficeIcon',
+    'full-home-remodeling': 'HomeIcon',
+    'rapid-demolition-reconstruction': 'WrenchScrewdriverIcon', 
+    'luxury-smart-kitchens': 'HomeIcon',
+    'spa-bathroom-sanctuaries': 'SparklesIcon',
+    'outdoor-living-ecosystems': 'BuildingOfficeIcon',
+    'energy-smart-additions': 'HomeIcon',
+    'basement-transformation-suites': 'HomeIcon',
+    'whole-home-automation': 'Cog6ToothIcon',
+    'luxury-aging-in-place': 'UserGroupIcon',
+    // Default fallback
+    'default': 'WrenchScrewdriverIcon'
+  } as Record<string, string>,
+  categoryColors: {
+    'Ground Up Construction': 'bg-amber-600',
+    'Whole Home Transformation': 'bg-purple-600',
+    'Demolition & Reconstruction': 'bg-red-600',
+    'Kitchen Innovation': 'bg-orange-600',
+    'Bathroom Innovation': 'bg-cyan-600',
+    'Outdoor Innovation': 'bg-green-600',
+    'Sustainable Expansion': 'bg-emerald-600',
+    'Space Expansion': 'bg-purple-600',
+    'Smart Home Technology': 'bg-indigo-600',
+    'Accessibility & Wellness': 'bg-pink-600',
+    // Default fallback
+    'default': 'bg-blue-600'
+  } as Record<string, string>
+};
+
 export const enhancedServices: EnhancedService[] = [
   {
-    id: "luxury-smart-kitchens",
-    title: "Luxury Smart Kitchen Systems",
-    shortDescription: "Health-focused smart kitchens with wellness integration, beauty lighting, and AI optimization.",
-    fullDescription: "Transform your kitchen into a health and wellness command center with integrated smart appliances, air/water purification, circadian lighting, and beauty stations. Our IoT-integrated systems create intelligent culinary environments that support healthy living, optimize energy usage, and include dedicated beauty prep areas with professional-grade lighting.",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    icon: "luxury-smart-kitchens",
-    category: "Kitchen Innovation",
-    competitorAdvantage: "While competitors focus on aesthetics, we integrate complete wellness ecosystems with owned equipment advantage",
+    id: "ground-up-construction",
+    title: "Ground Up Construction",
+    shortDescription: "Complete new home construction from foundation to finish with structural engineering expertise and superior craftsmanship.",
+    fullDescription: "Transform your vision into reality with our comprehensive ground-up construction services. From initial site preparation and foundation work to final finishing touches, we handle every aspect of new home construction. Our structural engineering expertise ensures code compliance, safety, and longevity while delivering the modern, energy-efficient home you've always dreamed of.",
+    image: "/images/full-home-remodel/1.jpg",
+    icon: "ground-up-construction",
+    iconComponent: "BuildingOfficeIcon",
+    category: "Ground Up Construction",
+    categoryColor: "bg-amber-600",
+    competitorAdvantage: "Unlike general contractors, we combine structural engineering expertise with construction execution - ensuring your home is built right from the ground up with no costly engineering surprises",
     features: [
-      "IoT-integrated appliance networks with health monitoring",
-      "AI-powered energy and nutrition optimization",
-      "Custom millwork with hidden storage solutions",
-      "Professional-grade equipment installation",
-      "Voice-controlled home automation with wellness tracking",
-      "Integrated beauty and grooming stations"
+      "Complete site preparation and excavation services",
+      "Engineered foundation systems with proper drainage",
+      "Structural framing with advanced engineering analysis",
+      "Modern building envelope and energy efficiency",
+      "Full electrical, plumbing, and HVAC integration",
+      "Custom architectural details and finish work"
     ],
     equipment: [
-      "Smart home integration systems",
-      "Professional appliance installation equipment", 
-      "Custom millwork fabrication tools",
-      "Air quality monitoring systems",
-      "Water filtration installation equipment"
+      "Excavation and earthmoving equipment",
+      "Foundation forming and concrete systems", 
+      "Advanced framing tools and laser levels",
+      "Crane services for structural elements",
+      "Professional grade power tools and equipment"
     ],
     wellnessFeatures: [
-      "HEPA air filtration with real-time monitoring",
-      "Reverse osmosis water systems with mineral enhancement",
-      "Steam cooking and air frying appliances for healthy meals",
-      "Herb garden integration with grow lights",
-      "Circadian rhythm lighting for optimal health",
-      "Sound therapy and meditation spaces"
+      "Optimized natural lighting and ventilation design",
+      "Non-toxic building materials and low-VOC finishes",
+      "Advanced air filtration and HVAC systems",
+      "Sound insulation for peaceful living spaces",
+      "Universal design principles for accessibility",
+      "Energy-efficient systems reducing environmental impact"
     ],
     smartFeatures: [
-      "AI Meal Planning: Nutritional optimization based on health goals",
-      "Smart Inventory: Automatic grocery ordering and expiration tracking", 
-      "Energy Optimization: Predictive usage patterns and cost reduction",
-      "Health Monitoring: Air quality, water purity, and usage analytics",
-      "Voice Control: Hands-free operation for hygiene and convenience",
-      "Beauty Lighting: Professional-grade lighting for skincare routines"
+      "Smart home pre-wiring throughout the structure",
+      "Energy monitoring and management systems", 
+      "Advanced security system integration",
+      "Home automation infrastructure planning",
+      "High-speed networking and WiFi optimization",
+      "Future-ready technology infrastructure"
     ],
     sustainabilityFeatures: [
-      "Recycled quartz countertops with zero silica content",
-      "Energy-efficient appliances with smart grid integration",
-      "Sustainable wood cabinetry with low-VOC finishes",
-      "Water conservation systems with usage tracking",
-      "LED lighting with 90% energy reduction",
-      "Compost integration and waste reduction systems"
+      "Energy-efficient building envelope design",
+      "Sustainable and locally-sourced materials",
+      "Water conservation plumbing systems",
+      "Solar-ready electrical infrastructure",
+      "High-performance insulation and windows",
+      "Waste reduction and recycling during construction"
     ],
-    beautyFeatures: [
-      "Makeup station with professional Hollywood lighting",
-      "Heated mirrors with anti-fog technology",
-      "Beauty product storage with temperature control",
-      "Skincare prep area with filtered water",
-      "Color-accurate lighting for beauty routines"
-    ],
-    timeline: "4-6 weeks",
-    priceRange: "$65,000-$200,000",
+    timeline: "8-12 months",
+    priceRange: "$450,000-$850,000",
     processSteps: [
       {
-        title: "Wellness Assessment & Design",
-        description: "Comprehensive health goals analysis, smart home integration planning, and beauty routine assessment to create a personalized kitchen ecosystem.",
-        duration: "1 week"
+        title: "Design & Engineering Phase",
+        description: "Architectural planning, structural engineering analysis, permit acquisition, and detailed construction drawings. Site survey and soil analysis included.",
+        duration: "4-6 weeks"
       },
       {
-        title: "3D Modeling & Engineering",
-        description: "Advanced 3D scanning and structural analysis to optimize layout for wellness features, smart systems, and beauty integration.",
-        duration: "3-5 days"
+        title: "Site Preparation & Foundation",
+        description: "Excavation, utility connections, foundation forming, concrete pouring, and waterproofing. Includes all below-grade work and site drainage.",
+        duration: "3-4 weeks"
       },
       {
-        title: "Smart Systems Pre-Installation", 
-        description: "Pre-wiring for smart devices, air quality systems, water filtration, and beauty lighting circuits.",
-        duration: "2-3 days"
+        title: "Structural Framing", 
+        description: "Complete structural framing including floor systems, walls, roof trusses, and sheathing. Includes structural inspections and engineering verification.",
+        duration: "3-4 weeks"
       },
       {
-        title: "Precision Installation",
-        description: "Installation of smart appliances, wellness systems, beauty stations, and final system integration with testing.",
-        duration: "2-3 weeks"
+        title: "Systems Installation",
+        description: "Electrical, plumbing, and HVAC rough-in work. Insulation installation and drywall completion. All systems tested and inspected.",
+        duration: "6-8 weeks"
       },
       {
-        title: "Wellness Optimization",
-        description: "AI system training, health monitoring setup, beauty lighting calibration, and user training for optimal wellness benefits.",
-        duration: "3-5 days"
+        title: "Finish Work & Final Details",
+        description: "Flooring, cabinetry, trim work, painting, fixtures, and final inspections. Landscaping and exterior finishing included.",
+        duration: "8-10 weeks"
       }
     ],
     marketDifferentiators: [
-      "First in NYC to integrate comprehensive wellness ecosystems",
-      "Professional beauty station integration (trending 2025)",
-      "AI health optimization (competitor gap)",
-      "Equipment ownership ensures smart device compatibility",
-      "Circadian lighting for health (major 2025 trend)"
+      "Structural engineer on staff ensures proper foundation and framing",
+      "Comprehensive project management from start to finish",
+      "Energy efficiency focus with modern building techniques",
+      "Transparent pricing with detailed project tracking",
+      "Local expertise with New Jersey building codes and soil conditions"
     ],
     trends2025: [
-      "Health & wellness integration",
-      "Beauty-focused design features", 
-      "Smart technology with AI optimization",
-      "Sustainable luxury materials",
-      "Seamless indoor-outdoor connectivity"
+      "Energy-efficient new construction",
+      "Smart home integration from day one", 
+      "Sustainable building materials and practices",
+      "Open floor plans with flexible spaces",
+      "Advanced HVAC and air quality systems"
+    ]
+  },
+
+  {
+    id: "full-home-remodeling",
+    title: "Full Home Remodeling",
+    shortDescription: "Complete home transformation including kitchen, bathrooms, basement, and smart home integration with seamless project coordination.",
+    fullDescription: "Transform your entire home with our comprehensive remodeling approach. We coordinate all phases from kitchen and bathroom renovations to basement finishing and smart home integration, ensuring a cohesive design and efficient timeline. Our engineering expertise allows us to handle complex structural modifications while integrating modern technology throughout your home.",
+    image: "/images/full-home-remodel/fullHome.png",
+    icon: "full-home-remodeling",
+    iconComponent: "HomeIcon",
+    category: "Whole Home Transformation",
+    categoryColor: "bg-purple-600",
+    competitorAdvantage: "While competitors handle projects piecemeal, we coordinate all phases simultaneously - ensuring design coherence, timeline efficiency, and cost savings through bulk purchasing and integrated planning",
+    features: [
+      "Comprehensive kitchen renovation with smart appliances",
+      "Luxury bathroom transformations with spa features",
+      "Basement finishing with entertainment and utility zones",
+      "Whole-home smart technology integration",
+      "Structural modifications and space optimization",
+      "Energy efficiency upgrades throughout"
+    ],
+    equipment: [
+      "Advanced kitchen installation tools and equipment",
+      "Bathroom renovation and plumbing systems",
+      "Basement waterproofing and finishing equipment",
+      "Smart home automation installation tools",
+      "Electrical and networking infrastructure equipment"
+    ],
+    wellnessFeatures: [
+      "Air quality improvement with whole-home filtration",
+      "Water purification systems throughout the home",
+      "Circadian lighting in all living spaces",
+      "Sound dampening for peaceful environments",
+      "Non-toxic materials and low-VOC finishes",
+      "Temperature and humidity control optimization"
+    ],
+    smartFeatures: [
+      "Integrated home automation with centralized control",
+      "Smart security systems with mobile monitoring",
+      "Energy management and optimization systems",
+      "Automated lighting and climate control",
+      "High-speed networking infrastructure",
+      "Voice control integration throughout"
+    ],
+    sustainabilityFeatures: [
+      "Energy-efficient appliances and systems",
+      "Sustainable material selection",
+      "Water conservation fixtures and systems",
+      "LED lighting conversion throughout",
+      "Insulation and weatherization upgrades",
+      "Solar-ready electrical infrastructure"
+    ],
+    timeline: "12-16 weeks",
+    priceRange: "$150,000-$400,000",
+    processSteps: [
+      {
+        title: "Design & Planning Phase",
+        description: "Comprehensive home assessment, integrated design planning, permits, and detailed project coordination across all renovation areas.",
+        duration: "3-4 weeks"
+      },
+      {
+        title: "Kitchen Renovation",
+        description: "Complete kitchen transformation including cabinetry, countertops, appliances, and smart technology integration.",
+        duration: "4-5 weeks"
+      },
+      {
+        title: "Bathroom Transformations",
+        description: "Luxury bathroom renovations with spa features, modern fixtures, and smart home integration.",
+        duration: "3-4 weeks"
+      },
+      {
+        title: "Basement Finishing",
+        description: "Complete basement transformation including waterproofing, flooring, lighting, and entertainment areas.",
+        duration: "4-6 weeks"
+      },
+      {
+        title: "Smart Home Integration & Final Details",
+        description: "Whole-home technology installation, final finishing touches, system testing, and client training.",
+        duration: "2-3 weeks"
+      }
+    ],
+    marketDifferentiators: [
+      "Simultaneous coordination of all renovation phases",
+      "Integrated smart home technology from day one",
+      "Structural engineering expertise for complex modifications",
+      "Bulk purchasing power reduces costs across all phases",
+      "Single point of contact for entire home transformation"
+    ],
+    trends2025: [
+      "Whole-home integration and smart technology",
+      "Multi-functional spaces and flexible layouts",
+      "Wellness-focused design throughout the home",
+      "Sustainable materials and energy efficiency",
+      "Seamless indoor-outdoor living integration"
     ]
   },
 
@@ -135,7 +259,9 @@ export const enhancedServices: EnhancedService[] = [
     fullDescription: "Create a personal wellness sanctuary with heated floors, custom steam rooms, therapeutic lighting, smart mirrors, integrated sound systems, and professional beauty stations. Our advanced systems include health monitoring, water purification, and beauty-grade lighting that transforms your bathroom into a luxury spa experience.",
     image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     icon: "spa-bathroom-sanctuaries",
+    iconComponent: "SparklesIcon",
     category: "Bathroom Innovation",
+    categoryColor: "bg-cyan-600",
     competitorAdvantage: "Competitors offer basic bathrooms; we create complete wellness sanctuaries with integrated beauty stations",
     features: [
       "Radiant heated flooring with smart temperature control",
@@ -237,7 +363,9 @@ export const enhancedServices: EnhancedService[] = [
     fullDescription: "Create intelligent, energy-positive additions that improve your home's efficiency while expanding your space. Our structural engineering team designs additions with integrated solar systems, smart HVAC, advanced wellness features, and seamless indoor-outdoor connectivity that actually reduce your overall energy costs.",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     icon: "energy-smart-additions",
+    iconComponent: "HomeIcon",
     category: "Sustainable Expansion",
+    categoryColor: "bg-emerald-600",
     competitorAdvantage: "While others just add space, we add intelligent, energy-positive space with wellness integration",
     features: [
       "Net-zero energy design with solar integration",
@@ -363,7 +491,9 @@ export interface EnhancedService {
   fullDescription: string;
   image: string;
   icon: string;
+  iconComponent?: string; // For dynamic icon mapping
   category: string;
+  categoryColor?: string; // For dynamic color mapping
   competitorAdvantage: string;
   features: string[];
   equipment: string[];

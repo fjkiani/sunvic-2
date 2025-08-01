@@ -18,7 +18,7 @@ export interface DropdownItem {
 }
 
 // Core Services Dropdown
-const servicesDropdown: DropdownItem[] = [
+export const servicesDropdown: DropdownItem[] = [
   {
     label: 'Engineering Planning',
     href: '/services',
@@ -52,11 +52,27 @@ const servicesDropdown: DropdownItem[] = [
 ];
 
 // 2025 Innovations Dropdown (from enhanced services)
+const getServiceIcon = (serviceId: string): string => {
+  const iconMap: Record<string, string> = {
+    'ground-up-construction': '🏗️',
+    'full-home-remodeling': '🏠',
+    'luxury-smart-kitchens': '🍳',
+    'spa-bathroom-sanctuaries': '🛁',
+    'energy-smart-additions': '⚡',
+    'outdoor-living-ecosystems': '🌿',
+    'basement-transformation-suites': '🎮',
+    'whole-home-automation': '🤖',
+    'luxury-aging-in-place': '♿',
+    'rapid-demolition-reconstruction': '🔨'
+  };
+  return iconMap[serviceId] || '🔧';
+};
+
 const innovationsDropdown: DropdownItem[] = enhancedServices.map(service => ({
   label: service.title,
   href: `/enhanced-service/${service.id}`,
   description: service.shortDescription,
-  icon: service.icon
+  icon: getServiceIcon(service.id)
 }));
 
 // Equipment Rentals Dropdown (top categories)
@@ -75,16 +91,10 @@ export const mainNavigation: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { 
-    label: 'Services', 
-    href: '/services',
-    dropdown: servicesDropdown
-  },
-  { 
     label: '2025 Innovations', 
     href: '/enhanced-services',
     dropdown: innovationsDropdown
   },
-  { label: 'Portfolio', href: '/portfolio' },
   { 
     label: 'Equipment Rentals', 
     href: '/rentals',
@@ -95,13 +105,17 @@ export const mainNavigation: NavItem[] = [
 
 // Footer Links Configuration
 export const footerLinks = {
-  services: servicesDropdown.slice(0, 5), // Top 5 for footer
-  innovations: innovationsDropdown.slice(0, 4), // Top 4 for footer
-  equipment: equipmentDropdown.slice(0, 6), // Top 6 for footer
+  innovations: innovationsDropdown.slice(0, 5), // Top 5 innovations for footer
+  equipment: equipmentDropdown.slice(0, 6), // Top 6 equipment categories for footer
   legal: [
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Privacy Policy', href: '/privacy' },
     { label: 'Sitemap', href: '/sitemap' }
+  ],
+  company: [
+    { label: 'About Us', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'Careers', href: '/careers' }
   ],
   serviceAreas: [
     { label: 'New Jersey', href: '/service-areas/new-jersey' },

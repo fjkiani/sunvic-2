@@ -3,21 +3,43 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   CalendarIcon,
-  MapPinIcon,
-  UserGroupIcon,
   ClockIcon,
+  PhoneIcon,
 } from '@heroicons/react/24/outline';
-import { enhancedPortfolioProjects, portfolioCategories } from '../data/portfolioProjects';
+import { enhancedServices } from '../data/enhancedServices';
 
-const PortfolioPage: React.FC = () => {
+interface PortfolioPageProps {
+  openConsultationForm?: (serviceType?: string) => void;
+}
+
+const PortfolioPage: React.FC<PortfolioPageProps> = ({ openConsultationForm }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
+  // Create portfolio categories from enhanced services
+  const portfolioCategories = [
+    { id: 'all', name: 'All Projects', count: enhancedServices.length },
+    { id: 'construction', name: 'Construction', count: enhancedServices.filter(s => s.category.includes('Construction')).length },
+    { id: 'remodeling', name: 'Remodeling', count: enhancedServices.filter(s => s.category.includes('Transformation') || s.category.includes('Innovation')).length },
+    { id: 'smart-home', name: 'Smart Home', count: enhancedServices.filter(s => s.category.includes('Technology')).length },
+    { id: 'outdoor', name: 'Outdoor Living', count: enhancedServices.filter(s => s.category.includes('Outdoor')).length },
+  ];
+
   const filteredProjects = selectedCategory === 'all'
-    ? enhancedPortfolioProjects
-    : enhancedPortfolioProjects.filter(project => 
-        project.category.toLowerCase().includes(selectedCategory) || 
-        project.tags.some(tag => tag.toLowerCase().includes(selectedCategory))
-      );
+    ? enhancedServices
+    : enhancedServices.filter(service => {
+        switch (selectedCategory) {
+          case 'construction':
+            return service.category.includes('Construction');
+          case 'remodeling':
+            return service.category.includes('Transformation') || service.category.includes('Innovation');
+          case 'smart-home':
+            return service.category.includes('Technology');
+          case 'outdoor':
+            return service.category.includes('Outdoor');
+          default:
+            return true;
+        }
+      });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-secondary-900 via-secondary-800 to-secondary-900">
@@ -38,14 +60,14 @@ const PortfolioPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block bg-blue-600/20 border border-blue-400/30 text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              Featured Projects
+            <div className="inline-block bg-purple-600/20 border border-purple-400/30 text-purple-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              2025 Innovations Portfolio
             </div>
             <h1 className="font-display text-5xl lg:text-6xl font-bold mb-6">
-              Our Portfolio
+              Innovation Showcase
             </h1>
             <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-              Engineering Precision in Action - Wellness-Integrated Luxury Spaces
+              Cutting-Edge Construction Solutions - Where Engineering Meets Tomorrow's Lifestyle
             </p>
           </motion.div>
         </div>
@@ -73,91 +95,108 @@ const PortfolioPage: React.FC = () => {
       {/* Projects Grid */}
       <section className="py-16 section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((service, index) => (
             <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              key={service.id}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group"
+              className="group bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden border border-white/20 hover:border-primary-500/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20"
             >
-              <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-                {/* Project Image */}
-                <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={project.heroImage} 
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {project.category}
-                  </div>
+              {/* Project Image */}
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4">
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium text-white ${
+                    service.categoryColor || 'bg-blue-600'
+                  }`}>
+                    {service.category}
+                  </span>
+                </div>
 
-                  {/* Project Value */}
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <div className="text-sm opacity-80">Project Value</div>
-                    <div className="text-lg font-bold">{project.value}</div>
+                {/* 2025 Innovation Badge */}
+                <div className="absolute top-4 right-4">
+                  <span className="bg-purple-600/90 text-white px-2 py-1 rounded-full text-xs font-medium">
+                    2025 Innovation
+                  </span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
+                  {service.title}
+                </h3>
+                
+                <p className="text-gray-300 mb-4 line-clamp-2">
+                  {service.shortDescription}
+                </p>
+
+                {/* Project Details */}
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center text-gray-300 text-sm">
+                    <ClockIcon className="h-4 w-4 mr-2 text-primary-400" />
+                    <span>{service.timeline}</span>
+                  </div>
+                  <div className="flex items-center text-gray-300 text-sm">
+                    <CalendarIcon className="h-4 w-4 mr-2 text-primary-400" />
+                    <span>{service.priceRange}</span>
                   </div>
                 </div>
 
-                {/* Project Info */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-4 line-clamp-2">
-                    {project.overview}
-                  </p>
-
-                  {/* Project Details */}
-                  <div className="grid grid-cols-2 gap-4 mb-4 text-sm text-gray-500">
-                    <div className="flex items-center">
-                      <MapPinIcon className="h-4 w-4 mr-2" />
-                      {project.location}
-                    </div>
-                    <div className="flex items-center">
-                      <CalendarIcon className="h-4 w-4 mr-2" />
-                      {project.completedDate}
-                    </div>
-                    <div className="flex items-center">
-                      <ClockIcon className="h-4 w-4 mr-2" />
-                      {project.timeline}
-                    </div>
-                    <div className="flex items-center">
-                      <UserGroupIcon className="h-4 w-4 mr-2" />
-                      {project.client}
-                    </div>
-                  </div>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.slice(0, 3).map((tag) => (
-                      <span 
-                        key={tag}
-                        className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
-                      >
-                        {tag}
+                {/* Key Features */}
+                <div className="mb-6">
+                  <div className="flex flex-wrap gap-2">
+                    {service.trends2025.slice(0, 2).map((trend, i) => (
+                      <span key={i} className="text-xs bg-primary-600/20 text-primary-300 border border-primary-600/30 px-2 py-1 rounded">
+                        {trend}
                       </span>
                     ))}
                   </div>
+                </div>
 
-                  <Link 
-                    to={`/project/${project.id}`}
-                    className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+                {/* Competitive Advantage */}
+                <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3 mb-4">
+                  <p className="text-sm text-amber-200 font-medium">
+                    🏆 {service.competitorAdvantage}
+                  </p>
+                </div>
+
+                {/* Actions */}
+                <div className="flex gap-3">
+                  <Link
+                    to={`/enhanced-service/${service.id}`}
+                    className="flex-1 bg-primary-600 text-white text-center py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors font-medium"
                   >
                     View Details
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                    </svg>
                   </Link>
+                  {openConsultationForm && (
+                    <button
+                      onClick={() => openConsultationForm(service.title)}
+                      className="bg-white/10 text-white py-2 px-4 rounded-lg hover:bg-white/20 transition-colors border border-white/20"
+                      title="Request Consultation"
+                    >
+                      <PhoneIcon className="h-4 w-4" />
+                    </button>
+                  )}
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-300 text-lg">No projects found in this category.</p>
+          </div>
+        )}
       </section>
 
       {/* Stats Section */}
@@ -166,21 +205,21 @@ const PortfolioPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center text-white">
             <div>
               <div className="text-4xl font-bold text-primary-400 mb-2">
-                {enhancedPortfolioProjects.length}+
+                {enhancedServices.length}
               </div>
-              <div className="text-gray-300">Completed Projects</div>
+              <div className="text-gray-300">2025 Innovations</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-primary-400 mb-2">100%</div>
-              <div className="text-gray-300">Client Satisfaction</div>
+              <div className="text-gray-300">Future-Ready</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-primary-400 mb-2">5★</div>
-              <div className="text-gray-300">Average Rating</div>
+              <div className="text-gray-300">Innovation Rating</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-primary-400 mb-2">7+</div>
-              <div className="text-gray-300">Years Experience</div>
+              <div className="text-4xl font-bold text-primary-400 mb-2">24/7</div>
+              <div className="text-gray-300">Smart Integration</div>
             </div>
           </div>
         </div>

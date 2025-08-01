@@ -41,7 +41,7 @@ export interface BrandAsset {
 export const heroSlides: HeroSlide[] = [
   {
     id: 'hero-main',
-    title: 'Engineering Certainty',
+    title: 'Home Remodeling & Design',
     subtitle: 'SunVic Home Remodeling',
     description: 'While others promise art, we deliver certainty. SunVic is where visionary architecture meets uncompromising engineering to create flawlessly executed spaces—on time, on budget, every time.',
     backgroundImage: '/images/hero/hero1.png',
@@ -51,14 +51,14 @@ export const heroSlides: HeroSlide[] = [
     secondaryCtaLink: '/contact'
   },
   {
-    id: 'hero-kitchen',
-    title: 'Luxury Kitchen Transformations',
+    id: 'ground-up-construction',
+    title: 'Ground-Up Construction',
     subtitle: 'Engineering-Led Design',
-    description: 'From $45,000 smart kitchen systems to complete culinary transformations. Our IoT-integrated appliances and custom millwork create intelligent cooking environments that competitors simply cannot match.',
+    description: 'We build your home from the ground up, including all structural work, foundation, and framing.',
     backgroundImage: '/images/hero/hero2.png',
-    ctaText: 'View Kitchen Projects',
-    ctaLink: '/service-details/luxury-smart-kitchens',
-    secondaryCtaText: 'Get Kitchen Quote',
+    ctaText: 'View Ground-Up Construction Projects',
+    ctaLink: '/enhanced-services/ground-up-construction',
+    secondaryCtaText: 'Get Quote',
     secondaryCtaLink: '/contact'
   },
   {
@@ -135,7 +135,7 @@ export const serviceImages: ServiceImage[] = [
   },
   {
     id: 'structural-service-1',
-    serviceId: 'smart-structural-engineering',
+    serviceId: 'ground-up-construction',
     src: '/images/services/structural-engineering-1.jpg',
     alt: 'Structural engineering and 3D analysis',
     category: 'process'

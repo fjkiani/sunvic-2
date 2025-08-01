@@ -383,24 +383,24 @@ export const rentalEquipment: RentalEquipment[] = [
   // EXCAVATORS
   {
     id: "takeuchi-tb240",
-    name: "8,900 LB Excavator-Erops W/ Heat & AC",
+    name: "Takeuchi TB240 Compact Excavator 4 Ton",
     category: "excavators",
-    subcategory: "Erops W/ Heat & AC",
+    subcategory: "Compact",
     technology: "Intelligent Hydraulic System",
-    description: "Compact excavator with advanced hydraulics and climate-controlled operator cab",
-    detailedDescription: "The Takeuchi TB240 mini excavator delivers exceptional performance in tight spaces with intelligent hydraulic system and comfortable EROPS cab featuring heat and air conditioning.",
-    model: "Takeuchi TB240",
+    description: "4-ton compact excavator with intelligent hydraulic system for precise control and fuel efficiency",
+    detailedDescription: "The Takeuchi TB240 offers exceptional performance in tight spaces with its compact design and advanced hydraulic system. Features include zero tail swing, comfortable operator cabin, and multiple attachment options for versatile job site applications.",
+    model: "TB240",
     manufacturer: "Takeuchi",
-    dailyRate: 300,
+    dailyRate: 395,
     weeklyRate: 1000,
     monthlyRate: 2500,
-    image: "https://www.takeuchiglobal.com/wp-content/uploads/TB240-HO-Orientation-SM.jpg",
+    image: "/images/equipment/excavator-example.jpg",
     features: [
-      "Intelligent hydraulic system",
-      "EROPS cab with climate control",
       "Zero tail swing design",
       "Auxiliary hydraulics",
-      "Rubber track system"
+      "Rubber track system",
+      "Intelligent hydraulic system",
+      "EROPS cab with climate control"
     ],
     specifications: {
       "Operating Weight": "8,900 lbs",

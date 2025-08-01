@@ -17,8 +17,11 @@ import {
   equipmentStats
 } from '../data/rentalEquipment';
 
+interface RentalsPageProps {
+  openConsultationForm: (serviceType: string) => void;
+}
 
-const RentalsPage: React.FC = () => {
+const RentalsPage: React.FC<RentalsPageProps> = ({ openConsultationForm }) => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [priceFilter, setPriceFilter] = useState<'all' | 'under100' | '100-300' | 'over300'>('all');
@@ -241,6 +244,7 @@ const RentalsPage: React.FC = () => {
               >
                 <EquipmentCard 
                   equipment={equipment} 
+                  openConsultationForm={openConsultationForm}
                 />
               </motion.div>
             ))}
@@ -322,6 +326,7 @@ const RentalsPage: React.FC = () => {
               >
                 <EquipmentCard 
                   equipment={equipment} 
+                  openConsultationForm={openConsultationForm}
                 />
               </motion.div>
             ))}

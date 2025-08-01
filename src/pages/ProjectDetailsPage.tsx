@@ -10,7 +10,11 @@ import { enhancedPortfolioProjects } from '../data/portfolioProjects';
 import ProjectHero from '../components/portfolio/ProjectHero';
 import ProjectContent from '../components/portfolio/ProjectContent';
 
-const ProjectDetailsPage: React.FC = () => {
+interface ProjectDetailsPageProps {
+  openConsultationForm: (serviceType: string) => void;
+}
+
+const ProjectDetailsPage: React.FC<ProjectDetailsPageProps> = ({ openConsultationForm }) => {
   const { projectId } = useParams<{ projectId: string }>();
   const project = enhancedPortfolioProjects.find(p => p.id === projectId);
 
@@ -44,19 +48,41 @@ const ProjectDetailsPage: React.FC = () => {
       </div>
 
       {/* Project Hero Section */}
-      <ProjectHero
-        title={project.title}
-        category={project.category}
-        location={project.location}
-        overview={project.overview}
-        heroImage={project.heroImage}
-        value={project.value}
-        timeline={project.timeline}
-        completedDate={project.completedDate}
-        size={project.size}
-        awards={project.awards}
-        onConsultationClick={() => {/* Handle consultation */}}
-      />
+      <div className="pt-20">
+        <ProjectHero 
+          title={project.title}
+          category={project.category}
+          location={project.location}
+          overview={project.overview}
+          heroImage={project.heroImage}
+          value={project.value}
+          timeline={project.timeline}
+          completedDate={project.completedDate}
+          size={project.size}
+          onConsultationClick={() => openConsultationForm(`${project.title} - Similar Project`)}
+        />
+        <ProjectContent 
+          project={project}
+        />
+        
+        {/* CTA Section */}
+        <section className="py-16 bg-orange-50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Ready to Start Your Project?
+            </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Let's discuss how we can bring your vision to life with the same level of excellence.
+            </p>
+            <button
+              onClick={() => openConsultationForm(`${project.title} - Similar Project`)}
+              className="bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-700 transition-colors duration-200"
+            >
+              Get Started Today
+            </button>
+          </div>
+        </section>
+      </div>
 
       {/* Trust Indicators */}
       <section className="py-12 bg-gray-50">
@@ -81,7 +107,7 @@ const ProjectDetailsPage: React.FC = () => {
       </section>
 
       {/* Detailed Project Content */}
-      <ProjectContent project={project} />
+      {/* ProjectContent project={project} /> */}
 
       {/* Call to Action */}
       <section className="bg-blue-600 text-white py-16">

@@ -19,38 +19,37 @@ const Navigation: React.FC = () => {
   };
 
   const renderDropdown = (items: any[]) => (
-    <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none py-1 z-50">
-      {items.map((item) => (
-        <Link
-          key={item.href}
-          to={item.href}
-          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600"
-          onClick={handleLinkClick}
-        >
-          <div className="flex items-center">
-            {item.icon && <span className="mr-2">{item.icon}</span>}
-            <div>
-              <div className="font-medium">{item.label}</div>
-              {item.description && <div className="text-xs text-gray-500">{item.description}</div>}
+    <div className="absolute left-0 mt-2 w-80 rounded-lg shadow-xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none py-2 z-[60] border border-gray-100">
+      <div className="max-h-96 overflow-y-auto">
+        {items.map((item) => (
+          <Link
+            key={item.href}
+            to={item.href}
+            className="block px-4 py-3 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
+            onClick={handleLinkClick}
+          >
+            <div className="flex items-center">
+              {item.icon && <span className="mr-3 text-lg flex-shrink-0">{item.icon}</span>}
+              <div className="font-medium text-gray-900">{item.label}</div>
             </div>
-          </div>
-        </Link>
-      ))}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 
   const renderMobileDropdown = (items: any[]) => (
-    <div className="pl-4 border-l border-gray-200 mt-2 space-y-1">
+    <div className="pl-4 border-l-2 border-orange-200 mt-2 space-y-1 bg-gray-50 rounded-r-lg py-2">
       {items.map((item) => (
         <Link
           key={item.href}
           to={item.href}
-          className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md"
+          className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-orange-600 hover:bg-white rounded-md transition-colors duration-200"
           onClick={handleLinkClick}
         >
           <div className="flex items-center">
-            {item.icon && <span className="mr-2">{item.icon}</span>}
-            {item.label}
+            {item.icon && <span className="mr-2 text-base">{item.icon}</span>}
+            <div className="font-medium">{item.label}</div>
           </div>
         </Link>
       ))}
@@ -76,28 +75,28 @@ const Navigation: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {mainNavigation.map((item) => (
-              <div key={item.href} className="relative">
+              <div key={item.href} className="relative group">
                 {item.dropdown ? (
                   <button
                     onClick={() => handleDropdownToggle(item.label)}
-                    className={`flex items-center px-3 py-2 text-sm font-medium transition-colors focus:outline-none ${
+                    className={`flex items-center px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg focus:outline-none ${
                       location.pathname.startsWith(item.href) || activeDropdown === item.label
-                        ? 'text-blue-600 border-b-2 border-blue-600'
-                        : 'text-gray-700 hover:text-blue-600'
+                        ? 'text-orange-600 bg-orange-50'
+                        : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
                     }`}
                   >
                     {item.label}
-                    <ChevronDownIcon className={`ml-1 h-4 w-4 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
+                    <ChevronDownIcon className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
                   </button>
                 ) : (
                   <Link
                     to={item.href}
-                    className={`px-3 py-2 text-sm font-medium transition-colors ${
+                    className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${
                       location.pathname === item.href
-                        ? 'text-blue-600 border-b-2 border-blue-600'
-                        : 'text-gray-700 hover:text-blue-600'
+                        ? 'text-orange-600 bg-orange-50'
+                        : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
                     }`}
                   >
                     {item.label}
@@ -112,7 +111,7 @@ const Navigation: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600"
+              className="text-gray-700 hover:text-orange-600 focus:outline-none focus:text-orange-600 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200"
             >
               {isOpen ? (
                 <XMarkIcon className="h-6 w-6" />
@@ -126,32 +125,32 @@ const Navigation: React.FC = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
+        <div className="md:hidden border-t border-gray-100">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg max-h-screen overflow-y-auto">
             {mainNavigation.map((item) => (
               <div key={item.href}>
                 {item.dropdown ? (
                   <>
                     <button
                       onClick={() => handleDropdownToggle(item.label)}
-                      className={`flex items-center justify-between w-full px-3 py-2 text-base font-medium transition-colors rounded-md ${
+                      className={`flex items-center justify-between w-full px-3 py-3 text-base font-medium transition-colors duration-200 rounded-lg ${
                         location.pathname.startsWith(item.href) || activeDropdown === item.label
-                          ? 'text-blue-600 bg-blue-50'
-                          : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                          ? 'text-orange-600 bg-orange-50'
+                          : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
                       }`}
                     >
                       {item.label}
-                      <ChevronDownIcon className={`h-5 w-5 transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
+                      <ChevronDownIcon className={`h-5 w-5 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
                     </button>
                     {activeDropdown === item.label && item.dropdown && renderMobileDropdown(item.dropdown)}
                   </>
                 ) : (
                   <Link
                     to={item.href}
-                    className={`block px-3 py-2 text-base font-medium transition-colors rounded-md ${
+                    className={`block px-3 py-3 text-base font-medium transition-colors duration-200 rounded-lg ${
                       location.pathname === item.href
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                        ? 'text-orange-600 bg-orange-50'
+                        : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
                     }`}
                     onClick={handleLinkClick}
                   >

@@ -233,7 +233,7 @@ const ContactPage: React.FC = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                        placeholder="(555) 123-4567"
+                        placeholder="sunvicnj@gmail.com"
                         disabled={isSubmitting || submitStatus === 'success'}
                       />
                     </div>

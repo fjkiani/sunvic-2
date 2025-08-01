@@ -287,9 +287,9 @@ const EnhancedServicesPage: React.FC<EnhancedServicesPageProps> = ({ openConsult
               >
                 <SparklesIcon className="h-8 w-8 text-purple-600 mb-4" />
                 <h3 className="font-semibold text-gray-900 mb-2">{trend}</h3>
-                <p className="text-sm text-gray-600">
-                  Leading innovation in {trend.toLowerCase()} with engineering excellence and proven results.
-                </p>
+                {/* <p className="text-sm text-gray-600">
+                   {trend.toLowerCase()} with engineering excellence and proven results.
+                </p> */}
               </motion.div>
             ))}
           </div>

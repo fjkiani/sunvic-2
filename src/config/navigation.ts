@@ -20,10 +20,10 @@ export interface NavigationItem {
 // Core service categories from our advanced renovation services
 export const servicesDropdown: NavigationDropdownItem[] = [
   {
-    id: 'engineering-planning',
-    label: 'Engineering & Planning',
-    href: '/service-details/smart-structural-engineering',
-    description: 'AI-powered structural analysis and planning',
+    id: 'full-home-remodeling',
+    label: 'Full Home Remodeling',
+    href: '/enhanced-services/full-home-remodeling',
+    description: 'Complete home transformation with kitchen, bathroom, basement, and smart home integration',
     icon: '🏗️'
   },
   {
@@ -160,13 +160,13 @@ export const navigationItems: NavigationItem[] = [
     label: 'About',
     href: '/about'
   },
-  {
-    id: 'services',
-    label: 'Services',
-    href: '/services',
-    hasDropdown: true,
-    dropdownItems: servicesDropdown
-  },
+  // {
+  //   id: 'services',
+  //   label: 'Services',
+  //   href: '/services',
+  //   hasDropdown: true,
+  //   dropdownItems: servicesDropdown
+  // },
   {
     id: 'innovations',
     label: '2025 Innovations',

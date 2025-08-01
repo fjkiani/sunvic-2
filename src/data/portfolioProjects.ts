@@ -50,7 +50,7 @@ export const enhancedPortfolioProjects: EnhancedProject[] = [
     challenge: "The clients, both health-conscious professionals, wanted a kitchen that would actively support their wellness goals while maintaining luxury aesthetics in a compact Manhattan space.",
     solution: "We designed a comprehensive wellness ecosystem featuring air/water purification, circadian lighting, beauty prep areas, and AI-powered health monitoring systems integrated seamlessly into a stunning modern design.",
     results: "40% improvement in air quality, 65% reduction in cooking time through smart automation, and a dedicated beauty station that has transformed the clients' daily routines. The project received excellent client reviews and referrals.",
-    heroImage: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    heroImage: "/images/full-home-remodel/fullHome.png",
     images: [
       {
         id: "before-1",
@@ -211,16 +211,16 @@ export const enhancedPortfolioProjects: EnhancedProject[] = [
 
   {
     id: "brooklyn-smart-addition",
-    title: "Brooklyn Smart Home Addition with Energy Optimization",
+    title: "Brooklyn Bathroom Remodel",
     category: "Sustainable Expansion",
     location: "Park Slope, Brooklyn",
     client: "Family Residence",
     completedDate: "October 2024",
-    overview: "An energy-positive home addition that combines smart building systems, wellness integration, and seamless indoor-outdoor living while actually reducing the home's overall energy consumption.",
-    challenge: "Add 800 sq ft of living space while improving the existing home's energy efficiency, incorporating wellness features, and creating seamless indoor-outdoor connectivity for year-round entertaining.",
-    solution: "Designed a net-zero addition with integrated solar systems, smart HVAC with air purification, biophilic design elements, and automated systems that optimize both energy usage and health metrics.",
-    results: "Net-positive energy production of 120%, 40% improvement in whole-home air quality, seamless indoor-outdoor living that's used 300+ days per year, and health monitoring that helped the family identify and resolve allergy triggers.",
-    heroImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    overview: "A complete bathroom remodel that includes a steam shower, smart mirror, and wellness features.",
+    challenge: "The clients wanted a bathroom that would be a personal wellness retreat, with a steam shower, smart mirror, and wellness features.",
+    solution: "We designed a comprehensive wellness ecosystem featuring steam therapy, chromotherapy, smart mirrors with health tracking, professional beauty lighting, and water purification systems in a luxurious design that feels like a private spa retreat.",
+    results: "Daily stress reduction of 35% measured through biometric monitoring, 50% improvement in skin health through filtered water and steam therapy, and a beauty routine that saves 30 minutes daily through optimized lighting and organization.",
+    heroImage: "/images/projects/bathroom.png",
     images: [
       {
         id: "before-1",
