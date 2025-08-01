@@ -28,10 +28,10 @@ export interface RentalEquipment {
 
 export const rentalCategories = [
   { id: 'all', name: 'All Equipment', icon: '🏗️' },
-  { id: 'air-compressors', name: 'Air Compressors', icon: '💨' },
-  { id: 'arrow-boards', name: 'Arrow Boards', icon: '⬅️' },
+  { id: 'air-compressors', name: 'Air Compressors', icon: '🔧' },
+  { id: 'arrow-boards', name: 'Arrow Boards', icon: '⚠️' },
   { id: 'backhoes', name: 'Backhoes', icon: '🚜' },
-  { id: 'rollers', name: 'Rollers', icon: '🗞️' },
+  { id: 'rollers', name: 'Rollers', icon: '🛣️' },
   { id: 'dozers', name: 'Dozers', icon: '🚚' },
   { id: 'excavators', name: 'Excavators', icon: '⛏️' },
   { id: 'generators', name: 'Generators', icon: '⚡' },
@@ -39,7 +39,7 @@ export const rentalCategories = [
   { id: 'pressure-washers', name: 'Pressure Washers', icon: '🚿' },
   { id: 'skid-steers', name: 'Skid Steers', icon: '🚛' },
   { id: 'wheel-loaders', name: 'Wheel Loaders', icon: '🏗️' },
-  { id: 'telehandlers', name: 'Telehandlers', icon: '🏗️' },
+  { id: 'telehandlers', name: 'Telehandlers', icon: '📐' },
   { id: 'attachments-excavator', name: 'Excavator Attachments', icon: '🔨' },
   { id: 'misc-attachments', name: 'Misc Attachments', icon: '🛠️' },
   { id: 'electric-equipment', name: 'Electric Equipment', icon: '🔋' }
@@ -60,7 +60,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 105,
     weeklyRate: 330,
     monthlyRate: 675,
-    image: "https://images.unsplash.com/photo-1634729108541-516ad78c6ba2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://cdn11.bigcommerce.com/s-hkw4h/images/stencil/1280x1280/products/1758/9900/D185T4F__93706_9027__25805.1745596931.jpg?c=2",
     features: [
       "185 CFM air delivery",
       "Diesel engine operation",
@@ -107,7 +107,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 150,
     weeklyRate: 475,
     monthlyRate: 925,
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
+    image: "https://icrsupply.com/cdn/shop/files/A_a36561d8-923c-4998-85f9-72ad12dd45c0.jpg?v=1719859482&width=1946",
     features: [
       "375 CFM high output",
       "Efficiency drive technology",
@@ -155,7 +155,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 125,
     weeklyRate: 395,
     monthlyRate: 750,
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://dss-local-storage-i.s3.amazonaws.com/local/product_images_2/68303/0_60197__64464__25243__16519.jpg",
     features: [
       "15 high-intensity LED bulbs",
       "Solar power system",
@@ -203,7 +203,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 400,
     weeklyRate: 1195,
     monthlyRate: 2900,
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://www.deere.com/assets/images/common/products/backhoes/310-p/310p_r4k017608_rrd_1366x768_large_723877852015090bde8dfa1d9521b15305a9c167.jpg",
     features: [
       "Extended hoe configuration",
       "EROPS cab with heat & AC",
@@ -251,7 +251,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 700,
     weeklyRate: 1900,
     monthlyRate: 5600,
-    image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://acropolis-wp-content-uploads.s3.us-west-1.amazonaws.com/84-in-smooth-single-drum-ride-on-roller-26-208.webp",
     features: [
       "84-inch wide drum",
       "Vibratory compaction system",
@@ -298,7 +298,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 395,
     weeklyRate: 950,
     monthlyRate: 1950,
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2158&q=80",
+    image: "https://skyworksllc.com/cdn/shop/files/download_578330f6-9f1e-463c-90bf-b6398494dba9.jpg?v=1750087389&width=1500",
     features: [
       "32-33 inch drum width",
       "Remote control operation",
@@ -346,7 +346,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 1200,
     weeklyRate: 3600,
     monthlyRate: 8950,
-    image: "https://images.unsplash.com/photo-1574116164516-3c213a5fdb86?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://s7d2.scene7.com/is/image/Caterpillar/C208475",
     features: [
       "Low ground pressure undercarriage",
       "6-way hydraulic blade",
@@ -394,7 +394,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 300,
     weeklyRate: 1000,
     monthlyRate: 2500,
-    image: "https://images.unsplash.com/photo-1601207068481-70b17c896ce8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://www.takeuchiglobal.com/wp-content/uploads/TB240-HO-Orientation-SM.jpg",
     features: [
       "Intelligent hydraulic system",
       "EROPS cab with climate control",
@@ -441,7 +441,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 375,
     weeklyRate: 1250,
     monthlyRate: 3200,
-    image: "https://images.unsplash.com/photo-1592491001571-8d63a1df0df0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://s7d2.scene7.com/is/image/Caterpillar/CM20180212-41328-33143?$webp-cc-g$",
     features: [
       "Cat Connect technology",
       "Spacious EROPS cab",
@@ -488,7 +488,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 450,
     weeklyRate: 1500,
     monthlyRate: 3900,
-    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
+    image: "https://s7d2.scene7.com/is/image/Caterpillar/CM20180212-41328-33143?$webp-cc-g$",
     features: [
       "Advanced hydraulic system",
       "Heavy-duty undercarriage",
@@ -535,7 +535,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 750,
     weeklyRate: 2500,
     monthlyRate: 6500,
-    image: "https://images.unsplash.com/photo-1615117948010-0a8b4c8bcb6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
+    image: "https://s7d2.scene7.com/is/image/Caterpillar/CM20170417-48239-28017",
     features: [
       "Cat C7.1 ACERT engine",
       "Advanced operator station",
@@ -582,7 +582,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 1250,
     weeklyRate: 4200,
     monthlyRate: 11000,
-    image: "https://images.unsplash.com/photo-1593789198777-f29bc259780e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://blog.rbauction.com/wp-content/uploads/2023/05/Cat336-2.jpg",
     features: [
       "Cat C9.3 ACERT engine",
       "Premium operator environment",
@@ -630,7 +630,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 300,
     weeklyRate: 675,
     monthlyRate: 1700,
-    image: "https://images.unsplash.com/photo-1607093965580-3b15868b5cd0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://atlascea.com.au/wp-content/uploads/2017/01/QES-front-view.jpg",
     features: [
       "20KVA power output",
       "Clean power technology",
@@ -677,7 +677,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 445,
     weeklyRate: 1050,
     monthlyRate: 1975,
-    image: "https://images.unsplash.com/photo-1589595358526-2e2c33565dac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
+    image: "https://hydrotechnologysystems.us/cdn/shop/products/g50_1024x1024.jpg?v=1483708258",
     features: [
       "38KVA power capacity",
       "Intelligent load management",
@@ -724,7 +724,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 500,
     weeklyRate: 1200,
     monthlyRate: 2400,
-    image: "https://images.unsplash.com/photo-1587613865763-4b8b0d19c25b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://www.powergenenterprises.com//pub/media/catalog/product/cache/8f717cf40cb23840b170b1656a4a7e1c/p/h/photo-2022-12-15-14-23-24_10_.jpg",
     features: [
       "45KVA premium output",
       "Advanced engine management",
@@ -772,7 +772,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 175,
     weeklyRate: 525,
     monthlyRate: 1050,
-    image: "https://images.unsplash.com/photo-1504233151023-a9650c1dee4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://i.machinio.com/medium/al/60i3hx/1922018510/ddf6/terex-al4000-light-tower.jpg",
     features: [
       "Four 1000W metal halide lamps",
       "30-foot hydraulic mast",
@@ -820,7 +820,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 225,
     weeklyRate: 675,
     monthlyRate: 1350,
-    image: "https://images.unsplash.com/photo-1633259584604-afdc243122ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://cdn11.bigcommerce.com/s-gbcjj5wb95/images/stencil/1280x1280/products/3044/4994/EB4040HG__73812.1580396707.gif?c=2",
     features: [
       "4000 PSI pressure output",
       "Hot water cleaning capability",
@@ -868,7 +868,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 350,
     weeklyRate: 1050,
     monthlyRate: 2500,
-    image: "https://images.unsplash.com/photo-1592491001451-8d2a8b17b8c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://s7d2.scene7.com/is/image/Caterpillar/CM20190926-d30ea-dd374?$cc-g$&fmt=pjpeg",
     features: [
       "Radial lift design",
       "Excellent visibility",
@@ -916,7 +916,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 400,
     weeklyRate: 1100,
     monthlyRate: 3200,
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/6b2e0baea2844d628d13e63aecc63292?v=0fcab147&t=Size1100",
     features: [
       "PowerShift transmission",
       "Excellent visibility design",
@@ -963,7 +963,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 550,
     weeklyRate: 1700,
     monthlyRate: 3900,
-    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://i.ytimg.com/vi/c8_htX03VYc/maxresdefault.jpg",
     features: [
       "Advanced powertrain system",
       "High-performance hydraulics",
@@ -1011,7 +1011,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 575,
     weeklyRate: 1600,
     monthlyRate: 3500,
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRrx3lJ8bCcfekRg3cy49BkKErCd4nfDgTMw&s",
     features: [
       "55-foot maximum lift height",
       "10,000-pound capacity",
@@ -1058,7 +1058,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 875,
     weeklyRate: 2200,
     monthlyRate: 5300,
-    image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://cdn.cranemarket.com/images/listings/caterpillar-tl1255d-12-000-lb--telehandler-68149.jpg",
     features: [
       "12,000-pound lift capacity",
       "Intelligent boom control",
@@ -1106,7 +1106,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 375,
     weeklyRate: 660,
     monthlyRate: 1975,
-    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://alta-wp.s3.us-west-2.amazonaws.com/wp-content/uploads/sites/3/2023/12/0fa98fb2-3334-4cd1-a78c-5d9c91ef8b22.jpeg",
     features: [
       "Variable energy control",
       "Auto-lubrication system",
@@ -1153,7 +1153,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 350,
     weeklyRate: 800,
     monthlyRate: 2495,
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://www.lubyequipment.com/wp-content/uploads/2024/03/Indeco-HP-1250-FS-Hydraulic-Breaker.webp",
     features: [
       "High-frequency impact system",
       "Robust construction",
@@ -1200,7 +1200,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 675,
     weeklyRate: 1800,
     monthlyRate: 4100,
-    image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://www.komatsu.com/content/dam/komatsu/websites/en-us/equipment-product/attachments/hydraulic-breakers/jthb-g/546180-hardrock-breaker-jthb290-web.jpeg",
     features: [
       "Ultra-high impact energy",
       "Advanced damping system",
@@ -1247,7 +1247,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 900,
     weeklyRate: 2550,
     monthlyRate: 6700,
-    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://media.baumpub.com/files/slides/locale_image/full/0107/26582_en_e2fbc_29109_v32-breaker.jpg",
     features: [
       "Extreme impact system",
       "Maximum energy transfer",
@@ -1295,7 +1295,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 95,
     weeklyRate: 250,
     monthlyRate: 500,
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://shop.kenco.com/product-images/KL40K6T12_01.jpg?resizeid=3&resizeh=600&resizew=600",
     features: [
       "Hydraulic clamping action",
       "Adjustable jaw opening",
@@ -1342,7 +1342,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 375,
     weeklyRate: 750,
     monthlyRate: 1800,
-    image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://cdn11.bigcommerce.com/s-mq1dmrqaer/images/stencil/300x300/products/2158/1325/V50_Skeleton_Rock_Bucket_Front__92700.1723572953.jpg?c=1",
     features: [
       "Selective material sorting",
       "Cat 308 specific fit",
@@ -1390,7 +1390,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 150,
     weeklyRate: 350,
     monthlyRate: 650,
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://mitforklift.com/images/imglib/PREMIAESSBPN3/SCALE-H_PREMIAESSBPN3_768.jpg",
     features: [
       "Zero emissions operation",
       "Electric drive system",

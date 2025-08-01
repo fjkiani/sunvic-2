@@ -142,15 +142,66 @@ To add/remove form fields:
 
 ---
 
+## Invoice Email Setup (NEW!)
+
+### 14. Create Invoice Email Template
+
+1. In your EmailJS dashboard, create a **second template** for invoice emails
+2. Click **Create New Template** 
+3. Copy the HTML from `src/templates/invoice-email-template.html`
+4. Use these variable names in your template:
+   - `{{to_email}}` - Recipient email
+   - `{{to_name}}` - Recipient name  
+   - `{{from_name}}` - Your company name
+   - `{{from_email}}` - Your email address
+   - `{{invoice_number}}` - Invoice number
+   - `{{client_name}}` - Client name
+   - `{{project_address}}` - Project address
+   - `{{invoice_total}}` - Total amount
+   - `{{invoice_html}}` - Complete invoice HTML
+   - `{{submission_time}}` - Invoice date
+   - `{{company_name}}` - Your company name
+5. **Save your Invoice Template ID** (update `INVOICE_TEMPLATE_ID` in `emailjs.ts`)
+
+### 15. Update EmailJS Configuration
+
+Update `src/config/emailjs.ts` with your invoice template ID:
+
+```typescript
+export const emailJsConfig = {
+  SERVICE_ID: 'your_service_id',
+  TEMPLATE_ID: 'your_consultation_template_id',  
+  INVOICE_TEMPLATE_ID: 'your_invoice_template_id', // Add this!
+  PUBLIC_KEY: 'your_public_key',
+};
+```
+
+### 16. How Invoice Emails Work
+
+- Navigate to `/invoice` page
+- Fill out client information including email address
+- Create your invoice with phases and line items
+- Click **"Email Invoice"** to send professionally formatted email
+- Client receives complete invoice HTML embedded in email
+- Success/error notifications confirm delivery
+
 ## Quick Setup Checklist
 
+**Consultation Forms:**
 - [ ] Created EmailJS account
 - [ ] Set up email service and saved Service ID
-- [ ] Created email template and saved Template ID
+- [ ] Created consultation email template and saved Template ID
 - [ ] Copied Public Key
 - [ ] Updated `src/config/emailjs.ts` with real credentials
 - [ ] Updated recipient email in `ConsultationForm.tsx`
 - [ ] Tested form submission
 - [ ] Verified email delivery
 
-Once completed, your consultation forms will automatically send professional, branded emails to your business inbox whenever a potential client submits a request! 
+**Invoice Emails (Optional):**
+- [ ] Created invoice email template using `invoice-email-template.html`
+- [ ] Saved Invoice Template ID
+- [ ] Updated `INVOICE_TEMPLATE_ID` in `emailjs.ts`
+- [ ] Tested invoice email from `/invoice` page
+- [ ] Verified invoice email delivery and formatting
+
+Once completed, your consultation forms will automatically send professional, branded emails to your business inbox whenever a potential client submits a request, and you can send beautiful invoice emails directly to clients! 

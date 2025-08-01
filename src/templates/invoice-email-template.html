@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice from {{company_name}}</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f9fc;
+            color: #333;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background: linear-gradient(135deg, #ea580c, #fb923c);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .email-header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .email-header p {
+            margin: 10px 0 0;
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .email-content {
+            padding: 30px;
+        }
+        .greeting {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #374151;
+        }
+        .invoice-summary {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .invoice-summary h3 {
+            margin: 0 0 15px;
+            color: #1f2937;
+            font-size: 16px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .summary-row.total {
+            font-weight: 700;
+            font-size: 18px;
+            color: #ea580c;
+            border-top: 2px solid #ea580c;
+            padding-top: 10px;
+            margin-top: 15px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ea580c;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .email-footer {
+            background: #1f2937;
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .email-footer p {
+            margin: 5px 0;
+        }
+        .contact-info {
+            background: #f3f4f6;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .contact-info h4 {
+            margin: 0 0 10px;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="email-header">
+            <h1>Invoice {{invoice_number}}</h1>
+            <p>{{company_name}} • Engineering Excellence in Every Project</p>
+        </div>
+        
+        <!-- Content -->
+        <div class="email-content">
+            <div class="greeting">
+                Dear {{to_name}},
+            </div>
+            
+            <p>Thank you for choosing {{company_name}} for your construction project. Please find your invoice attached below.</p>
+            
+            <!-- Invoice Summary -->
+            <div class="invoice-summary">
+                <h3>📋 Invoice Summary</h3>
+                <div class="summary-row">
+                    <span>Invoice Number:</span>
+                    <span><strong>{{invoice_number}}</strong></span>
+                </div>
+                <div class="summary-row">
+                    <span>Client:</span>
+                    <span>{{client_name}}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Project Address:</span>
+                    <span>{{project_address}}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Invoice Date:</span>
+                    <span>{{submission_time}}</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total Amount:</span>
+                    <span>{{invoice_total}}</span>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h4>💬 Questions about this invoice?</h4>
+                <p>📞 Phone: (732) 824-9203</p>
+                <p>📧 Email: sunvicnj@gmail.com</p>
+                <p>🏠 Address: Old Bridge, NJ</p>
+            </div>
+            
+            <h3>📄 Complete Invoice Details:</h3>
+            <p>Below you'll find the complete invoice with all project phases and line items:</p>
+            
+            <!-- Invoice HTML will be embedded here -->
+            <div style="border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; margin: 20px 0;">
+                {{invoice_html}}
+            </div>
+            
+            <!-- Payment Terms -->
+            <div style="background: #fef3c7; border: 1px solid #f59e0b; border-radius: 6px; padding: 15px; margin: 20px 0;">
+                <h4 style="margin: 0 0 10px; color: #92400e;">💳 Payment Terms</h4>
+                <p style="margin: 0; color: #92400e; font-size: 14px;">
+                    Payment is due within 30 days of invoice date. Please make checks payable to {{company_name}}.
+                </p>
+            </div>
+            
+            <p>Thank you for your business! We appreciate the opportunity to work on your project.</p>
+            
+            <p>Best regards,<br>
+            <strong>The {{company_name}} Team</strong><br>
+            Engineering Excellence in Every Project</p>
+        </div>
+        
+        <!-- Footer -->
+        <div class="email-footer">
+            <p><strong>{{company_name}}</strong></p>
+            <p>📞 (732) 824-9203 • 📧 sunvicnj@gmail.com • 🏠 Old Bridge, NJ</p>
+            <p>Licensed & Insured • NJ Certified • Tri-State Leader</p>
+        </div>
+    </div>
+</body>
+</html> 

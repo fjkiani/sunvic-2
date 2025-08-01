@@ -7,6 +7,7 @@ import {
   PhoneIcon,
   CheckCircleIcon
 } from '@heroicons/react/24/outline';
+import { useNavigate } from 'react-router-dom';
 
 import EquipmentCard from '../components/rentals/EquipmentCard';
 import { 
@@ -15,13 +16,10 @@ import {
   getFeaturedEquipment,
   equipmentStats
 } from '../data/rentalEquipment';
-import type { RentalEquipment } from '../data/rentalEquipment';
 
-interface RentalsPageProps {
-  openConsultationForm: (serviceType?: string) => void;
-}
 
-const RentalsPage: React.FC<RentalsPageProps> = ({ openConsultationForm }) => {
+const RentalsPage: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [priceFilter, setPriceFilter] = useState<'all' | 'under100' | '100-300' | 'over300'>('all');
 
@@ -44,9 +42,7 @@ const RentalsPage: React.FC<RentalsPageProps> = ({ openConsultationForm }) => {
     });
   }
 
-  const handleRentEquipment = (equipment: RentalEquipment) => {
-    openConsultationForm(`Equipment Rental: ${equipment.name}`);
-  };
+
 
   return (
     <div className="pt-16 lg:pt-20">
@@ -77,7 +73,7 @@ const RentalsPage: React.FC<RentalsPageProps> = ({ openConsultationForm }) => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={() => openConsultationForm('Equipment Rental Consultation')}
+                onClick={() => navigate('/contact')}
                 className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center"
               >
                 <PhoneIcon className="h-5 w-5 mr-2" />
@@ -245,8 +241,6 @@ const RentalsPage: React.FC<RentalsPageProps> = ({ openConsultationForm }) => {
               >
                 <EquipmentCard 
                   equipment={equipment} 
-                  onRentClick={handleRentEquipment}
-                  variant={index === 0 ? 'featured' : 'default'}
                 />
               </motion.div>
             ))}
@@ -328,8 +322,6 @@ const RentalsPage: React.FC<RentalsPageProps> = ({ openConsultationForm }) => {
               >
                 <EquipmentCard 
                   equipment={equipment} 
-                  onRentClick={handleRentEquipment}
-                  variant="compact"
                 />
               </motion.div>
             ))}
@@ -388,7 +380,7 @@ const RentalsPage: React.FC<RentalsPageProps> = ({ openConsultationForm }) => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={() => openConsultationForm('Equipment Rental Consultation')}
+                onClick={() => navigate('/contact')}
                 className="bg-white text-blue-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
               >
                 Book Equipment Consultation

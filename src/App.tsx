@@ -35,7 +35,7 @@ function App() {
           <Route path="/service-details/:serviceId" element={<ServiceDetailsPage openConsultationForm={openForm} />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/project/:projectId" element={<ProjectDetailsPage />} />
-          <Route path="/rentals" element={<RentalsPage openConsultationForm={openForm} />} />
+          <Route path="/rentals" element={<RentalsPage />} />
           <Route path="/rental/:equipmentId" element={<EquipmentDetailsPage openConsultationForm={openForm} />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />

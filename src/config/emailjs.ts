@@ -3,6 +3,7 @@ export const emailJsConfig = {
   // You'll need to replace these with your actual EmailJS credentials
   SERVICE_ID: 'sunvic', // Replace with your EmailJS service ID
   TEMPLATE_ID: 'template_z6sgxw4', // Replace with your EmailJS template ID  
+  INVOICE_TEMPLATE_ID: 'template_z6sgxw4', // Temporarily using consultation template - create dedicated invoice template later
   PUBLIC_KEY: '8VIjhzoC82-RP4juK', // Replace with your EmailJS public key
 };
 
@@ -18,6 +19,21 @@ export interface ConsultationFormData {
   projectDescription: string;
   preferredContactMethod: 'email' | 'phone' | 'either';
   preferredTime: string;
+}
+
+// Invoice email interface
+export interface InvoiceEmailData extends Record<string, unknown> {
+  to_email: string;
+  to_name: string;
+  from_name: string;
+  from_email: string;
+  invoice_number: string;
+  client_name: string;
+  project_address: string;
+  invoice_total: string;
+  invoice_html: string;
+  submission_time: string;
+  company_name: string;
 }
 
 export const projectTypes = [
