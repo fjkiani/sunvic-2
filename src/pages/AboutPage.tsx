@@ -36,7 +36,7 @@ const AboutPage: React.FC = () => {
         subtitle="About SunVic"
         description="Founded by Rutgers-trained engineer Sunny, SunVic represents the evolution of precision-driven home remodeling in DMV's luxury market."
         height="lg"
-        backgroundImage="/src/assets/images/hero.png"
+        backgroundImage="images/full-home-remodel/fullHome.png"
         gradient="linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.7) 50%, rgba(51, 65, 85, 0.6) 100%)"
       />
 
@@ -58,7 +58,7 @@ const AboutPage: React.FC = () => {
                       <AcademicCapIcon className="w-12 h-122 text-white" />
                     </div>
                     <p className="text-gray-600">Professional Photo</p>
-                    <img src="/src/assets/images/sunny.jpg" alt="Sunny" className="w-full h-full object-cover" />
+                    <img src="images/sunny.jpg" alt="Sunny" className="w-full h-full object-cover" />
                   </div>
                 </div>
               </div>
