@@ -115,7 +115,7 @@ export const footerLinks = {
 
 // Company information for consistent use
 export const companyData = {
-  name: 'SunVic',
+  name: 'Sunvic',
   tagline: 'Engineering Excellence in Every Project',
   phone: '732-824-9203',
   email: 'sunvicnj@gmail.com',

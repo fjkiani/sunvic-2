@@ -48,7 +48,7 @@ const HomePage: React.FC<HomePageProps> = ({ openConsultationForm }) => {
             className="text-center mb-16"
           >
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Why customers choose SunVic
+              The Sunvic Difference
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               While others follow trends, we create standards. Our engineering-first approach 

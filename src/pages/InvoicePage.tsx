@@ -6,7 +6,8 @@ import {
   Trash2, 
   Plus, 
   X,
-  Download 
+  Download,
+  Calculator 
 } from 'lucide-react';
 import logoImage from '../assets/logo/sunvic.png';
 
@@ -24,6 +25,9 @@ interface ProjectPhase {
   sqft: number;
   items: InvoiceItem[];
   isOpen: boolean;
+  // Manual overrides for cost analysis
+  manualPhaseCost?: number;
+  manualCostPerSqft?: number;
 }
 
 const InvoicePage: React.FC = () => {
@@ -236,7 +240,34 @@ const InvoicePage: React.FC = () => {
     return { subtotal, taxAmount, total };
   };
 
+  // Calculate phase costs (either manual override or calculated from items)
+  const getPhaseSubtotal = (phase: ProjectPhase): number => {
+    if (phase.manualPhaseCost !== undefined) {
+      return phase.manualPhaseCost;
+    }
+    return phase.items.reduce((sum, item) => sum + (item.qty * item.rate), 0);
+  };
+
+  // Calculate cost per sqft (either manual override or calculated)
+  const getCostPerSqft = (phase: ProjectPhase): number => {
+    if (phase.manualCostPerSqft !== undefined) {
+      return phase.manualCostPerSqft;
+    }
+    const phaseSubtotal = getPhaseSubtotal(phase);
+    return phase.sqft > 0 ? phaseSubtotal / phase.sqft : 0;
+  };
+
+  // Calculate totals for cost analysis
+  const calculateAnalysisTotals = () => {
+    const totalPhaseCost = phases.reduce((sum, phase) => sum + getPhaseSubtotal(phase), 0);
+    const totalSqft = phases.reduce((sum, phase) => sum + phase.sqft, 0);
+    const averageCostPerSqft = totalSqft > 0 ? totalPhaseCost / totalSqft : 0;
+
+    return { totalPhaseCost, totalSqft, averageCostPerSqft };
+  };
+
   const { subtotal, taxAmount, total } = calculateTotals();
+  const { totalPhaseCost, totalSqft, averageCostPerSqft } = calculateAnalysisTotals();
 
   // Improved PDF generation function
   const generatePDF = async () => {
@@ -593,7 +624,7 @@ const InvoicePage: React.FC = () => {
           </div>
         </section>
 
-        {/* Cost Analysis Page - Now with Editable Square Footage */}
+        {/* Cost Analysis Page - Now with Fully Editable Values and Totals */}
         <section className="print:page-break-before-always p-8 sm:p-10">
           <div className="text-center mb-8">
             <img src={logoImage} alt="Sunvic Construction Logo" className="h-20 w-auto mx-auto" />
@@ -602,7 +633,14 @@ const InvoicePage: React.FC = () => {
           <p className="text-gray-600 mb-8 text-center">To provide full transparency, this section breaks down how your project estimate was calculated and how it compares to current market standards in New Jersey.</p>
           
           <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">
-            <h3 className="text-xl font-semibold text-orange-600 mb-4">Phase-by-Phase Estimate Breakdown</h3>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-xl font-semibold text-orange-600">Phase-by-Phase Estimate Breakdown</h3>
+              <div className="flex items-center text-sm text-gray-500 print:hidden">
+                <Calculator className="w-4 h-4 mr-1" />
+                <span>Click values to edit manually</span>
+              </div>
+            </div>
+            
             <table className="w-full text-left">
               <thead>
                 <tr className="border-b-2 border-gray-300">
@@ -614,8 +652,9 @@ const InvoicePage: React.FC = () => {
               </thead>
               <tbody className="text-gray-700">
                 {phases.map((phase) => {
-                  const phaseSubtotal = phase.items.reduce((sum, item) => sum + (item.qty * item.rate), 0);
-                  const costPerSqft = phase.sqft > 0 ? phaseSubtotal / phase.sqft : 0;
+                  const calculatedPhaseCost = phase.items.reduce((sum, item) => sum + (item.qty * item.rate), 0);
+                  const displayPhaseCost = getPhaseSubtotal(phase);
+                  const displayCostPerSqft = getCostPerSqft(phase);
                   
                   return (
                     <tr key={phase.id} className="border-b border-gray-200">
@@ -627,7 +666,31 @@ const InvoicePage: React.FC = () => {
                           className="w-full bg-transparent border-none focus:bg-gray-50 p-1 rounded font-medium"
                         />
                       </td>
-                      <td className="py-3 text-right font-semibold">{formatCurrency(phaseSubtotal)}</td>
+                      <td className="py-3 text-right">
+                        <div className="relative group">
+                          <input 
+                            type="number" 
+                            value={phase.manualPhaseCost !== undefined ? phase.manualPhaseCost : calculatedPhaseCost}
+                            onChange={(e) => {
+                              const value = parseFloat(e.target.value) || 0;
+                              updatePhase(phase.id, { manualPhaseCost: value });
+                            }}
+                            className="w-32 text-right bg-transparent border-none focus:bg-gray-50 p-1 rounded font-semibold print:border-none"
+                            min="0"
+                            step="0.01"
+                            title="Click to manually override calculated cost"
+                          />
+                          {phase.manualPhaseCost !== undefined && (
+                            <button
+                              onClick={() => updatePhase(phase.id, { manualPhaseCost: undefined })}
+                              className="absolute -right-6 top-1 text-xs text-gray-400 hover:text-red-500 print:hidden"
+                              title="Reset to calculated value"
+                            >
+                              ↺
+                            </button>
+                          )}
+                        </div>
+                      </td>
                       <td className="py-3 text-right">
                         <input 
                           type="number" 
@@ -637,11 +700,43 @@ const InvoicePage: React.FC = () => {
                           min="0"
                         />
                       </td>
-                      <td className="py-3 text-right font-bold text-orange-600">{formatCurrency(costPerSqft)}</td>
+                      <td className="py-3 text-right">
+                        <div className="relative group">
+                          <input 
+                            type="number" 
+                            value={phase.manualCostPerSqft !== undefined ? phase.manualCostPerSqft : (phase.sqft > 0 ? displayPhaseCost / phase.sqft : 0)}
+                            onChange={(e) => {
+                              const value = parseFloat(e.target.value) || 0;
+                              updatePhase(phase.id, { manualCostPerSqft: value });
+                            }}
+                            className="w-32 text-right bg-transparent border-none focus:bg-gray-50 p-1 rounded font-bold text-orange-600 print:border-none"
+                            min="0"
+                            step="0.01"
+                            title="Click to manually override calculated cost per sq ft"
+                          />
+                          {phase.manualCostPerSqft !== undefined && (
+                            <button
+                              onClick={() => updatePhase(phase.id, { manualCostPerSqft: undefined })}
+                              className="absolute -right-6 top-1 text-xs text-gray-400 hover:text-red-500 print:hidden"
+                              title="Reset to calculated value"
+                            >
+                              ↺
+                            </button>
+                          )}
+                        </div>
+                      </td>
                     </tr>
                   );
                 })}
               </tbody>
+              <tfoot className="border-t-2 border-gray-400">
+                <tr className="font-bold text-gray-900">
+                  <td className="py-3 pr-2">TOTAL PROJECT</td>
+                  <td className="py-3 text-right text-xl text-orange-600">{formatCurrency(totalPhaseCost)}</td>
+                  <td className="py-3 text-right text-lg">{totalSqft.toLocaleString()}</td>
+                  <td className="py-3 text-right text-xl text-orange-600">{formatCurrency(averageCostPerSqft)}</td>
+                </tr>
+              </tfoot>
             </table>
           </div>
 

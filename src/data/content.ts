@@ -59,7 +59,6 @@ export interface Testimonial {
   content: string;
   rating: number;
   project: string;
-  avatar?: string; // Add avatar field for testimonial icons
 }
 
 // Company Information
@@ -456,8 +455,7 @@ export const testimonials: Testimonial[] = [
     role: 'Local Guide • 41 reviews • 30 photos',
     content: 'Sunny is a highly skilled professional who excels in home remodeling, renovations, and construction services. The quality of work is both dependable and impeccable. I highly recommend Sunvic for anyone looking to remodel or design their home.',
     rating: 5,
-    project: 'Home Remodeling & Design',
-    avatar: 'fahad-kiani.svg'
+    project: 'Home Remodeling & Design'
   },
   {
     id: 'a-shah',
@@ -465,8 +463,7 @@ export const testimonials: Testimonial[] = [
     role: 'Verified Customer',
     content: 'Highly professional. Very reasonable price for the flooring he did for my home. Will recommend his service to friends and family.',
     rating: 5,
-    project: 'Flooring Installation',
-    avatar: 'a-shah.svg'
+    project: 'Flooring Installation'
   },
   {
     id: 'ambikasamar',
@@ -474,8 +471,7 @@ export const testimonials: Testimonial[] = [
     role: 'Verified Customer • 5 reviews',
     content: 'Great Contractor. Very nice people. Excellent job done for my bathroom. I highly recommend him.',
     rating: 5,
-    project: 'Bathroom Renovation',
-    avatar: 'ambikasamar.svg'
+    project: 'Bathroom Renovation'
   },
   {
     id: 'preet-s',
@@ -483,8 +479,7 @@ export const testimonials: Testimonial[] = [
     role: 'Verified Customer • 5 reviews',
     content: 'The amount of quality work SR provide is beyond amazing.. I\'m amazed with SR service him and his team did a great job in our whole house. He always answered our phone when contractors ignore your calls after the deposit that can be scary but SR he always answered my phone calls.. just amazing. I definitely recommend this company. Thank you so much for making our house look so beautiful :) we get so many compliments.',
     rating: 5,
-    project: 'Whole House Renovation',
-    avatar: 'preet-s.svg'
+    project: 'Whole House Renovation'
   }
 ];
 
