@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  PlusCircle, 
-  Printer, 
-  ChevronRight, 
-  Trash2, 
   Plus, 
-  X,
-  Download,
-  Calculator,
-  Mail 
+  X, 
+  Trash2, 
+  Download, 
+  Mail, 
+  Calculator, 
+  PlusCircle, 
+  Printer 
 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { emailJsConfig } from '../config/emailjs';
 import logoImage from '../assets/logo/sunvic.png';
+import { generateInvoicePDF } from '../components/invoice/InvoicePDF';
 
 interface InvoiceItem {
   desc: string;
@@ -44,8 +44,9 @@ const InvoicePage: React.FC = () => {
   // Email fields
   const [senderEmail, setSenderEmail] = useState('sunvicnj@gmail.com');
   const [recipientEmail, setRecipientEmail] = useState('');
-  const [recipientName, setRecipientName] = useState('Homeowner');
+  const [recipientName, setRecipientName] = useState('');
   const [isEmailSending, setIsEmailSending] = useState(false);
+  const [includeCostAnalysis, setIncludeCostAnalysis] = useState(true);
 
   // Initialize dates on component mount
   useEffect(() => {
@@ -211,6 +212,12 @@ const InvoicePage: React.FC = () => {
     setPhases(prev => prev.filter(phase => phase.id !== phaseId));
   };
 
+  const togglePhaseExclusion = (phaseId: string) => {
+    setPhases(prev => prev.map(phase => 
+      phase.id === phaseId ? { ...phase, excluded: !phase.excluded } : phase
+    ));
+  };
+
   const addItem = (phaseId: string) => {
     const newItem: InvoiceItem = { desc: '', qty: 1, rate: 0, details: '' };
     updatePhase(phaseId, {
@@ -239,9 +246,12 @@ const InvoicePage: React.FC = () => {
   const calculateTotals = () => {
     let subtotal = 0;
     phases.forEach(phase => {
-      phase.items.forEach(item => {
-        subtotal += item.qty * item.rate;
-      });
+      // Skip excluded phases
+      if (!phase.excluded) {
+        phase.items.forEach(item => {
+          subtotal += item.qty * item.rate;
+        });
+      }
     });
 
     const taxAmount = subtotal * (taxRate / 100);
@@ -279,9 +289,8 @@ const InvoicePage: React.FC = () => {
   const { subtotal, taxAmount, total } = calculateTotals();
   const { totalPhaseCost, totalSqft, averageCostPerSqft } = calculateAnalysisTotals();
 
-  // Improved PDF generation function
+  // Native PDF generation using React-PDF (much better quality)
   const generatePDF = async () => {
-    // Show a loading state or message
     const button = document.querySelector('.pdf-button') as HTMLButtonElement;
     if (button) {
       button.disabled = true;
@@ -289,57 +298,37 @@ const InvoicePage: React.FC = () => {
     }
 
     try {
-      // Use the browser's print dialog but with optimized settings
-      const printWindow = window.open('', '_blank');
-      
-      if (printWindow) {
-        const invoiceHTML = document.querySelector('.print-container')?.outerHTML || '';
-        
-        printWindow.document.write(`
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <title>Invoice - ${document.querySelector('[value="INV-2025-001"]')?.getAttribute('value') || 'INV-001'}</title>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <script src="https://cdn.tailwindcss.com"></script>
-            <style>
-              * { -webkit-print-color-adjust: exact !important; color-adjust: exact !important; }
-              body { font-family: 'Inter', system-ui, sans-serif; margin: 0; padding: 20px; background: white; }
-              .print-container { max-width: none; margin: 0; box-shadow: none; border: none; }
-              input, textarea, select { border: none !important; background: transparent !important; outline: none !important; }
-              .print\\:hidden { display: none !important; }
-              .print\\:page-break-before-always { page-break-before: always !important; }
-              .bg-gray-50 { background-color: #f9fafb !important; }
-              .text-orange-600, .text-orange-500 { color: #ea580c !important; }
-              .border-orange-400 { border-color: #fb923c !important; }
-              table { border-collapse: collapse; }
-              th, td { border-bottom: 1px solid #e5e7eb; }
-              details[open] summary ~ * { display: block !important; }
-              details summary { list-style: none; }
-              details summary::-webkit-details-marker { display: none; }
-              @page { margin: 0.5in; size: letter; }
-            </style>
-          </head>
-          <body>
-            ${invoiceHTML}
-            <script>
-              // Auto-open all details elements for printing
-              document.querySelectorAll('details').forEach(detail => detail.open = true);
-              // Auto-print after content loads
-              window.onload = () => setTimeout(() => window.print(), 500);
-            </script>
-          </body>
-          </html>
-        `);
-        
-        printWindow.document.close();
-      }
+      // Get form values
+      const clientNameInput = document.querySelector('input[placeholder="Client Name"]') as HTMLInputElement;
+      const clientAddressInput = document.querySelector('textarea[placeholder="Client Address"]') as HTMLTextAreaElement;
+      const invoiceNumberInput = document.querySelector('input[value*="INV-"]') as HTMLInputElement;
+      const projectRefInput = document.querySelector('input[value*="Project #"]') as HTMLInputElement;
+      const statusSelect = document.querySelector('select') as HTMLSelectElement;
+      const notesTextarea = document.querySelector('textarea[placeholder*="notes"]') as HTMLTextAreaElement;
+
+      const pdfProps = {
+        clientName: clientNameInput?.value || '',
+        clientAddress: clientAddressInput?.value || '',
+        invoiceNumber: invoiceNumberInput?.value || 'INV-2025-001',
+        invoiceDate: invoiceDate,
+        dueDate: dueDate,
+        projectRef: projectRefInput?.value || 'Project #202493',
+        status: statusSelect?.value || 'Draft',
+        phases: phases.filter(phase => !phase.excluded),
+        subtotal,
+        taxAmount,
+        total,
+        taxRate,
+        notes: notesTextarea?.value || 'Payment is due within 30 days. Please make checks payable to Sunvic Construction. Thank you for your business!',
+        includeCostAnalysis
+      };
+
+      await generateInvoicePDF(pdfProps);
+
     } catch (error) {
       console.error('Error generating PDF:', error);
-      alert('Error generating PDF. Please try using the print button and save as PDF manually.');
+      alert('Error generating PDF. Please check the console for details.');
     } finally {
-      // Reset button state
       if (button) {
         button.disabled = false;
         button.innerHTML = '<span class="flex items-center gap-2"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>Generate PDF</span>';
@@ -381,7 +370,7 @@ const InvoicePage: React.FC = () => {
          budget_range: formatCurrency(emailTotal),
          timeline: 'Invoice Payment Due',
          property_address: projectAddress,
-         project_description: `Invoice ${invoiceNumber} for ${clientName}\n\nTotal Amount: ${formatCurrency(emailTotal)}\n\nProject Phases:\n${phases.map((phase, index) => {
+         project_description: `Invoice ${invoiceNumber} for ${clientName}\n\nTotal Amount: ${formatCurrency(emailTotal)}\n\nProject Phases:\n${phases.filter(phase => !phase.excluded).map((phase, index) => {
            const phaseCost = getPhaseSubtotal(phase);
            return `${index + 1}. ${phase.title} - ${formatCurrency(phaseCost)}`;
          }).join('\n')}\n\nPayment is due within 30 days. Thank you for your business!`,
@@ -502,74 +491,64 @@ const InvoicePage: React.FC = () => {
   // };
 
   const initializeProjectData = () => {
-    const projectData = [
-      {
-        title: 'Phase 1: Demolition & Site Prep',
-        description: 'Safe and complete removal of existing structures as per plans A-001.00 & A-002.00. Includes site clearing, disposal of debris, and preparation of the area for new construction.',
-        sqft: 4257,
-        items: [
-          { desc: 'Structural Demolition', qty: 1, rate: 8500, details: 'Protocol: Methodical disassembly of load-bearing walls and structures. All work performed under safety protocols to maintain the integrity of the remaining building.' },
-          { desc: 'Debris Hauling & Disposal', qty: 1, rate: 4500, details: 'Protocol: All construction debris sorted and removed from the site for legal disposal at a certified facility. Includes dumpster rental and labor.' },
-          { desc: 'Site Clearing & Grading', qty: 1, rate: 5500, details: 'Protocol: Clearing of the designated construction area and grading the land to ensure proper drainage and a level base for the new foundation.' }
-        ]
-      },
-      {
-        title: 'Phase 2: Foundation & Concrete',
-        description: 'Construction of a solid and level foundation. Includes excavation for new footings, pouring of high-strength concrete, and construction of concrete block foundation walls as specified.',
-        sqft: 1825,
-        items: [
-          { desc: 'Excavation Services', qty: 1, rate: 7000, details: 'Protocol: Excavation to depths specified in architectural plans (A-004.00), ensuring stable soil conditions and preparation for footing installation.' },
-          { desc: 'Poured Concrete Footings', qty: 1, rate: 15000, details: 'Protocol: Installation of steel rebar reinforcement and pouring of 4000 PSI concrete to form continuous footings, inspected prior to backfilling.' },
-          { desc: 'CMU Block Foundation Walls', qty: 1, rate: 20000, details: 'Protocol: Construction of foundation walls using 12" concrete masonry units (CMUs) with vertical reinforcement and mortar, including waterproofing.' }
-        ]
-      },
-      {
-        title: 'Phase 3: Structural & Rough Framing',
-        description: 'Erecting the skeleton of the new addition. Includes all floor, wall, ceiling, and roof framing using high-quality lumber, as detailed in framing plans A-009.00.',
-        sqft: 4257,
-        items: [
-          { desc: 'First & Second Floor Framing', qty: 1, rate: 35000, details: 'Protocol: Assembly of all floor systems, load-bearing walls, and interior partitions using Douglas Fir No. 2 grade lumber, spaced at 16" on-center.' },
-          { desc: 'Roof Trusses & Rafters', qty: 1, rate: 22500, details: 'Protocol: Installation of engineered roof trusses and conventional rafters, including hurricane straps and bracing as per code requirements (A-005.00).' },
-          { desc: 'Exterior Wall Sheathing', qty: 1, rate: 18000, details: 'Protocol: Application of 1/2" CDX plywood sheathing to all exterior walls to provide structural rigidity and a nail base for siding.' }
-        ]
-      }
-    ];
-
-    projectData.forEach(phase => {
-      setTimeout(() => addPhase(phase.title, phase.description, phase.items, phase.sqft), 100);
-    });
+    // Start with a completely empty invoice
+    // Users can click "Add Phase" to create their own project phases
   };
 
   return (
     <div className="bg-gray-200 p-4 sm:p-6 lg:p-8 min-h-screen">
       <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-2xl border border-gray-200 print-container">
-        {/* Header */}
-        <header className="p-8 sm:p-10 border-b border-gray-200">
-          <div className="flex flex-col sm:flex-row justify-between items-start gap-8">
-            <div className="flex items-center gap-4">
-              <img src={logoImage} alt="Sunvic Construction Logo" className="h-16 sm:h-20 w-auto" />
-              <div>
+        {/* Header - Enhanced Design */}
+        <header className="relative bg-gradient-to-r from-orange-50 to-orange-100 p-8 sm:p-10 border-b-4 border-orange-400">
+          {/* Background pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-200 to-transparent"></div>
+          </div>
+          
+          <div className="relative flex flex-col sm:flex-row justify-between items-start gap-8">
+            {/* Company Info Section */}
+            <div className="flex items-center gap-6">
+              <div className="relative">
+                <img src={logoImage} alt="Sunvic Construction Logo" className="h-20 sm:h-24 w-auto drop-shadow-lg" />
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-orange-500 rounded-full"></div>
+              </div>
+              <div className="space-y-2">
                 <input 
                   type="text" 
-                  defaultValue="Sunvic Construction" 
-                  className="text-2xl sm:text-3xl font-bold text-gray-900 border-none bg-transparent focus:bg-gray-100 p-1 rounded-md"
+                  defaultValue="Sunvic" 
+                  className="text-2xl sm:text-3xl font-bold text-gray-900 border-none bg-transparent focus:bg-white focus:shadow-sm p-2 rounded-lg transition-all"
+                  style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                 />
                 <textarea 
-                  defaultValue="123 Main Street, Aberdeen Township, NJ 07747" 
-                  className="text-sm sm:text-base text-gray-500 border-none bg-transparent w-full focus:bg-gray-100 p-1 rounded-md" 
+                  defaultValue="123 Main Street, Aberdeen Township, NJ 07747 " 
+                  className="text-sm sm:text-base text-gray-600 border-none bg-transparent w-full focus:bg-white focus:shadow-sm p-2 rounded-lg transition-all leading-relaxed" 
                   rows={2}
                 />
+                <div className="flex items-center gap-2 text-xs text-orange-600 font-medium">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                  <span>Licensed & Insured • NJ Certified | www.sunvicnj.com | (732) 824-9203</span>
+                </div>
               </div>
             </div>
+            
+            {/* Invoice Title Section */}
             <div className="text-left sm:text-right w-full sm:w-auto">
-              <h1 className="text-4xl sm:text-5xl font-bold text-orange-500">INVOICE</h1>
-              <div className="mt-2 flex sm:justify-end">
-                <span className="text-base font-medium text-gray-500 mr-2">Invoice #</span>
-                <input 
-                  type="text" 
-                  defaultValue="INV-2025-001" 
-                  className="w-36 text-lg text-left sm:text-right p-1 border rounded-md shadow-sm focus:ring-orange-500 focus:border-orange-500"
-                />
+              <div className="relative">
+                <h1 className="text-5xl sm:text-6xl font-bold text-orange-500 tracking-tight drop-shadow-sm">INVOICE</h1>
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-300 rounded-full opacity-60"></div>
+              </div>
+              <div className="mt-4 space-y-3">
+                <div className="flex sm:justify-end items-center bg-white rounded-lg p-3 shadow-sm border border-orange-200">
+                  <span className="text-sm font-semibold text-gray-700 mr-3">Invoice #</span>
+                  <input 
+                    type="text" 
+                    defaultValue="INV-2025-001" 
+                    className="text-lg font-bold text-orange-600 text-left sm:text-right bg-transparent border-none focus:outline-none w-32"
+                  />
+                </div>
+                <div className="text-xs text-gray-500 sm:text-right">
+                  Engineering Excellence in Every Project
+                </div>
               </div>
             </div>
           </div>
@@ -581,7 +560,7 @@ const InvoicePage: React.FC = () => {
             <h2 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Bill To</h2>
             <input 
               type="text" 
-              defaultValue="Homeowner" 
+              defaultValue="" 
               className="w-full text-xl font-semibold text-gray-800 p-1 border-b-2 border-transparent focus:border-orange-500 bg-transparent" 
               placeholder="Client Name"
               onChange={(e) => {
@@ -590,7 +569,7 @@ const InvoicePage: React.FC = () => {
               }}
             />
             <textarea 
-              defaultValue="665 Denver Boulevard&#10;Edison, NJ 08820" 
+              defaultValue="" 
               className="w-full text-base text-gray-600 p-1 border-b-2 border-transparent focus:border-orange-500 bg-transparent" 
               rows={3} 
               placeholder="Client Address"
@@ -667,35 +646,69 @@ const InvoicePage: React.FC = () => {
           </div>
         </section>
 
-        {/* Invoice Items - Now a responsive layout */}
+        {/* Invoice Items - Always Visible Layout */}
         <main className="px-2 sm:px-10">
           {phases.map((phase) => (
-            <details 
+            <div 
               key={phase.id}
-              className="bg-white border border-gray-200 rounded-lg mb-4 overflow-hidden"
-              open={phase.isOpen}
+              className={`border border-gray-200 rounded-lg mb-6 overflow-hidden ${
+                phase.excluded 
+                  ? 'bg-gray-100 opacity-60' 
+                  : 'bg-white'
+              }`}
             >
-              <summary className="p-4 bg-gray-50 hover:bg-gray-100 flex justify-between items-center cursor-pointer">
-                <div className="flex-grow flex items-center gap-3 mr-4">
-                  <ChevronRight className="w-5 h-5 text-gray-400 transition-transform flex-shrink-0" />
-                  <input 
-                    type="text" 
-                    value={phase.title}
-                    onChange={(e) => updatePhase(phase.id, { title: e.target.value })}
-                    className="text-lg sm:text-xl font-bold text-gray-800 w-full border-none bg-transparent focus:bg-white p-1 rounded-md"
-                  />
+              {/* Phase Header */}
+              <div className={`p-4 border-b border-gray-200 ${
+                phase.excluded 
+                  ? 'bg-gray-200' 
+                  : 'bg-gray-50'
+              }`}>
+                <div className="flex items-center justify-between">
+                  <div className="flex-grow mr-4">
+                    <input 
+                      type="text" 
+                      value={phase.title}
+                      onChange={(e) => updatePhase(phase.id, { title: e.target.value })}
+                      className={`text-lg sm:text-xl font-bold w-full border-none bg-transparent focus:bg-white p-2 rounded-md ${
+                        phase.excluded ? 'text-gray-500 line-through' : 'text-gray-800'
+                      }`}
+                      placeholder="Enter phase name (e.g., Foundation Work, Framing, etc.)"
+                    />
+                    {phase.excluded && (
+                      <span className="text-xs font-medium text-red-600 bg-red-100 px-2 py-1 rounded-full mt-2 inline-block">
+                        EXCLUDED
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button 
+                      onClick={() => togglePhaseExclusion(phase.id)}
+                      className={`p-2 rounded-md transition-colors ${
+                        phase.excluded 
+                          ? 'bg-green-100 hover:bg-green-200 text-green-600' 
+                          : 'bg-red-100 hover:bg-red-200 text-red-600'
+                      }`}
+                      title={phase.excluded ? 'Include in invoice' : 'Exclude from invoice'}
+                      data-html2canvas-ignore="true"
+                    >
+                      {phase.excluded ? (
+                        <Plus className="w-4 h-4" />
+                      ) : (
+                        <X className="w-4 h-4" />
+                      )}
+                    </button>
+                    <button 
+                      onClick={() => removePhase(phase.id)}
+                      className="print:hidden text-red-500 hover:text-red-700 p-2 rounded-full hover:bg-red-100"
+                      data-html2canvas-ignore="true"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
-                <button 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    removePhase(phase.id);
-                  }}
-                  className="print:hidden text-red-500 hover:text-red-700 p-1 rounded-full"
-                >
-                  <Trash2 className="w-4 h-4" />
-                </button>
-              </summary>
+              </div>
               
+              {/* Phase Content */}
               <div className="p-4 md:p-6">
                 <textarea 
                   value={phase.description}
@@ -713,7 +726,7 @@ const InvoicePage: React.FC = () => {
                         <th className="py-2 font-medium text-center">Qty</th>
                         <th className="py-2 font-medium text-right">Rate</th>
                         <th className="py-2 font-medium text-right">Amount</th>
-                        <th className="py-2 print:hidden"></th>
+                        <th className="py-2 print:hidden" data-html2canvas-ignore="true"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -757,10 +770,11 @@ const InvoicePage: React.FC = () => {
                           <td className="py-2 pl-2 text-right font-medium text-base">
                             {formatCurrency(item.qty * item.rate)}
                           </td>
-                          <td className="py-2 pl-2 text-center print:hidden">
+                          <td className="py-2 pl-2 text-center print:hidden" data-html2canvas-ignore="true">
                             <button 
                               onClick={() => removeItem(phase.id, itemIndex)}
                               className="text-gray-400 hover:text-red-500 p-1 rounded-full"
+                              data-html2canvas-ignore="true"
                             >
                               <X className="w-4 h-4" />
                             </button>
@@ -819,6 +833,7 @@ const InvoicePage: React.FC = () => {
                         <button 
                           onClick={() => removeItem(phase.id, itemIndex)}
                           className="text-gray-400 hover:text-red-500 p-1 rounded-full"
+                          data-html2canvas-ignore="true"
                         >
                           <X className="w-4 h-4" />
                         </button>
@@ -830,20 +845,23 @@ const InvoicePage: React.FC = () => {
                 <button 
                   onClick={() => addItem(phase.id)}
                   className="print:hidden mt-4 flex items-center gap-1 text-sm text-orange-600 font-semibold hover:opacity-80 transition-opacity"
+                  data-html2canvas-ignore="true"
                 >
                   <Plus className="w-3 h-3" /> Add Line Item
                 </button>
               </div>
-            </details>
+            </div>
           ))}
         </main>
         
-        <div className="px-8 sm:px-10 pb-4 print:hidden">
+        <div className="px-8 sm:px-10 pb-8 print:hidden flex justify-center">
           <button 
             onClick={() => addPhase()}
-            className="flex items-center gap-2 text-base text-orange-600 font-semibold hover:opacity-80 transition-opacity"
+            className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex items-center gap-3 text-lg"
+            data-html2canvas-ignore="true"
           >
-            <PlusCircle className="w-5 h-5" /> Add Project Phase
+            <PlusCircle className="w-5 h-5" /> 
+            <span>Add Project Phase</span>
           </button>
         </div>
 
@@ -890,7 +908,10 @@ const InvoicePage: React.FC = () => {
         </section>
 
         {/* Cost Analysis Page - Now with Fully Editable Values and Totals */}
-        <section className="print:page-break-before-always p-4 sm:p-10">
+        <section 
+          className="print:page-break-before-always p-4 sm:p-10 cost-analysis-section"
+          data-html2canvas-ignore={!includeCostAnalysis}
+        >
           <div className="text-center mb-8">
             <img src={logoImage} alt="Sunvic Construction Logo" className="h-16 sm:h-20 w-auto mx-auto" />
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-4">Project Cost Analysis & Market Comparison</h2>
@@ -1052,9 +1073,23 @@ const InvoicePage: React.FC = () => {
         
         <footer className="text-center p-6 print:hidden">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex items-center">
+              <input
+                id="include-cost-analysis"
+                type="checkbox"
+                checked={includeCostAnalysis}
+                onChange={(e) => setIncludeCostAnalysis(e.target.checked)}
+                className="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded"
+                data-html2canvas-ignore="true"
+              />
+              <label htmlFor="include-cost-analysis" className="ml-2 block text-sm text-white" data-html2canvas-ignore="true">
+                Include Cost Analysis
+              </label>
+            </div>
             <button 
               onClick={generatePDF}
               className="pdf-button bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center gap-2"
+              data-html2canvas-ignore="true"
             >
               <Download className="w-5 h-5" />
               Generate PDF
@@ -1065,6 +1100,7 @@ const InvoicePage: React.FC = () => {
               className={`email-button ${isEmailSending 
                 ? 'bg-blue-400 cursor-not-allowed' 
                 : 'bg-blue-600 hover:bg-blue-700'} text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center gap-2`}
+              data-html2canvas-ignore="true"
             >
               {isEmailSending ? (
                 <>
@@ -1081,6 +1117,7 @@ const InvoicePage: React.FC = () => {
             <button 
               onClick={() => window.print()}
               className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-lg transition-colors flex items-center gap-2"
+              data-html2canvas-ignore="true"
             >
               <Printer className="w-5 h-5" />
               Print Preview
