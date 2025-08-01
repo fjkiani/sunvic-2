@@ -60,7 +60,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 105,
     weeklyRate: 330,
     monthlyRate: 675,
-    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1634729108541-516ad78c6ba2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
       "185 CFM air delivery",
       "Diesel engine operation",
@@ -99,111 +99,111 @@ export const rentalEquipment: RentalEquipment[] = [
     name: "375 CFM Air Compressor Towable Diesel",
     category: "air-compressors",
     subcategory: "Towable Diesel",
-    technology: "Sigma Profile Airend Technology",
-    description: "Heavy-duty 375 CFM diesel air compressor for large-scale construction and industrial applications",
-    detailedDescription: "The Kaeser 375 CFM compressor delivers exceptional performance with Sigma Profile airend technology, providing superior efficiency and reliability for demanding construction environments.",
+    technology: "Efficiency Drive Technology",
+    description: "Heavy-duty 375 CFM towable diesel air compressor for high-demand applications",
+    detailedDescription: "The Kaeser 375 CFM air compressor features efficiency drive technology for optimal fuel consumption and maximum air output, perfect for large construction projects requiring sustained air supply.",
     model: "Kaeser 375",
     manufacturer: "Kaeser",
-    dailyRate: 385,
-    weeklyRate: 800,
-    monthlyRate: 1975,
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    dailyRate: 150,
+    weeklyRate: 475,
+    monthlyRate: 925,
+    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
     features: [
-      "375 CFM high-volume air delivery",
-      "Sigma Profile airend",
-      "Advanced cooling system",
-      "Heavy-duty towable frame",
-      "Fuel-efficient operation"
+      "375 CFM high output",
+      "Efficiency drive technology",
+      "Heavy-duty towable chassis",
+      "Extended runtime capability",
+      "Dual air outlets"
     ],
     specifications: {
       "Air Delivery": "375 CFM",
       "Operating Pressure": "175 PSI",
       "Engine Type": "Tier 4 Diesel",
-      "Fuel Capacity": "25 gallons",
+      "Fuel Capacity": "18 gallons",
       "Weight": "3,200 lbs"
     },
     applications: [
-      "Large construction projects",
-      "Multiple pneumatic tools",
+      "Large pneumatic tool operations",
+      "Industrial sandblasting",
+      "Multi-crew construction sites",
       "Heavy demolition work",
-      "Industrial applications",
-      "Extended operation periods"
+      "Extended operation projects"
     ],
     safetyFeatures: [
-      "Automatic shutdown system",
-      "Pressure monitoring",
-      "Thermal protection",
-      "Emergency stops"
+      "Advanced pressure monitoring",
+      "Automatic shutdown systems",
+      "Oil level protection",
+      "Overheat protection"
     ],
     operatorRequired: false,
     deliveryIncluded: true,
     availability: 'available',
-    tags: ['High Volume', 'Industrial', 'Efficient', 'Heavy Duty']
+    tags: ['High Output', 'Efficiency', 'Heavy Duty', 'Industrial']
   },
 
   // ARROW BOARDS
   {
-    id: "wanco-solar-arrow-board",
-    name: "Solar Power Arrow Board",
+    id: "wanco-arrow-board",
+    name: "Arrow Board 15 Bulb Solar",
     category: "arrow-boards",
-    subcategory: "Solar Power",
-    technology: "Solar Charging Technology",
-    description: "Eco-friendly solar-powered arrow board for traffic control and work zone safety",
-    detailedDescription: "The Wanco solar arrow board provides reliable traffic control with environmentally friendly solar power operation, featuring bright LED displays and wireless remote control for enhanced safety.",
-    model: "Wanco",
+    subcategory: "Solar",
+    technology: "Solar Power Technology",
+    description: "Solar-powered 15 bulb arrow board for traffic control and work zone safety",
+    detailedDescription: "The Wanco solar arrow board provides reliable traffic direction with 15 high-intensity LED bulbs, solar power system for extended operation, and wireless remote control for safe operation.",
+    model: "Wanco WSAB-15S",
     manufacturer: "Wanco",
-    dailyRate: 105,
-    weeklyRate: 250,
-    monthlyRate: 550,
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    dailyRate: 125,
+    weeklyRate: 395,
+    monthlyRate: 750,
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
-      "Solar panel charging system",
-      "Bright LED arrow display",
+      "15 high-intensity LED bulbs",
+      "Solar power system",
       "Wireless remote control",
       "Multiple display patterns",
-      "Weather-resistant design"
+      "Towable design"
     ],
     specifications: {
-      "Display Type": "LED Arrow",
+      "Display Size": "48\" x 24\"",
       "Power Source": "Solar with battery backup",
-      "Visibility Range": "1 mile",
-      "Operating Hours": "7+ days continuous",
-      "Weight": "250 lbs"
+      "Operating Time": "7+ days",
+      "Weight": "850 lbs",
+      "Visibility Range": "1/2 mile"
     },
     applications: [
-      "Traffic control zones",
-      "Construction site safety",
-      "Road work projects",
-      "Event traffic management",
-      "Emergency response"
+      "Construction work zones",
+      "Road maintenance",
+      "Traffic diversion",
+      "Emergency response",
+      "Event traffic control"
     ],
     safetyFeatures: [
-      "High-visibility LED display",
-      "Photocell automatic operation",
-      "Low battery warning",
-      "Stable mounting system"
+      "MUTCD compliant",
+      "Automatic dimming",
+      "Storm resistant design",
+      "Emergency flasher mode"
     ],
     operatorRequired: false,
     deliveryIncluded: true,
     availability: 'available',
-    tags: ['Solar Powered', 'Traffic Control', 'LED', 'Wireless']
+    tags: ['Solar Powered', 'Traffic Safety', 'Remote Control', 'MUTCD']
   },
 
   // BACKHOES
   {
     id: "john-deere-310",
-    name: "17751 LB Backhoe EXT Hoe Compaction EropsW/ Heat & AC",
+    name: "17,000 LB Backhoe Extended-Hoe W/ AC",
     category: "backhoes",
-    subcategory: "EXT Hoe",
-    technology: "Extended Hoe Hydraulic System",
-    description: "Professional-grade backhoe with extended hoe reach, climate-controlled cab, and compaction capabilities",
+    subcategory: "Extended-Hoe W/ AC",
+    technology: "PowerTech Engine Technology",
+    description: "Versatile 17,000 lb backhoe with extended hoe configuration and climate-controlled cab",
     detailedDescription: "The John Deere 310 backhoe combines powerful digging performance with operator comfort, featuring extended hoe reach for maximum versatility and climate-controlled EROPS cab for all-weather operation.",
     model: "John Deere 310",
     manufacturer: "John Deere",
     dailyRate: 400,
     weeklyRate: 1195,
     monthlyRate: 2900,
-    image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
       "Extended hoe configuration",
       "EROPS cab with heat & AC",
@@ -251,7 +251,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 700,
     weeklyRate: 1900,
     monthlyRate: 5600,
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
       "84-inch wide drum",
       "Vibratory compaction system",
@@ -298,81 +298,81 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 395,
     weeklyRate: 950,
     monthlyRate: 1950,
-    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2158&q=80",
     features: [
       "32-33 inch drum width",
       "Remote control operation",
-      "Compact design",
-      "Dual drum configuration",
-      "Low ground pressure"
+      "Dual drum design",
+      "Compact footprint",
+      "Variable speed control"
     ],
     specifications: {
-      "Operating Weight": "3,000 lbs (1.5 ton)",
+      "Operating Weight": "3,000 lbs",
       "Drum Width": "32-33 inches",
-      "Engine Power": "35 hp",
       "Compaction Force": "8,500 lbs",
+      "Engine Power": "25 hp",
       "Remote Range": "150 ft"
     },
     applications: [
-      "Trench compaction",
-      "Utility work",
-      "Confined space compaction",
+      "Utility trench compaction",
+      "Confined space work",
       "Pipe bedding",
-      "Small area compaction"
+      "Foundation trenches",
+      "Landscape construction"
     ],
     safetyFeatures: [
       "Remote operation capability",
       "Emergency stop function",
-      "Protective barriers",
-      "Low vibration design"
+      "Vibration dampening",
+      "High visibility design"
     ],
-    operatorRequired: false,
+    operatorRequired: true,
     deliveryIncluded: true,
     availability: 'available',
-    tags: ['Trench Work', 'Remote Control', 'Compact', 'Utility']
+    tags: ['Compact', 'Remote Control', 'Trench Work', 'Precision']
   },
 
   // DOZERS
   {
-    id: "komatsu-d-37px",
-    name: "19,000 LB Dozer-Erops W/Heat AC",
+    id: "cat-d4k-xl",
+    name: "D4K-XL LGP Bulldozer W/ 6-Way Blade",
     category: "dozers",
-    subcategory: "Erops W/Heat AC",
-    technology: "Hydrostatic Drive System",
-    description: "Powerful crawler dozer with hydrostatic transmission and climate-controlled cab",
-    detailedDescription: "The Komatsu D-37PX dozer combines powerful earthmoving capability with operator comfort, featuring hydrostatic drive for precise control and EROPS cab with climate control for all-day operation.",
-    model: "Komatsu D-37PX",
-    manufacturer: "Komatsu",
-    dailyRate: 450,
-    weeklyRate: 1500,
-    monthlyRate: 4500,
-    image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    subcategory: "LGP Bulldozer W/ 6-Way Blade",
+    technology: "Low Ground Pressure Technology",
+    description: "Low ground pressure bulldozer with 6-way blade for precision earthmoving",
+    detailedDescription: "The Cat D4K-XL LGP bulldozer features low ground pressure undercarriage for sensitive terrain work and 6-way blade for precise grading and material handling in various conditions.",
+    model: "Cat D4K-XL LGP",
+    manufacturer: "Cat",
+    dailyRate: 1200,
+    weeklyRate: 3600,
+    monthlyRate: 8950,
+    image: "https://images.unsplash.com/photo-1574116164516-3c213a5fdb86?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
+      "Low ground pressure undercarriage",
+      "6-way hydraulic blade",
+      "EROPS cab with AC",
       "Hydrostatic transmission",
-      "EROPS cab with heat & AC",
-      "Semi-U blade configuration",
-      "Load sensing hydraulics",
-      "Undercarriage protection"
+      "Advanced hydraulics"
     ],
     specifications: {
-      "Operating Weight": "19,000 lbs",
-      "Engine Power": "105 hp",
-      "Blade Capacity": "2.7 cu yd",
-      "Ground Pressure": "6.2 PSI",
+      "Operating Weight": "19,400 lbs",
+      "Engine Power": "84 hp",
+      "Blade Capacity": "2.5 cu yd",
+      "Ground Pressure": "6.8 psi",
       "Travel Speed": "6.8 mph"
     },
     applications: [
       "Site preparation",
-      "Grading work",
-      "Material pushing",
-      "Rough grading",
-      "Land clearing"
+      "Finish grading",
+      "Material spreading",
+      "Slope work",
+      "Landscaping projects"
     ],
     safetyFeatures: [
-      "ROPS/FOPS certified cab",
-      "Blade float protection",
-      "Hydraulic lockouts",
-      "Emergency systems"
+      "ROPS/FOPS cab",
+      "Hydraulic blade control",
+      "Backup alarm",
+      "Emergency engine stop"
     ],
     operatorRequired: true,
     deliveryIncluded: true,
@@ -394,7 +394,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 300,
     weeklyRate: 1000,
     monthlyRate: 2500,
-    image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1601207068481-70b17c896ce8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
       "Intelligent hydraulic system",
       "EROPS cab with climate control",
@@ -441,7 +441,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 375,
     weeklyRate: 1250,
     monthlyRate: 3200,
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1592491001571-8d63a1df0df0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
       "Cat Connect technology",
       "Spacious EROPS cab",
@@ -451,169 +451,169 @@ export const rentalEquipment: RentalEquipment[] = [
     ],
     specifications: {
       "Operating Weight": "13,000 lbs",
-      "Max Dig Depth": "13 ft 1 in",
-      "Max Reach": "20 ft 8 in",
-      "Engine Power": "48 hp",
-      "Bucket Capacity": "0.53 cu yd"
+      "Max Dig Depth": "14 ft 3 in",
+      "Max Reach": "22 ft 7 in",
+      "Engine Power": "54 hp",
+      "Bucket Capacity": "0.57 cu yd"
     },
     applications: [
-      "General construction",
-      "Utility work",
+      "General excavation",
+      "Utility trenching",
+      "Foundation preparation",
       "Material handling",
-      "Site preparation",
-      "Trenching operations"
+      "Site development"
     ],
     safetyFeatures: [
-      "ROPS/FOPS protection",
-      "Hydraulic lockout system",
-      "Backup alarm",
-      "Emergency hydraulic shut-off"
+      "ROPS/FOPS cab",
+      "Hydraulic quick coupler",
+      "Operator presence system",
+      "Emergency hydraulic stop"
     ],
     operatorRequired: true,
     deliveryIncluded: true,
     availability: 'available',
-    tags: ['Cat Connect', 'Mid-Size', 'Fuel Efficient', 'Construction']
+    tags: ['Mid-Size', 'Connect Technology', 'Efficient', 'Versatile']
   },
 
   {
     id: "cat-308",
-    name: "18,000 LB Excavator-Erops W/ Heat & AC",
+    name: "18,000LB Excavator-Erops W/ Heat & AC",
     category: "excavators",
     subcategory: "Erops W/ Heat & AC",
-    technology: "Smart Mode Technology",
-    description: "Versatile excavator with smart mode operation and enhanced digging performance",
-    detailedDescription: "The Cat 308 excavator delivers optimal balance of power and efficiency with Smart Mode technology that automatically adjusts engine and hydraulic performance based on working conditions.",
+    technology: "Advanced Hydraulic System",
+    description: "Heavy-duty excavator with advanced hydraulics for demanding applications",
+    detailedDescription: "The Cat 308 excavator delivers superior performance for heavy excavation work with advanced hydraulic system, comfortable operator cab, and excellent fuel efficiency for extended operation.",
     model: "Cat 308",
     manufacturer: "Cat",
-    dailyRate: 500,
-    weeklyRate: 1450,
-    monthlyRate: 4100,
-    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    dailyRate: 450,
+    weeklyRate: 1500,
+    monthlyRate: 3900,
+    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
     features: [
-      "Smart Mode technology",
-      "Enhanced digging force",
-      "Premium EROPS cab",
-      "Advanced display system",
-      "Hydraulic quick coupler ready"
+      "Advanced hydraulic system",
+      "Heavy-duty undercarriage",
+      "Premium operator cab",
+      "High breakout force",
+      "Multiple work tool compatibility"
     ],
     specifications: {
       "Operating Weight": "18,000 lbs",
-      "Max Dig Depth": "14 ft 9 in",
-      "Max Reach": "23 ft 7 in",
-      "Engine Power": "60 hp",
-      "Bucket Capacity": "0.8 cu yd"
+      "Max Dig Depth": "17 ft 4 in",
+      "Max Reach": "25 ft 7 in",
+      "Engine Power": "74 hp",
+      "Bucket Capacity": "0.84 cu yd"
     },
     applications: [
-      "Medium construction projects",
+      "Heavy excavation",
+      "Large utility work",
+      "Commercial construction",
       "Road construction",
-      "Building construction",
-      "Material loading",
-      "Precision excavation"
+      "Material loading"
     ],
     safetyFeatures: [
-      "Enhanced ROPS cab",
-      "Joystick lockouts",
-      "Travel warning system",
-      "Emergency lowering"
+      "ROPS/FOPS protection",
+      "Hydraulic pilot controls",
+      "Travel alarm system",
+      "Emergency shutdown"
     ],
     operatorRequired: true,
     deliveryIncluded: true,
     availability: 'available',
-    tags: ['Smart Mode', 'Versatile', 'Enhanced Power', 'Medium Duty']
+    tags: ['Heavy Duty', 'Commercial', 'High Performance', 'Reliable']
   },
 
   {
-    id: "komatsu-pc138-11",
-    name: "30,000 LB Excavator-Erops W/ Heat & AC",
+    id: "cat-320",
+    name: "46,000LB Excavator-Erops W/ Heat & AC",
     category: "excavators",
     subcategory: "Erops W/ Heat & AC",
-    technology: "KOMTRAX Monitoring System",
-    description: "Large excavator with advanced monitoring and superior digging capability",
-    detailedDescription: "The Komatsu PC138-11 combines powerful hydraulic performance with KOMTRAX monitoring system for enhanced productivity tracking and maintenance scheduling.",
-    model: "Komatsu PC138-11",
-    manufacturer: "Komatsu",
-    dailyRate: 675,
-    weeklyRate: 1850,
-    monthlyRate: 5200,
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    technology: "Cat C7.1 Engine Technology",
+    description: "Large excavator with Cat C7.1 engine for maximum productivity and efficiency",
+    detailedDescription: "The Cat 320 excavator features the powerful Cat C7.1 engine with advanced technology for optimal fuel efficiency and productivity in the most demanding applications.",
+    model: "Cat 320",
+    manufacturer: "Cat",
+    dailyRate: 750,
+    weeklyRate: 2500,
+    monthlyRate: 6500,
+    image: "https://images.unsplash.com/photo-1615117948010-0a8b4c8bcb6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
     features: [
-      "KOMTRAX monitoring system",
-      "High-performance hydraulics",
-      "Spacious operator compartment",
-      "Advanced cooling system",
-      "Heavy-duty undercarriage"
+      "Cat C7.1 ACERT engine",
+      "Advanced operator station",
+      "Superior hydraulic performance",
+      "Extended maintenance intervals",
+      "Cat Connect GRADE technology"
     ],
     specifications: {
-      "Operating Weight": "30,000 lbs",
-      "Max Dig Depth": "19 ft 8 in",
-      "Max Reach": "31 ft 2 in",
-      "Engine Power": "103 hp",
-      "Bucket Capacity": "1.54 cu yd"
+      "Operating Weight": "46,000 lbs",
+      "Max Dig Depth": "22 ft 8 in",
+      "Max Reach": "33 ft 2 in",
+      "Engine Power": "174 hp",
+      "Bucket Capacity": "2.2 cu yd"
     },
     applications: [
-      "Large construction projects",
-      "Infrastructure development",
-      "Mass excavation",
-      "Heavy material handling",
-      "Commercial construction"
-    ],
-    safetyFeatures: [
-      "Advanced ROPS structure",
-      "Machine monitoring alerts",
-      "Hydraulic lockout valves",
-      "Emergency shutdown system"
-    ],
-    operatorRequired: true,
-    deliveryIncluded: true,
-    availability: 'available',
-    tags: ['Large Scale', 'KOMTRAX', 'High Performance', 'Commercial']
-  },
-
-  {
-    id: "komatsu-pc238",
-    name: "56,000 LB Excavator-Erops W/ Heat & AC",
-    category: "excavators",
-    subcategory: "Erops W/ Heat & AC",
-    technology: "Advanced Hydraulic Matching",
-    description: "Heavy-duty excavator for large-scale construction with maximum digging force",
-    detailedDescription: "The Komatsu PC238 represents the pinnacle of excavator performance with advanced hydraulic matching technology delivering exceptional productivity for the most demanding construction projects.",
-    model: "Komatsu PC238",
-    manufacturer: "Komatsu",
-    dailyRate: 1500,
-    weeklyRate: 3500,
-    monthlyRate: 8800,
-    image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    features: [
-      "Advanced hydraulic matching",
-      "Maximum digging force",
-      "Premium operator environment",
-      "Heavy-duty construction",
-      "Extended service intervals"
-    ],
-    specifications: {
-      "Operating Weight": "56,000 lbs",
-      "Max Dig Depth": "23 ft 7 in",
-      "Max Reach": "37 ft 1 in",
-      "Engine Power": "177 hp",
-      "Bucket Capacity": "2.62 cu yd"
-    },
-    applications: [
-      "Major infrastructure projects",
+      "Large-scale excavation",
+      "Infrastructure projects",
       "Mining operations",
-      "Large-scale earthmoving",
-      "Heavy demolition",
-      "Industrial construction"
+      "Mass excavation",
+      "Heavy material handling"
     ],
     safetyFeatures: [
-      "Reinforced ROPS cab",
-      "Advanced monitoring systems",
-      "Multiple safety lockouts",
+      "ROPS/FOPS certified",
+      "Advanced hydraulic lockouts",
+      "Operator presence monitoring",
+      "Emergency stop systems"
+    ],
+    operatorRequired: true,
+    deliveryIncluded: true,
+    availability: 'available',
+    tags: ['Large Scale', 'Infrastructure', 'High Productivity', 'Advanced']
+  },
+
+  {
+    id: "cat-336",
+    name: "80,000LB Excavator-Erops W/ Heat & AC",
+    category: "excavators",
+    subcategory: "Erops W/ Heat & AC",
+    technology: "Cat C9.3 Engine Technology",
+    description: "Heavy-duty excavator with Cat C9.3 engine for the most demanding applications",
+    detailedDescription: "The Cat 336 excavator is designed for the toughest jobs with powerful Cat C9.3 engine, advanced hydraulic system, and premium operator comfort for maximum productivity.",
+    model: "Cat 336",
+    manufacturer: "Cat",
+    dailyRate: 1250,
+    weeklyRate: 4200,
+    monthlyRate: 11000,
+    image: "https://images.unsplash.com/photo-1593789198777-f29bc259780e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    features: [
+      "Cat C9.3 ACERT engine",
+      "Premium operator environment",
+      "Maximum hydraulic performance",
+      "Heavy-duty structure",
+      "Advanced monitoring systems"
+    ],
+    specifications: {
+      "Operating Weight": "80,000 lbs",
+      "Max Dig Depth": "28 ft 5 in",
+      "Max Reach": "39 ft 8 in",
+      "Engine Power": "299 hp",
+      "Bucket Capacity": "4.0 cu yd"
+    },
+    applications: [
+      "Large infrastructure projects",
+      "Mining and quarrying",
+      "Heavy demolition",
+      "Mass earthmoving",
+      "Industrial applications"
+    ],
+    safetyFeatures: [
+      "Enhanced ROPS/FOPS",
+      "Advanced hydraulic controls",
+      "Comprehensive monitoring",
       "Emergency response systems"
     ],
     operatorRequired: true,
     deliveryIncluded: true,
     availability: 'limited',
-    tags: ['Heavy Duty', 'Maximum Power', 'Industrial', 'Large Scale']
+    tags: ['Heavy Industrial', 'Mining', 'Large Projects', 'Maximum Power']
   },
 
   // GENERATORS
@@ -630,7 +630,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 300,
     weeklyRate: 675,
     monthlyRate: 1700,
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1607093965580-3b15868b5cd0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
       "20KVA power output",
       "Clean power technology",
@@ -677,7 +677,7 @@ export const rentalEquipment: RentalEquipment[] = [
     dailyRate: 445,
     weeklyRate: 1050,
     monthlyRate: 1975,
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1589595358526-2e2c33565dac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
     features: [
       "38KVA power capacity",
       "Intelligent load management",
@@ -718,235 +718,188 @@ export const rentalEquipment: RentalEquipment[] = [
     subcategory: "Towable Diesel",
     technology: "Advanced Engine Management",
     description: "Premium 45KVA generator with advanced engine management for maximum reliability",
-    detailedDescription: "The Tecnogen G-45 provides reliable power with advanced engine management system that monitors and optimizes performance while ensuring long-term durability and minimal maintenance.",
+    detailedDescription: "The Tecnogen G-45 generator combines advanced engine management with premium components for exceptional reliability and performance in demanding applications.",
     model: "Tecnogen G-45",
     manufacturer: "Tecnogen",
-    dailyRate: 550,
-    weeklyRate: 1275,
-    monthlyRate: 2300,
-    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    dailyRate: 500,
+    weeklyRate: 1200,
+    monthlyRate: 2400,
+    image: "https://images.unsplash.com/photo-1587613865763-4b8b0d19c25b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
-      "45KVA maximum output",
+      "45KVA premium output",
       "Advanced engine management",
       "Sound-attenuated enclosure",
-      "Heavy-duty alternator",
-      "Extended maintenance intervals"
+      "Digital display panel",
+      "Automatic start/stop"
     ],
     specifications: {
       "Power Output": "45KVA (36kW)",
       "Voltage": "120/208V 3-phase",
-      "Engine Management": "Electronic",
-      "Noise Level": "68 dB(A)",
+      "Engine": "Premium Diesel",
+      "Runtime": "12+ hours",
       "Fuel Tank": "50 gallons"
     },
     applications: [
-      "Heavy-duty construction",
-      "Industrial facilities",
-      "Event power supply",
-      "Emergency services",
-      "Critical power applications"
+      "Critical power applications",
+      "Large commercial sites",
+      "Extended operation needs",
+      "Sensitive equipment power",
+      "Backup power systems"
     ],
     safetyFeatures: [
-      "Engine protection system",
-      "Overload protection",
-      "Low noise operation",
-      "Automatic voltage regulation"
+      "Advanced control system",
+      "Multi-level protection",
+      "Automatic monitoring",
+      "Emergency shutdown"
     ],
     operatorRequired: false,
     deliveryIncluded: true,
     availability: 'available',
-    tags: ['Premium Power', 'Quiet Operation', 'Heavy Duty', 'Industrial']
+    tags: ['Premium', 'Reliable', 'Commercial', 'Advanced Controls']
   },
 
   // LIGHT TOWERS
   {
-    id: "allmand-nite-light-pro",
-    name: "4-5000 Watt Led Light Tower",
+    id: "terex-al4000",
+    name: "6KW Light Tower with 4x1000W Metal Halide",
     category: "light-towers",
-    subcategory: "LED",
-    technology: "LED Illumination Technology",
-    description: "Energy-efficient LED light tower providing superior illumination for work sites",
-    detailedDescription: "The Allmand Nite Light Pro features advanced LED technology delivering 4-5000 watts of bright, even illumination while consuming significantly less fuel than traditional lighting systems.",
-    model: "Allmand Nite Light Pro",
-    manufacturer: "Allmand",
-    dailyRate: 105,
-    weeklyRate: 295,
-    monthlyRate: 495,
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    subcategory: "6KW with 4x1000W Metal Halide",
+    technology: "Metal Halide Lighting Technology",
+    description: "High-intensity 6KW light tower with four 1000W metal halide lamps for large area illumination",
+    detailedDescription: "The Terex AL4000 light tower provides exceptional illumination with four 1000W metal halide lamps, hydraulic mast extension to 30 feet, and reliable diesel engine operation.",
+    model: "Terex AL4000",
+    manufacturer: "Terex",
+    dailyRate: 175,
+    weeklyRate: 525,
+    monthlyRate: 1050,
+    image: "https://images.unsplash.com/photo-1504233151023-a9650c1dee4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
-      "4-5000 watt LED array",
-      "30-foot telescoping mast",
+      "Four 1000W metal halide lamps",
+      "30-foot hydraulic mast",
       "360-degree rotation",
-      "Fuel-efficient operation",
-      "Remote control capability"
+      "Diesel engine operation",
+      "Towable design"
     ],
     specifications: {
-      "Light Output": "4-5000 watts LED",
-      "Mast Height": "30 feet",
-      "Coverage Area": "7+ acres",
-      "Runtime": "100+ hours",
-      "Fuel Tank": "20 gallons"
+      "Light Output": "400,000+ lumens",
+      "Mast Height": "30 ft",
+      "Coverage Area": "5+ acres",
+      "Runtime": "70+ hours",
+      "Fuel Tank": "38 gallons"
     },
     applications: [
-      "Night construction work",
-      "Security lighting",
+      "Construction site lighting",
+      "Road construction",
       "Emergency response",
       "Event lighting",
-      "Road work illumination"
+      "Security lighting"
     ],
     safetyFeatures: [
-      "Automatic mast lowering",
+      "Breakaway mast design",
+      "Outrigger stabilizers",
       "Wind speed monitoring",
-      "LED overheat protection",
-      "Stable outrigger system"
+      "Ground fault protection"
     ],
     operatorRequired: false,
     deliveryIncluded: true,
     availability: 'available',
-    tags: ['LED Technology', 'Energy Efficient', 'Remote Control', 'Wide Coverage']
+    tags: ['High Intensity', 'Large Coverage', 'Towable', 'Professional']
   },
 
   // PRESSURE WASHERS
   {
-    id: "shark-hot-water-pressure-washer",
-    name: "3,000-3,500 PSI Hot Water Gas Powered Pressure Washer",
+    id: "pressure-pro-4000",
+    name: "4000 PSI Pressure Washer Hot Water Diesel",
     category: "pressure-washers",
-    subcategory: "Hot Water Gas Powered",
-    technology: "Hot Water Cleaning System",
-    description: "High-pressure hot water system for heavy-duty cleaning and surface preparation",
-    detailedDescription: "The Shark hot water pressure washer delivers 3,000-3,500 PSI of cleaning power with heated water for superior cleaning performance on grease, oil, and stubborn contaminants.",
-    model: "Shark",
-    manufacturer: "Shark",
-    dailyRate: 175,
-    weeklyRate: 495,
-    monthlyRate: 950,
-    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    subcategory: "Hot Water Diesel",
+    technology: "Hot Water Cleaning Technology",
+    description: "High-pressure 4000 PSI hot water pressure washer for heavy-duty cleaning applications",
+    detailedDescription: "The Pressure Pro 4000 combines high pressure with hot water cleaning for superior results on grease, oil, and stubborn stains. Diesel-powered for extended operation.",
+    model: "Pressure Pro 4000HW",
+    manufacturer: "Pressure Pro",
+    dailyRate: 225,
+    weeklyRate: 675,
+    monthlyRate: 1350,
+    image: "https://images.unsplash.com/photo-1633259584604-afdc243122ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
-      "3,000-3,500 PSI pressure",
-      "Hot water heating system",
+      "4000 PSI pressure output",
+      "Hot water cleaning capability",
+      "Diesel engine operation",
       "Professional-grade pump",
-      "Multiple nozzle attachments",
-      "Heavy-duty construction"
+      "Heavy-duty frame"
     ],
     specifications: {
-      "Pressure": "3,000-3,500 PSI",
+      "Pressure": "4000 PSI",
+      "Flow Rate": "4.0 GPM",
       "Water Temperature": "Up to 200°F",
-      "Flow Rate": "3.5 GPM",
-      "Engine": "Gas powered",
-      "Hose Length": "50 feet"
+      "Engine": "Diesel",
+      "Hose Length": "50 ft"
     },
     applications: [
-      "Equipment cleaning",
-      "Surface preparation",
+      "Heavy equipment cleaning",
+      "Concrete preparation",
       "Grease removal",
       "Industrial cleaning",
-      "Concrete cleaning"
+      "Surface preparation"
     ],
     safetyFeatures: [
       "Thermal relief valve",
-      "Pressure regulation",
-      "Safety trigger gun",
-      "Non-slip platform"
+      "Pressure relief system",
+      "Ground fault protection",
+      "Safety trigger gun"
     ],
     operatorRequired: false,
     deliveryIncluded: true,
     availability: 'available',
-    tags: ['Hot Water', 'High Pressure', 'Professional', 'Heavy Duty']
+    tags: ['Hot Water', 'High Pressure', 'Industrial', 'Diesel']
   },
 
   // SKID STEERS
   {
-    id: "cat-262-d3",
-    name: "Wheel Skid Steer Erops W Heat & AC",
+    id: "cat-242d",
+    name: "1,800 LB Skid Steer w/Bucket",
     category: "skid-steers",
-    subcategory: "Wheel",
-    technology: "Advanced Display System",
-    description: "Wheeled skid steer with advanced display and climate-controlled cab for versatile applications",
-    detailedDescription: "The Cat 262 D3 wheel skid steer provides excellent maneuverability and traction with advanced display technology and comfortable EROPS cab for extended operation periods.",
-    model: "Cat 262 D3",
+    subcategory: "w/Bucket",
+    technology: "Radial Lift Design",
+    description: "Compact 1,800 lb skid steer with radial lift design for excellent digging and loading performance",
+    detailedDescription: "The Cat 242D skid steer features radial lift design for superior digging performance and excellent visibility, with comfortable operator station and reliable operation.",
+    model: "Cat 242D",
     manufacturer: "Cat",
-    dailyRate: 400,
-    weeklyRate: 950,
+    dailyRate: 350,
+    weeklyRate: 1050,
     monthlyRate: 2500,
-    image: "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1592491001451-8d2a8b17b8c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     features: [
-      "Wheeled design for hard surfaces",
-      "Advanced display system",
-      "EROPS cab with climate control",
-      "High-flow hydraulics",
-      "Quick-attach system"
+      "Radial lift design",
+      "Excellent visibility",
+      "Comfortable operator station",
+      "High flow auxiliary hydraulics",
+      "Easy maintenance access"
     ],
     specifications: {
-      "Operating Capacity": "2,200 lbs",
-      "Tipping Load": "6,300 lbs",
+      "Operating Weight": "7,565 lbs",
+      "Operating Capacity": "1,800 lbs",
       "Engine Power": "74 hp",
-      "Operating Weight": "8,900 lbs",
-      "Travel Speed": "12 mph"
+      "Bucket Capacity": "0.75 cu yd",
+      "Lift Height": "10 ft 6 in"
     },
     applications: [
       "Material handling",
-      "Site cleanup",
+      "Site preparation",
       "Landscaping",
-      "Snow removal",
-      "Attachment work"
+      "Construction support",
+      "Loading operations"
     ],
     safetyFeatures: [
-      "ROPS/FOPS certified",
+      "ROPS/FOPS protection",
+      "Hydraulic pilot controls",
       "Seat belt interlock",
-      "Hydraulic lockouts",
-      "Backup alarm"
+      "Emergency hydraulic stop"
     ],
     operatorRequired: true,
     deliveryIncluded: true,
     availability: 'available',
-    tags: ['Wheeled', 'Versatile', 'Climate Control', 'High Flow']
-  },
-
-  {
-    id: "cat-279-d3",
-    name: "Track Skid Steer Erops W Heat & AC",
-    category: "skid-steers",
-    subcategory: "Track",
-    technology: "Intelligent Hydraulics",
-    description: "Track skid steer with intelligent hydraulics and superior traction for challenging terrain",
-    detailedDescription: "The Cat 279 D3 track skid steer delivers exceptional performance on soft ground with intelligent hydraulics that automatically adjust to load conditions and operator preferences.",
-    model: "Cat 279 D3",
-    manufacturer: "Cat",
-    dailyRate: 650,
-    weeklyRate: 1700,
-    monthlyRate: 3800,
-    image: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    features: [
-      "Rubber track system",
-      "Intelligent hydraulics",
-      "Enhanced operator station",
-      "Superior ground pressure distribution",
-      "Advanced cooling system"
-    ],
-    specifications: {
-      "Operating Capacity": "2,700 lbs",
-      "Tipping Load": "7,700 lbs",
-      "Engine Power": "74 hp",
-      "Operating Weight": "10,200 lbs",
-      "Ground Pressure": "4.8 PSI"
-    },
-    applications: [
-      "Soft ground operations",
-      "Finished surfaces",
-      "Precise material placement",
-      "Landscaping projects",
-      "Sensitive area work"
-    ],
-    safetyFeatures: [
-      "Enhanced visibility design",
-      "Intelligent hydraulic protection",
-      "Emergency hydraulic cutoff",
-      "Advanced filtration system"
-    ],
-    operatorRequired: true,
-    deliveryIncluded: true,
-    availability: 'available',
-    tags: ['Track System', 'Intelligent', 'Low Ground Pressure', 'Precise Control']
+    tags: ['Compact', 'Versatile', 'High Visibility', 'Reliable']
   },
 
   // WHEEL LOADERS
