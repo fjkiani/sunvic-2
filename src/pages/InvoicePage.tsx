@@ -653,7 +653,6 @@ const InvoicePage: React.FC = () => {
               <tbody className="text-gray-700">
                 {phases.map((phase) => {
                   const calculatedPhaseCost = phase.items.reduce((sum, item) => sum + (item.qty * item.rate), 0);
-                  const displayPhaseCost = getPhaseSubtotal(phase);
                   const displayCostPerSqft = getCostPerSqft(phase);
                   
                   return (
@@ -704,7 +703,7 @@ const InvoicePage: React.FC = () => {
                         <div className="relative group">
                           <input 
                             type="number" 
-                            value={phase.manualCostPerSqft !== undefined ? phase.manualCostPerSqft : (phase.sqft > 0 ? displayPhaseCost / phase.sqft : 0)}
+                            value={phase.manualCostPerSqft !== undefined ? phase.manualCostPerSqft : displayCostPerSqft}
                             onChange={(e) => {
                               const value = parseFloat(e.target.value) || 0;
                               updatePhase(phase.id, { manualCostPerSqft: value });
