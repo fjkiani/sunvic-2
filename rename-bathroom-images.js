@@ -45,3 +45,4 @@ fs.readdir(bathroomDir, (err, files) => {
 
   console.log('\nRenaming complete!');
 });
+
