@@ -123,7 +123,7 @@ const ContactPage: React.FC = () => {
         subtitle="Contact SunVic"
         description="Ready to experience engineering excellence in home remodeling? Get started with a comprehensive consultation and detailed project assessment."
         height="lg"
-        backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80"
+        backgroundImage="/images/full-home-remodel/1.jpg"
         gradient="linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.7) 50%, rgba(51, 65, 85, 0.6) 100%)"
       />
 

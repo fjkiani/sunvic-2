@@ -1,0 +1,47 @@
+---
+description: Netlify Functions for RapidAPI proxy, LLM analysis, storage, and scheduling
+---
+# Functions: SEO Pipeline
+
+Place serverless code under `netlify/functions/`.
+
+## Endpoints
+
+- `keyword-research` (GET)
+  - Query: `keyword`, `country`
+  - Calls RapidAPI Semrush Keyword Magic Tool
+  - Headers: `x-rapidapi-key: ${RAPIDAPI_KEY}` and host header as required
+  - Caches raw response by `keyword|country`
+
+- `seo-analyze` (POST)
+  - Body: `{ keywordData, routeKey, model?, temperature? }`
+  - Calls LLM with strict JSON schema (see [llm-schema.mdc](mdc:llm-schema.mdc))
+  - Returns structured SEO recommendations
+
+- `seo-store` (GET/POST)
+  - GET: `?route=/services` → returns `latest.json`
+  - POST: `{ routeKey, data }` → writes both `latest.json` and timestamped version to Netlify Blobs/KV
+  - Requires admin token for writes
+
+- `seo-schedule` (Scheduled)
+  - `export const config = { schedule: '@weekly' }`
+  - Iterates configured routes and seed keywords, runs `keyword-research` → `seo-analyze` → stores output
+
+## Environment variables
+
+- `RAPIDAPI_KEY` – Semrush RapidAPI key
+- `OPENAI_API_KEY` (or `ANTHROPIC_API_KEY`, etc.)
+- `ADMIN_TOKEN` – header auth for admin operations
+- `BLOBS_*` / `KV_*` – Netlify storage bindings
+
+## Security
+
+- Never expose keys to the client. All calls to third-parties are from functions.
+- Admin-only routes require `X-Admin-Token: ${ADMIN_TOKEN}`.
+- Log request IDs, timing, and costs; redact content inputs when logging.
+
+## Scheduling
+
+- Use Scheduled Functions for cadenced refresh.
+- For per-run overrides/adhoc, invoke via `/admin/seo` UI.
+

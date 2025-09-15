@@ -1,0 +1,65 @@
+---
+alwaysApply: true
+---
+# SEO + Content Automation Architecture
+
+This project is a Vite SPA hosted on Netlify. We will add a secure, repeatable SEO research and content automation pipeline driven by RapidAPI (Semrush Keyword Magic Tool) and an LLM, with results injected into pages at runtime and optionally committed back to source for permanence.
+
+## Components
+
+- API proxy and analysis endpoints (Netlify Functions):
+  - `keyword-research` → proxies RapidAPI Semrush. Reads `RAPIDAPI_KEY`.
+  - `seo-analyze` → sends keyword data to LLM. Reads `OPENAI_API_KEY` or provider-specific key.
+  - `seo-store` → persists and retrieves structured SEO outputs (Netlify Blobs/KV).
+  - `seo-schedule` (scheduled function) → runs recurring research for seed keywords.
+- Admin SEO Console route: `/admin/seo` to trigger runs, review, and approve.
+- SEO injection at runtime: `react-helmet-async`-based `Seo` component used by each route.
+- Optional persistent updates: approved SEO/content changes open GitHub PRs to update `src/data/*.ts` and copy.
+
+## Data flow
+
+1. Client (admin) triggers research or scheduled function runs automatically.
+2. `keyword-research` calls Semrush via RapidAPI → returns raw keyword dataset.
+3. `seo-analyze` clusters and synthesizes using LLM → outputs strict JSON schema (see [llm-schema.mdc](mdc:llm-schema.mdc)).
+4. `seo-store` writes results keyed by route/page and run version to Netlify Blobs/KV.
+5. Pages load and render SEO from storage at runtime (fast path) via `Seo` component.
+6. Optionally, an approver triggers "Apply to Source" to create a Git PR for permanent content/meta changes.
+
+## Storage model
+
+Keyed by route path and version:
+```
+seo/{route}/latest.json
+seo/{route}/{timestamp}.json
+```
+Contains:
+- `primary_keyword`, `secondary_keywords[]`
+- `title`, `meta_description`, `h1`, `h2s[]`
+- `content_outline[]`, `faqs[]`, `schema_jsonld`, `internal_links[]`, `image_alts[]`
+- `source`: rapidapi params, model, prompt version
+
+## Where to inject SEO
+
+- Wrap app with `HelmetProvider` in `src/App.tsx`.
+- Create a `Seo` component (TSX) consumed by each page in `src/pages/*` to render title, meta, canonical, OpenGraph, and JSON-LD.
+- `Seo` loads overrides from `seo-store` by route; falls back to sensible defaults in code.
+- For content blocks, each page can optionally load approved content overrides (e.g., headings, FAQs, alt text) from storage and render them.
+
+## Scheduling and cadence
+
+- Use a Netlify Scheduled Function (`seo-schedule`) with cron-like cadence (e.g., weekly) to refresh priority routes and seed keywords.
+- Cache Semrush responses per seed/country; only re-analyze on changes or TTL expiry to control cost.
+
+## Security
+
+- All third-party keys live in Netlify environment variables. Never expose keys in client.
+- Admin APIs require a signed header token (`X-Admin-Token`) and/or IP allowlist.
+- Log runs with timestamp, route, cost, and diff summary.
+
+## Related files
+
+- `netlify.toml` – build and redirects
+- `src/App.tsx` – add `HelmetProvider` and inject `Seo`
+- `src/pages/*` – per-route SEO usage and optional content overrides
+- `src/data/*` – authoritative content blocks that can be edited via auto-PRs
+

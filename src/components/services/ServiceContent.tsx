@@ -11,8 +11,7 @@ import {
   SparklesIcon,
   PhotoIcon
 } from '@heroicons/react/24/outline';
-import ProjectGallery from '../ui/ProjectGallery';
-import { groundUpConstructionShowcase, fullHomeRemodelingShowcase } from '../../data/projectShowcases';
+import DynamicGallery from '../ui/DynamicGallery';
 
 interface ServiceContentProps {
   service: {
@@ -36,10 +35,8 @@ interface ServiceContentProps {
 const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
   const [activeTab, setActiveTab] = useState('overview');
 
-  // Check service type for project gallery
-  const isGroundUpConstruction = service.id === 'ground-up-construction';
-  const isFullHomeRemodeling = service.id === 'full-home-remodeling';
-  const hasProjectGallery = isGroundUpConstruction || isFullHomeRemodeling;
+  // All services now have dynamic galleries
+  const hasProjectGallery = true;
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: HomeIcon },
@@ -51,14 +48,7 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
     ...(hasProjectGallery ? [{ id: 'gallery', label: 'Project Gallery', icon: PhotoIcon }] : [])
   ];
 
-  // Get the appropriate project showcase
-  const getProjectShowcase = () => {
-    if (isGroundUpConstruction) return groundUpConstructionShowcase;
-    if (isFullHomeRemodeling) return fullHomeRemodelingShowcase;
-    return null;
-  };
-
-  const projectShowcase = getProjectShowcase();
+  // Dynamic gallery will handle all services automatically
 
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -141,58 +131,13 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ service }) => {
             </div>
           )}
 
-          {/* Project Gallery Tab - For services with project showcases */}
-          {activeTab === 'gallery' && hasProjectGallery && projectShowcase && (
-            <div className="space-y-8">
-              <div className="text-center max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Real Project Documentation
-                </h2>
-                <p className="text-lg text-gray-600 mb-8">
-                  {isGroundUpConstruction && 
-                    "Follow our systematic approach to ground-up construction with this actual project. See the quality and precision that goes into every phase of our work."
-                  }
-                  {isFullHomeRemodeling && 
-                    "Experience our coordinated approach to complete home transformation. See how we seamlessly integrate kitchen, bathroom, basement, and smart home renovations for maximum impact and efficiency."
-                  }
-                </p>
-              </div>
-              
-              <ProjectGallery 
-                phases={projectShowcase.phases}
-                config={{
-                  ...projectShowcase.config,
-                  title: undefined, // Remove title since we have it above
-                  description: undefined // Remove description since we have it above
-                }}
-                className="rounded-2xl shadow-lg"
-              />
-              
-              {/* Project Metadata */}
-              <div className={`${isGroundUpConstruction ? 'bg-amber-50' : 'bg-purple-50'} rounded-2xl p-6 mt-8`}>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Project Details</h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm">
-                  <div>
-                    <span className="font-medium text-gray-900">Location:</span>
-                    <p className="text-gray-600">{projectShowcase.metadata?.location}</p>
-                  </div>
-                  <div>
-                    <span className="font-medium text-gray-900">Project Value:</span>
-                    <p className="text-gray-600">{projectShowcase.metadata?.projectValue}</p>
-                  </div>
-                  <div>
-                    <span className="font-medium text-gray-900">Timeline:</span>
-                    <p className="text-gray-600">{projectShowcase.metadata?.duration}</p>
-                  </div>
-                  <div>
-                    <span className="font-medium text-gray-900">Status:</span>
-                    <p className={`${isGroundUpConstruction ? 'text-amber-600' : 'text-purple-600'} font-medium`}>
-                      {isGroundUpConstruction ? 'In Progress' : 'Coordinated Phases'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Dynamic Project Gallery Tab */}
+          {activeTab === 'gallery' && hasProjectGallery && (
+            <DynamicGallery 
+              serviceId={service.id}
+              title="Project Gallery"
+              description="See real examples of our work and the quality we deliver in every project."
+            />
           )}
 
           {activeTab === 'wellness' && (

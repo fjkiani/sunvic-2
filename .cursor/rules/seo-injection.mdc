@@ -1,0 +1,50 @@
+---
+globs: *.tsx
+---
+# SEO Meta and JSON-LD Injection Guide
+
+Use `react-helmet-async` to render per-route SEO and schema. Each page should consume a shared `Seo` component that reads approved overrides from storage keyed by the current route.
+
+## App bootstrap
+
+- Wrap the app in `HelmetProvider` in `src/App.tsx`.
+- Ensure pages render inside the provider.
+
+## Seo component contract
+
+Props:
+- `routeKey?: string` – optional override; default from router path
+- `fallback: { title, description, canonical?, og?, schema? }`
+
+Behavior:
+- Resolves `routeKey` from router (e.g., `useLocation().pathname`).
+- Fetches `seo/{routeKey}/latest.json` from storage via `/api/seo-store?route=...`.
+- Merges storage overrides with `fallback` and renders with `<Helmet>`.
+
+Example usage in a page component:
+```tsx
+<Seo
+  fallback={{
+    title: 'SunVic Construction | Home Remodeling in Seattle',
+    description: 'Licensed general contractors delivering kitchen, bath, and full-home remodels.',
+    canonical: 'https://sunvic.com/',
+  }}
+/>
+```
+
+## Content overrides
+
+- Where pages render headings, FAQs, or alt text, prefer a helper like `useSeoContent(routeKey)` to pull approved overrides:
+```ts
+const { h1, h2s, faqs, imageAlts } = useSeoContent('/services');
+```
+- Always fall back to existing static content under `src/data/*` and component defaults when no override exists.
+
+## Internal linking
+
+- Use the `internal_links[]` suggestions to add contextual links between related routes; implement with regular `Link` components in appropriate sections.
+
+## Crawlability note
+
+- Runtime meta works for many crawlers. For maximum reliability, consider a build-time injection step that pulls approved SEO data and writes to page modules or a prerender pass for critical routes.
+

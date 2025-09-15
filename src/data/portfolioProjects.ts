@@ -4,7 +4,7 @@ export interface ProjectImage {
   id: string;
   url: string;
   caption: string;
-  type: 'before' | 'after' | 'during' | 'detail';
+  type: 'after' | 'during' | 'detail';
 }
 
 export interface EnhancedProject {
@@ -41,38 +41,32 @@ export interface EnhancedProject {
 export const enhancedPortfolioProjects: EnhancedProject[] = [
   {
     id: "manhattan-wellness-kitchen",
-    title: "Manhattan Wellness Kitchen Sanctuary",
+    title: "Wellness Kitchen Sanctuary",
     category: "Kitchen Innovation",
-    location: "Upper East Side, Manhattan",
+    location: "Urban Residence",
     client: "Private Residence",
     completedDate: "December 2024",
-    overview: "A groundbreaking kitchen transformation that integrates health monitoring, beauty stations, and smart technology to create Manhattan's first certified wellness kitchen sanctuary.",
-    challenge: "The clients, both health-conscious professionals, wanted a kitchen that would actively support their wellness goals while maintaining luxury aesthetics in a compact Manhattan space.",
+    overview: "A groundbreaking kitchen transformation that integrates health monitoring, beauty stations, and smart technology to create a certified wellness kitchen sanctuary.",
+    challenge: "The clients, both health-conscious professionals, wanted a kitchen that would actively support their wellness goals while maintaining luxury aesthetics in a compact urban space.",
     solution: "We designed a comprehensive wellness ecosystem featuring air/water purification, circadian lighting, beauty prep areas, and AI-powered health monitoring systems integrated seamlessly into a stunning modern design.",
     results: "40% improvement in air quality, 65% reduction in cooking time through smart automation, and a dedicated beauty station that has transformed the clients' daily routines. The project received excellent client reviews and referrals.",
     heroImage: "/images/full-home-remodel/fullHome.png",
     images: [
       {
-        id: "before-1",
-        url: "https://images.unsplash.com/photo-1587411768418-7500d90e8405?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-        caption: "Original kitchen layout with outdated appliances",
-        type: "before"
-      },
-      {
         id: "after-1",
-        url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        url: "/images/full-home-remodel/kitchen/2.png",
         caption: "Transformed wellness kitchen with smart technology integration",
         type: "after"
       },
       {
         id: "detail-1",
-        url: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
+        url: "/images/full-home-remodel/kitchen/3.png",
         caption: "Custom beauty station with professional Hollywood lighting",
         type: "detail"
       },
       {
         id: "detail-2",
-        url: "https://images.unsplash.com/photo-1604709177225-055f99402ea3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        url: "/images/full-home-remodel/1.jpg",
         caption: "Smart appliances with health monitoring displays",
         type: "detail"
       }
@@ -126,38 +120,32 @@ export const enhancedPortfolioProjects: EnhancedProject[] = [
 
   {
     id: "tribeca-spa-bathroom",
-    title: "Tribeca Spa Sanctuary with Health Monitoring",
+    title: "Spa Sanctuary with Health Monitoring",
     category: "Bathroom Innovation",
-    location: "Tribeca, Manhattan",
+    location: "Urban Residence",
     client: "Executive Residence",
     completedDate: "November 2024",
     overview: "A master bathroom transformation that creates a personal wellness retreat with steam therapy, beauty stations, health monitoring, and therapeutic features that rival luxury spas.",
     challenge: "Convert a standard master bathroom into a wellness sanctuary that provides spa-level treatments while monitoring and optimizing the clients' health and beauty routines.",
     solution: "Integrated steam therapy, chromotherapy, smart mirrors with health tracking, professional beauty lighting, and water purification systems in a luxurious design that feels like a private spa retreat.",
     results: "Daily stress reduction of 35% measured through biometric monitoring, 50% improvement in skin health through filtered water and steam therapy, and a beauty routine that saves 30 minutes daily through optimized lighting and organization.",
-    heroImage: "https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
+    heroImage: "/images/bathroom/1.jpeg",
     images: [
       {
-        id: "before-1",
-        url: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-        caption: "Original bathroom with basic fixtures",
-        type: "before"
-      },
-      {
         id: "after-1",
-        url: "https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
+        url: "/images/bathroom/3.jpeg",
         caption: "Transformed spa sanctuary with wellness technology",
         type: "after"
       },
       {
         id: "detail-1",
-        url: "https://images.unsplash.com/photo-1594736797933-d0d62ab2f3be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
+        url: "/images/bathroom/4.jpeg",
         caption: "Smart mirror with health monitoring and beauty lighting",
         type: "detail"
       },
       {
         id: "detail-2",
-        url: "https://images.unsplash.com/photo-1571508601891-ca5e7a713859?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        url: "/images/bathroom/5.jpeg",
         caption: "Steam shower with chromotherapy lighting",
         type: "detail"
       }
@@ -211,9 +199,9 @@ export const enhancedPortfolioProjects: EnhancedProject[] = [
 
   {
     id: "brooklyn-smart-addition",
-    title: "Brooklyn Bathroom Remodel",
+    title: "Smart Home Addition",
     category: "Sustainable Expansion",
-    location: "Park Slope, Brooklyn",
+    location: "Urban Residence",
     client: "Family Residence",
     completedDate: "October 2024",
     overview: "A complete bathroom remodel that includes a steam shower, smart mirror, and wellness features.",
@@ -223,26 +211,20 @@ export const enhancedPortfolioProjects: EnhancedProject[] = [
     heroImage: "/images/projects/bathroom.png",
     images: [
       {
-        id: "before-1",
-        url: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80",
-        caption: "Original home exterior before addition",
-        type: "before"
-      },
-      {
         id: "after-1",
-        url: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        url: "/images/full-home-remodel/fullHome.png",
         caption: "Completed addition with seamless integration",
         type: "after"
       },
       {
         id: "detail-1",
-        url: "https://images.unsplash.com/photo-1605146769289-440113cc3d00?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        url: "/images/full-home-remodel/kitchen/1.png",
         caption: "Indoor-outdoor living space with smart climate control",
         type: "detail"
       },
       {
         id: "detail-2",
-        url: "https://images.unsplash.com/photo-1562066138-97dee9f9d6bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+        url: "/images/full-home-remodel/kitchen/2.png",
         caption: "Solar panel integration with smart energy monitoring",
         type: "detail"
       }
@@ -292,6 +274,76 @@ export const enhancedPortfolioProjects: EnhancedProject[] = [
     },
     relatedServices: ["energy-smart-additions"],
     tags: ["Energy Positive", "Smart Building", "Biophilic Design", "Health Monitoring", "Indoor-Outdoor Living"]
+  },
+  {
+    id: "princeton-full-home-transformation",
+    title: "Full Home Transformation",
+    category: "Full Home Remodeling",
+    location: "Suburban Residence",
+    client: "Dr. & Mrs. Chen",
+    completedDate: "2024",
+    overview: "Complete home transformation including kitchen, bathrooms, basement, and smart home integration with seamless project coordination.",
+    challenge: "The 1960s ranch home needed complete modernization while maintaining structural integrity and adding smart home technology throughout.",
+    solution: "We coordinated a comprehensive renovation including kitchen and bathroom renovations, basement finishing, and smart home integration with a single project timeline.",
+    results: "Transformed a dated ranch into a modern smart home with luxury finishes and integrated technology systems.",
+    heroImage: "/images/full-home-remodel/fullHome.png",
+    value: "$450,000",
+    timeline: "16 weeks",
+    size: "3,200 sq ft",
+    features: [
+      "Complete kitchen renovation with smart appliances",
+      "Master bathroom spa transformation", 
+      "Basement finishing with home theater",
+      "Smart home integration throughout",
+      "Energy-efficient upgrades"
+    ],
+    wellnessFeatures: [
+      "Air purification systems",
+      "Natural lighting optimization",
+      "Spa-grade bathroom features"
+    ],
+    smartFeatures: [
+      "Whole-home automation",
+      "Smart climate control",
+      "Integrated security systems"
+    ],
+    sustainabilityFeatures: [
+      "Energy-efficient appliances",
+      "Solar panel integration",
+      "Sustainable materials"
+    ],
+    equipmentUsed: [
+      "Custom millwork tools",
+      "Smart home integration systems",
+      "Professional installation equipment"
+    ],
+    images: [
+      {
+        id: "after-1", 
+        url: "/images/full-home-remodel/fullHome.png",
+        caption: "Transformed modern home with smart technology",
+        type: "after"
+      },
+      {
+        id: "detail-1",
+        url: "/images/full-home-remodel/kitchen/1.png",
+        caption: "Smart kitchen with integrated appliances",
+        type: "detail"
+      },
+      {
+        id: "detail-2",
+        url: "/images/bathroom/1.jpeg",
+        caption: "Spa-grade master bathroom",
+        type: "detail"
+      }
+    ],
+    clientTestimonial: {
+      quote: "SunVic transformed our entire home into a modern smart home. The coordination was seamless and the results exceeded our expectations.",
+      author: "Dr. Chen",
+      title: "Homeowner"
+    },
+    relatedServices: ["full-home-remodeling", "luxury-smart-kitchens", "spa-bathroom-sanctuaries"],
+    tags: ["full-home", "smart-home", "luxury", "renovation"]
   }
 ];
 
@@ -299,5 +351,6 @@ export const portfolioCategories = [
   { id: 'all', name: 'All Projects', count: enhancedPortfolioProjects.length },
   { id: 'kitchen', name: 'Kitchen Innovation', count: enhancedPortfolioProjects.filter(p => p.category === 'Kitchen Innovation').length },
   { id: 'bathroom', name: 'Bathroom Innovation', count: enhancedPortfolioProjects.filter(p => p.category === 'Bathroom Innovation').length },
-  { id: 'addition', name: 'Sustainable Expansion', count: enhancedPortfolioProjects.filter(p => p.category === 'Sustainable Expansion').length }
+  { id: 'addition', name: 'Sustainable Expansion', count: enhancedPortfolioProjects.filter(p => p.category === 'Sustainable Expansion').length },
+  { id: 'full-home', name: 'Full Home Remodeling', count: enhancedPortfolioProjects.filter(p => p.category === 'Full Home Remodeling').length }
 ]; 

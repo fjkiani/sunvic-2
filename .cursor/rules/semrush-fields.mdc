@@ -1,0 +1,36 @@
+---
+description: Semrush RapidAPI response fields and meanings for normalization
+---
+# Semrush Field Guide
+
+Common fields from the RapidAPI Semrush Keyword Magic Tool (question keywords) and how we interpret them:
+
+- keyword/query/text: The keyword string; for this endpoint typically a question phrase.
+- search_volume/volume/searchVolume: Estimated average monthly searches.
+- keyword_difficulty/kd/keywordDifficulty: Difficulty to rank (0–100).
+- cpc/costPerClick: Average cost-per-click (USD).
+- competition/comp/competitiveDensity: Paid competition density (0–1 or 0–100).
+- intents/intent: Searcher intent labels (informational, navigational, transactional, commercial).
+- serp_features/serpFeatures: SERP features present (e.g., PeopleAlsoAsk, FeaturedSnippet, LocalPack).
+- country/locale/cc: Country/locale code for the dataset.
+
+We normalize to:
+
+```json
+{
+  "keyword": "string",
+  "search_volume": 1234,
+  "keyword_difficulty": 47,
+  "cpc": 2.35,
+  "competition": 0.6,
+  "intents": ["informational"],
+  "serp_features": ["PeopleAlsoAsk"],
+  "locale": "us"
+}
+```
+
+Notes:
+- Missing or non-numeric values are omitted.
+- Arrays may come as comma-separated strings; we coerce to arrays.
+- Paid competition scale varies by source; treat relative values consistently in scoring.
+

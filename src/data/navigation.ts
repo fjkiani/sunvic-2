@@ -3,6 +3,7 @@
 
 import { enhancedServices } from './enhancedServices';
 import { rentalCategories } from './rentalEquipment';
+import { enhancedPortfolioProjects } from './portfolioProjects';
 
 export interface NavItem {
   label: string;
@@ -17,41 +18,7 @@ export interface DropdownItem {
   icon?: string;
 }
 
-// Core Services Dropdown
-export const servicesDropdown: DropdownItem[] = [
-  {
-    label: 'Engineering Planning',
-    href: '/services',
-    description: 'Structural analysis and engineering solutions',
-    icon: '🏗️'
-  },
-  {
-    label: 'Kitchen Remodeling',
-    href: '/services#kitchen',
-    description: 'Luxury kitchen transformations',
-    icon: '🍳'
-  },
-  {
-    label: 'Bathroom Renovation',
-    href: '/services#bathroom',
-    description: 'Spa-grade bathroom upgrades',
-    icon: '🛁'
-  },
-  {
-    label: 'Home Additions',
-    href: '/services#additions',
-    description: 'Smart structural additions',
-    icon: '🏠'
-  },
-  {
-    label: 'Whole Home Renovation',
-    href: '/services#whole-home',
-    description: 'Complete home transformations',
-    icon: '✨'
-  }
-];
-
-// 2025 Innovations Dropdown (from enhanced services)
+// Dynamic Services Dropdown - Generated from enhancedServices
 const getServiceIcon = (serviceId: string): string => {
   const iconMap: Record<string, string> = {
     'ground-up-construction': '🏗️',
@@ -68,11 +35,30 @@ const getServiceIcon = (serviceId: string): string => {
   return iconMap[serviceId] || '🔧';
 };
 
-const innovationsDropdown: DropdownItem[] = enhancedServices.map(service => ({
+const servicesDropdown: DropdownItem[] = enhancedServices.map(service => ({
   label: service.title,
   href: `/enhanced-service/${service.id}`,
   description: service.shortDescription,
   icon: getServiceIcon(service.id)
+}));
+
+// Portfolio Dropdown - Generated from enhancedPortfolioProjects
+const getProjectIcon = (category: string): string => {
+  const iconMap: Record<string, string> = {
+    'Kitchen Innovation': '🍳',
+    'Bathroom Innovation': '🛁',
+    'Sustainable Expansion': '⚡',
+    'Full Home Remodeling': '🏠',
+    'Ground Up Construction': '🏗️'
+  };
+  return iconMap[category] || '✨';
+};
+
+const portfolioDropdown: DropdownItem[] = enhancedPortfolioProjects.map(project => ({
+  label: project.title,
+  href: `/project/${project.id}`,
+  description: project.overview,
+  icon: getProjectIcon(project.category)
 }));
 
 // Equipment Rentals Dropdown (top categories)
@@ -91,9 +77,14 @@ export const mainNavigation: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { 
-    label: '2025 Innovations', 
+    label: 'Services', 
     href: '/enhanced-services',
-    dropdown: innovationsDropdown
+    dropdown: servicesDropdown
+  },
+  { 
+    label: 'Portfolio', 
+    href: '/portfolio',
+    dropdown: portfolioDropdown
   },
   { 
     label: 'Equipment Rentals', 
@@ -105,8 +96,9 @@ export const mainNavigation: NavItem[] = [
 
 // Footer Links Configuration
 export const footerLinks = {
-  innovations: innovationsDropdown.slice(0, 5), // Top 5 innovations for footer
+  innovations: servicesDropdown.slice(0, 5), // Top 5 services for footer
   equipment: equipmentDropdown.slice(0, 6), // Top 6 equipment categories for footer
+  portfolio: portfolioDropdown.slice(0, 4), // Top 4 portfolio projects for footer
   legal: [
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Privacy Policy', href: '/privacy' },
@@ -133,8 +125,8 @@ export const companyData = {
   tagline: 'Engineering Excellence in Every Project',
   phone: '732-824-9203',
   email: 'sunvicnj@gmail.com',
-  address: 'Old Bridge, NJ',
-  serviceArea: 'Tri-State Area (NJ, NY, PA, DC, MD, VA)',
+  address: 'Regional Office',
+  serviceArea: 'Multi-State Service Area',
   hours: 'Mon-Fri: 8AM-6PM, Sat: 9AM-4PM',
   social: {
     facebook: 'https://facebook.com/sunvichomes',

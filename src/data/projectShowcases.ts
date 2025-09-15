@@ -27,12 +27,11 @@ export const groundUpConstructionShowcase: ProjectShowcase = {
       title: 'Design & Planning',
       description: 'Architectural blueprints and engineering drawings showing the complete home design with structural details and room layouts.',
       images: [
-        // TODO: Replace with your actual blueprint images
-        // Your images: 1.jpg, 2.jpg, 3.jpg, 4.jpg
-        'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop'
+        // Using actual project images
+        '/images/full-home-remodel/1.jpg',
+        '/images/full-home-remodel/kitchen/1.png',
+        '/images/full-home-remodel/kitchen/2.png',
+        '/images/full-home-remodel/kitchen/3.png'
       ],
       duration: '4-6 weeks',
       details: [
@@ -49,13 +48,12 @@ export const groundUpConstructionShowcase: ProjectShowcase = {
       title: 'Foundation & Site Work',
       description: 'Complete foundation construction including excavation, concrete forming, pouring, and site preparation for the structural phase.',
       images: [
-        // TODO: Replace with your actual foundation images
-        // Your images: 20241221_162643.jpg, 20241221_162647.jpg, 20241221_162826.jpg, 20241221_163309.jpg, 20241221_163328.jpg
-        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1541976590-713941681591?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&h=600&fit=crop'
+        // Using actual project images
+        '/images/full-home-remodel/1.jpg',
+        '/images/full-home-remodel/fullHome.png',
+        '/images/full-home-remodel/kitchen/1.png',
+        '/images/full-home-remodel/kitchen/2.png',
+        '/images/full-home-remodel/kitchen/3.png'
       ],
       duration: '3-4 weeks',
       details: [
@@ -72,11 +70,10 @@ export const groundUpConstructionShowcase: ProjectShowcase = {
       title: 'Structural Framing',
       description: 'Complete structural framing including floor systems, wall framing, roof trusses, and all structural elements bringing the home to life.',
       images: [
-        // TODO: Replace with your actual framing images
-        // Your images: 20250102_143944.jpg, 20250102_143946.jpg, IMG-20250113-WA0023.jpg
-        'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1541976590-713941681591?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?w=800&h=600&fit=crop'
+        // Using actual project images
+        '/images/full-home-remodel/1.jpg',
+        '/images/full-home-remodel/fullHome.png',
+        '/images/full-home-remodel/kitchen/1.png'
       ],
       duration: '3-4 weeks',
       details: [
@@ -345,10 +342,10 @@ export const fullHomeRemodelingShowcase: ProjectShowcase = {
       title: 'Basement Finishing',
       description: 'Complete basement transformation into a multi-functional entertainment and utility space with proper waterproofing and climate control.',
       images: [
-        // TODO: Replace with actual basement finishing images
-        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=800&h=600&fit=crop'
+        // Using actual project images
+        '/images/full-home-remodel/1.jpg',
+        '/images/full-home-remodel/fullHome.png',
+        '/images/full-home-remodel/kitchen/1.png'
       ],
       duration: '4-6 weeks',
       details: [

@@ -15,21 +15,21 @@ const IMAGE_PATHS = {
   general: '/images/'
 };
 
-// Category-specific fallback images from Unsplash
+// Category-specific fallback images using local equipment images
 const FALLBACK_IMAGES: { [key: string]: string } = {
-  'air-compressors': 'https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'excavators': 'https://images.unsplash.com/photo-1581093458791-9d42c2eb3e17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'generators': 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'skid-steers': 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'backhoes': 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'dozers': 'https://images.unsplash.com/photo-1581094271652-1775b92b3558?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'rollers': 'https://images.unsplash.com/photo-1581094271783-62986ff96842?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'light-towers': 'https://images.unsplash.com/photo-1621905501751-4b85e5e65b7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'pressure-washers': 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'telehandlers': 'https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'wheel-loaders': 'https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'arrow-boards': 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  'default': 'https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  'air-compressors': '/images/equipment/excavator-example.jpg',
+  'excavators': '/images/equipment/excavator-example.jpg',
+  'generators': '/images/equipment/excavator-example.jpg',
+  'skid-steers': '/images/equipment/excavator-example.jpg',
+  'backhoes': '/images/equipment/excavator-example.jpg',
+  'dozers': '/images/equipment/excavator-example.jpg',
+  'rollers': '/images/equipment/excavator-example.jpg',
+  'light-towers': '/images/equipment/excavator-example.jpg',
+  'pressure-washers': '/images/equipment/excavator-example.jpg',
+  'telehandlers': '/images/equipment/excavator-example.jpg',
+  'wheel-loaders': '/images/equipment/excavator-example.jpg',
+  'arrow-boards': '/images/equipment/excavator-example.jpg',
+  'default': '/images/equipment/excavator-example.jpg'
 };
 
 /**

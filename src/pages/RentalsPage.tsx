@@ -53,7 +53,7 @@ const RentalsPage: React.FC<RentalsPageProps> = ({ openConsultationForm }) => {
       <section className="relative h-96 bg-gray-900 flex items-center justify-center">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+            src="/images/equipment/excavator-example.jpg"
             alt="Professional equipment fleet"
             className="w-full h-full object-cover"
           />

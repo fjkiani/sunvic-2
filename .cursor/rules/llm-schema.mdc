@@ -1,0 +1,50 @@
+---
+description: LLM prompt contracts and strict JSON output schema for SEO
+---
+# LLM Prompt + Output Schema
+
+Standardize the LLM output to strict JSON for reliable automation.
+
+## System prompt
+
+"You are an expert SEO strategist for a general contractor. Given keyword research data and company context, produce actionable, compliant, and locally optimized on-page SEO and content suggestions. Output ONLY valid JSON conforming to the provided schema."
+
+## JSON schema (per route)
+
+```json
+{
+  "route": "/services",
+  "primary_keyword": "kitchen remodeling seattle",
+  "secondary_keywords": ["bathroom renovation seattle", "home remodel near me"],
+  "title": "Kitchen Remodeling in Seattle | SunVic Construction",
+  "meta_description": "Licensed contractors for kitchen and bath remodels in Seattle. Free consultation.",
+  "h1": "Seattle Kitchen Remodeling & Renovation",
+  "h2s": ["End‑to‑end design & build", "Transparent pricing", "Our recent projects"],
+  "content_outline": [
+    { "section": "Intro", "bullets": ["Local expertise", "Licensed & insured"] },
+    { "section": "Process", "bullets": ["Design", "Permits", "Build"] }
+  ],
+  "faqs": [
+    { "q": "How long does a kitchen remodel take?", "a": "Typical timelines are 6–10 weeks depending on scope." }
+  ],
+  "schema_jsonld": { "@context": "https://schema.org", "@type": "Service", "areaServed": "Seattle" },
+  "internal_links": [{ "from": "/services", "to": "/portfolio", "anchor": "See our portfolio" }],
+  "image_alts": [{ "image_path": "/images/projects/kitchen/1.png", "alt": "Modern Seattle kitchen remodel with white cabinets" }],
+  "source": {
+    "seed_keyword": "kitchen remodel",
+    "country": "us",
+    "model": "gpt-4.1-mini",
+    "prompt_version": "v1"
+  }
+}
+```
+
+## Company context
+
+Provide a brief, updatable company profile to the LLM: service areas, specialties, differentiators, tone of voice, and compliance constraints. Keep within token budget and reference by version in `source.prompt_version`.
+
+## Validation
+
+- Validate JSON with a schema before storing.
+- Reject responses with hallucinated geographies or services we do not offer.
+

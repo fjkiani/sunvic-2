@@ -1,0 +1,46 @@
+---
+description: Hygraph blog integration and auto-draft creation from SEO research
+---
+# Hygraph Blog Integration
+
+We will use Hygraph as the CMS for blog posts, with auto-draft creation based on SEO research.
+
+## Hygraph model (example)
+
+- `Post` content type:
+  - `title` (String)
+  - `slug` (Unique)
+  - `excerpt` (String)
+  - `content` (Rich Text or Markdown)
+  - `coverImage` (Asset)
+  - `tags` (List<String>)
+  - `status` (Draft/Published)
+  - `seoTitle`, `seoDescription` (String)
+  - `jsonLd` (JSON)
+
+## Functions
+
+- `blog-generate` (POST):
+  - Inputs: `{ topic, routeKey?, keywordData?, companyContext? }`
+  - LLM produces: outline, title options, meta, FAQ, internal links
+  - Creates a Hygraph draft via GraphQL Mutation using `HYGRAPH_MUTATION_TOKEN`
+
+- `blog-schedule` (Scheduled):
+  - Picks candidates from weekly research clusters and company knowledge base
+  - Auto-creates drafts with `status: Draft` and assigns tags
+
+## Company knowledge base
+
+- Maintain a compact JSON profile of services, locations, case studies, and tone
+- Inject into prompts so posts align with brand and offerings
+
+## Frontend
+
+- A `/blog` list page and `/blog/:slug` detail page that fetch from Hygraph (published only)
+- Use `Seo` component; prefer Hygraph `seoTitle`/`seoDescription` when present
+
+## Safety & review
+
+- Drafts require human review before publish
+- Validate claims and avoid regulated content issues; include disclaimers if needed
+

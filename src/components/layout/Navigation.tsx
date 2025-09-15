@@ -13,13 +13,32 @@ const Navigation: React.FC = () => {
     setActiveDropdown(activeDropdown === label ? null : label);
   };
 
+  const handleMouseEnter = (label: string) => {
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    // Add a longer delay to prevent dropdown from closing when moving to dropdown
+    setTimeout(() => {
+      setActiveDropdown(null);
+    }, 500);
+  };
+
   const handleLinkClick = () => {
     setIsOpen(false);
     setActiveDropdown(null);
   };
 
-  const renderDropdown = (items: any[]) => (
-    <div className="absolute left-0 mt-2 w-80 rounded-lg shadow-xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none py-2 z-[60] border border-gray-100">
+  const renderDropdown = (items: any[], label: string) => (
+    <div 
+      className="absolute left-0 mt-3 w-96 rounded-lg shadow-xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none py-2 z-[60] border border-gray-100 transform transition-all duration-200 ease-in-out"
+      onMouseEnter={() => setActiveDropdown(label)}
+      onMouseLeave={() => {
+        setTimeout(() => {
+          setActiveDropdown(null);
+        }, 300);
+      }}
+    >
       <div className="max-h-96 overflow-y-auto">
         {items.map((item) => (
           <Link
@@ -28,9 +47,14 @@ const Navigation: React.FC = () => {
             className="block px-4 py-3 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600 transition-colors duration-200"
             onClick={handleLinkClick}
           >
-            <div className="flex items-center">
-              {item.icon && <span className="mr-3 text-lg flex-shrink-0">{item.icon}</span>}
-              <div className="font-medium text-gray-900">{item.label}</div>
+            <div className="flex items-start">
+              {item.icon && <span className="mr-3 text-lg flex-shrink-0 mt-0.5">{item.icon}</span>}
+              <div className="flex-1">
+                <div className="font-medium text-gray-900">{item.label}</div>
+                {item.description && (
+                  <div className="text-xs text-gray-500 mt-1">{item.description}</div>
+                )}
+              </div>
             </div>
           </Link>
         ))}
@@ -47,9 +71,14 @@ const Navigation: React.FC = () => {
           className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-orange-600 hover:bg-white rounded-md transition-colors duration-200"
           onClick={handleLinkClick}
         >
-          <div className="flex items-center">
-            {item.icon && <span className="mr-2 text-base">{item.icon}</span>}
-            <div className="font-medium">{item.label}</div>
+          <div className="flex items-start">
+            {item.icon && <span className="mr-2 text-base mt-0.5">{item.icon}</span>}
+            <div>
+              <div className="font-medium">{item.label}</div>
+              {item.description && (
+                <div className="text-xs text-gray-500 mt-1">{item.description}</div>
+              )}
+            </div>
           </div>
         </Link>
       ))}
@@ -77,23 +106,33 @@ const Navigation: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             {mainNavigation.map((item) => (
-              <div key={item.href} className="relative group">
+              <div 
+                key={item.href} 
+                className="relative group"
+                onMouseEnter={() => item.dropdown && handleMouseEnter(item.label)}
+                onMouseLeave={() => item.dropdown && handleMouseLeave()}
+              >
                 {item.dropdown ? (
-                  <button
-                    onClick={() => handleDropdownToggle(item.label)}
-                    className={`flex items-center px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg focus:outline-none ${
-                      location.pathname.startsWith(item.href) || activeDropdown === item.label
-                        ? 'text-orange-600 bg-orange-50'
-                        : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
-                    }`}
-                  >
-                    {item.label}
-                    <ChevronDownIcon className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
-                  </button>
+                  <>
+                    <Link
+                      to={item.href}
+                      title={`Go to ${item.label} page`}
+                      className={`flex items-center px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:underline ${
+                        location.pathname.startsWith(item.href) || activeDropdown === item.label
+                          ? 'text-orange-600 bg-orange-50'
+                          : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
+                      }`}
+                    >
+                      {item.label}
+                      <ChevronDownIcon className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
+                    </Link>
+                    {activeDropdown === item.label && renderDropdown(item.dropdown, item.label)}
+                  </>
                 ) : (
                   <Link
                     to={item.href}
-                    className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${
+                    title={`Go to ${item.label} page`}
+                    className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:underline ${
                       location.pathname === item.href
                         ? 'text-orange-600 bg-orange-50'
                         : 'text-gray-700 hover:text-orange-600 hover:bg-orange-50'
@@ -102,7 +141,6 @@ const Navigation: React.FC = () => {
                     {item.label}
                   </Link>
                 )}
-                {item.dropdown && activeDropdown === item.label && renderDropdown(item.dropdown)}
               </div>
             ))}
           </div>

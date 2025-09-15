@@ -30,7 +30,6 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
   priceRange,
   timeline,
   category,
-  competitorAdvantage,
   keyFeatures,
   onConsultationClick
 }) => {
@@ -115,7 +114,7 @@ const ServiceHero: React.FC<ServiceHeroProps> = ({
                   <div className="text-amber-300 font-semibold text-sm uppercase tracking-wide mb-1">
                     SunVic Advantage
                   </div>
-                  <p className="text-white">{competitorAdvantage}</p>
+                  {/* <p className="text-white">{competitorAdvantage}</p> */}
                 </div>
               </div>
             </div>

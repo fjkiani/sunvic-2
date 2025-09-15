@@ -1,0 +1,36 @@
+---
+description: Content governance, approval workflow, and change application strategy
+---
+# Content Governance & Workflow
+
+## Roles
+
+- Research Runner: triggers research and analysis
+- SEO Reviewer: reviews suggestions, requests edits
+- Approver: approves to publish/apply
+
+## Workflow stages
+
+1. Research: run Semrush + LLM → draft JSON stored with `status: draft`.
+2. Review: Admin UI diffs vs current meta/content; inline edits allowed.
+3. Approval: set `status: approved` and publish to `seo/{route}/latest.json`.
+4. Apply changes:
+   - Runtime: immediately used by `Seo` for meta and JSON-LD.
+   - Source: open a Git PR to update `src/data/*` for durable content changes.
+
+## PR contents (when applying to source)
+
+- Update titles, headings, FAQs, and alt text in relevant `src/data/*.ts` entries.
+- Include reference to run ID and diff summary in PR description.
+
+## Safeguards
+
+- Limit changes per run (e.g., top 5 routes) to control risk.
+- Enforce max/min lengths (title 50–60 chars, meta 140–160 chars).
+- Validate links and image paths exist before applying.
+
+## Observability
+
+- Store run logs (timestamp, seeds, model, cost, status) in Blobs/KV.
+- Keep last N versions per route for rollback.
+

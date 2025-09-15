@@ -119,7 +119,7 @@ export const advancedRenovationServices = {
       title: "Full Kitchen Remodeling",
       shortDescription: "Full kitchen remodeling with custom cabinetry, countertops, appliances, and smart systems.",
       fullDescription: "Beyond basic kitchen remodeling, we create intelligent culinary environments with integrated smart appliances, automated lighting and climate control, custom storage solutions, and professional-grade equipment installation.",
-      image: "https://drive.google.com/drive/folders/109IMZmWESteMDxzGHAOKdahBrSUPniOU?dmr=1&ec=wgc-drive-hero-goto",
+      image: "/images/full-home-remodel/kitchen/1.png",
       icon: "luxury-smart-kitchens",
       category: "Kitchen Innovation",
       competitorAdvantage: "While Laslo Kitchens focuses on cabinets, we integrate entire smart ecosystems",
@@ -134,9 +134,30 @@ export const advancedRenovationServices = {
       equipment: ["Custom millwork tools", "Smart home integration systems", "Professional appliance installation equipment"],
       timeline: "3-4 weeks",
       priceRange: "$45,000-$150,000",
-      link: "/service-details/luxury-smart-kitchens"
+      link: "/service-details/full-kitchen-remodeling"
     },
-    
+    {
+      id: "spa-bathroom-sanctuaries",
+      title: "Spa-Grade Bathroom Sanctuaries",
+      shortDescription: "Wellness-focused bathroom retreats with beauty integration, health monitoring, and therapeutic features.",
+      fullDescription: "Create a personal wellness sanctuary with heated floors, custom steam rooms, therapeutic lighting, smart mirrors, integrated sound systems, and professional beauty stations. Our advanced systems include health monitoring, water purification, and beauty-grade lighting that transforms your bathroom into a luxury spa experience.",
+      image: "/images/bathroom/1.jpeg",
+      icon: "spa-bathroom-sanctuaries",
+      category: "Bathroom Innovation",
+      competitorAdvantage: "Competitors offer basic bathrooms; we create complete wellness sanctuaries with integrated beauty stations",
+      features: [
+        "Radiant heated flooring with smart temperature control",
+        "Custom steam room with chromotherapy lighting",
+        "Smart mirrors with beauty lighting and health tracking",
+        "Professional beauty stations with Hollywood lighting",
+        "Luxury rainfall and therapeutic body spray systems",
+        "Heated towel and robe systems with automated scheduling"
+      ],
+      equipment: ["Radiant heating installation systems", "Steam generation and safety equipment", "Advanced plumbing and electrical tools", "Smart mirror installation equipment", "Beauty lighting installation tools"],
+      timeline: "3-5 weeks",
+      priceRange: "$55,000-$120,000",
+      link: "/service-details/spa-bathroom-sanctuaries"
+    }
   ],
   
   // Service categories for filtering

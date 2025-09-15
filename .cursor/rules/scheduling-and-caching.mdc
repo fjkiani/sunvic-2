@@ -1,0 +1,27 @@
+---
+description: Scheduling cadence, caching, and cost controls for SEO automation
+---
+# Scheduling, Caching, and Cost Controls
+
+## Cadence
+
+- Weekly scheduled run for core routes and services
+- Monthly deeper refresh for long-tail topics
+- Ad-hoc runs allowed via Admin UI with scope limits
+
+## Caching
+
+- Cache RapidAPI responses by `seed|country|ttl(7d)`
+- Store hash of keyword dataset; only re-analyze when hash changes
+- Deduplicate route analyses by content fingerprint
+
+## Cost controls
+
+- Use small LLM for clustering and draft generation; upscale only for final copy
+- Hard caps per run (max routes, max tokens) and global daily cap
+
+## Observability
+
+- Track time, tokens, and vendor cost per run and per route
+- Alert when anomalies or large diffs appear
+

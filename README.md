@@ -1,3 +1,50 @@
+
+curl --request GET 
+	--url 'https://semrush-keyword-magic-tool.p.rapidapi.com/Question-keyword-research-More?keyword=ai%20tools&country=us' 
+	--header 'x-rapidapi-host: semrush-keyword-magic-tool.p.rapidapi.com' 
+	--header 'x-rapidapi-key: 9f107deaabmsh2efbc3559ddca05p17f1abjsn271e6df32f7c'
+:
+
+{"all_keywords":{"All Total Keywords":673,"a":{"count":39,"keywords_data":[{"High CPC":"$5.96","Low CPC":"$1.37","avg_monthly_searches":20,"competition_index":66,"competition_value":"MEDIUM","keyword":"make a video ai","monthly_search_volumes":[{"month":"AUGUST","searches":10,"year":2024},{"month":"SEPTEMBER","searches":10,"year":2024},{"month":"OCTOBER","searches":10,"year":2024},{"month":"NOVEMBER","searches":10,"year":2024},{"month":"DECEMBER","searches":20,"year":2024},{"month":"JANUARY","searches":20,"year":2025},{"month":"FEBRUARY","searches":50,"year":2025},{"month":"MARCH","searches":10,"year":2025},{"month":"APRIL","searches":20,"year":2025},{"month":"MAY","searches":20,"year":2025},{"month":"JUNE","searches":10,"year":2025},{"month":"JULY","searches":20,"year":2025}]},{"High CPC":"$0.00","Low CPC":"$0.00","avg_monthly_searches":10,"competition_index":0,"competition_value":"LOW","keyword":"meta ai make a video","monthly_search_volumes":[{"month":"AUGUST","searches":10,"year":2024},{"month":"SEPTEMBER","searches":0,"year":2024},{"month":"OCTOBER","searches":10,"year":2024},{"month":"NOVEMBER","searches":10,"year":2024},{"month":"DECEMBER","searches":0,"year":2024},{"month":"JANUARY","searches":10,"year":2025},{"month":"FEBRUARY","searches":40,"year":2025},{"month":"MARCH","searches":10,"year":2025},{"month":"APRIL","searches":10,"year":2025},{"month":"MAY","searches":10,"year":2025},{"month":"JUNE","searches":10,"year":2025},{"month":"JULY","searches":10,"year":2025}]},{"High CPC":"$0.00","Low CPC":"$0.00",
+
+
+curl --request GET \
+	--url 'https://semrush-keyword-magic-tool.p.rapidapi.com/keyword-research?keyword=email%20marketing&country=us&languagecode=te' \
+	--header 'x-rapidapi-host: semrush-keyword-magic-tool.p.rapidapi.com' \
+	--header 'x-rapidapi-key: 9f107deaabmsh2efbc3559ddca05p17f1abjsn271e6df32f7c'
+"avg_m
+High CPC:"$5.26"
+Low CPC:"$0.13"
+avg_monthly_searches:3600
+competition_index:43
+competition_value:"MEDIUM"
+keyword:"email marketing"
+monthly_search_volumes:0:
+month:"AUGUST"
+searches:4400
+year:2024
+1:
+month:"SEPTEMBER"
+searches:4400
+year:2024
+2:
+month:"OCTOBER"
+searches:6600
+year:2024
+3:
+month:"NOVEMBER"
+searches:5400
+year:2024
+4:
+month:"DECEMBER"
+searches:4400
+year:2024
+
+
+
+
+
+
 # SunVic Home Remodeling Website
 
 A beautiful, responsive website for SunVic Home Remodeling, built with **Vite.js**, **React**, **TypeScript**, and **Tailwind CSS**. The website emphasizes the company's engineering-led approach and dual business model (home remodeling + equipment rental).

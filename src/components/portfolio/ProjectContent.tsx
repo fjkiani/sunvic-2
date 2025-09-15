@@ -10,6 +10,7 @@ import {
   CheckCircleIcon
 } from '@heroicons/react/24/outline';
 import type { EnhancedProject } from '../../data/portfolioProjects';
+import DynamicGallery from '../ui/DynamicGallery';
 
 interface ProjectContentProps {
   project: EnhancedProject;
@@ -263,74 +264,11 @@ const ProjectContent: React.FC<ProjectContentProps> = ({ project }) => {
           )}
 
           {activeTab === 'gallery' && (
-            <div className="space-y-12">
-              <div className="text-center max-w-3xl mx-auto">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Project Gallery
-                </h2>
-                <p className="text-lg text-gray-600">
-                  See the transformation from concept to completion through our detailed project photography.
-                </p>
-              </div>
-
-              {/* Before/After Section */}
-              <div className="grid md:grid-cols-2 gap-8">
-                {project.images.filter(img => img.type === 'before' || img.type === 'after').map((image, index) => (
-                  <motion.div
-                    key={image.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    viewport={{ once: true }}
-                    className="group"
-                  >
-                    <div className="relative overflow-hidden rounded-2xl shadow-lg">
-                      <img
-                        src={image.url}
-                        alt={image.caption}
-                        className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          image.type === 'before' 
-                            ? 'bg-red-600/90 text-white' 
-                            : 'bg-green-600/90 text-white'
-                        }`}>
-                          {image.type === 'before' ? 'Before' : 'After'}
-                        </span>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-600 mt-3 text-center">{image.caption}</p>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Detail Images */}
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Project Details</h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {project.images.filter(img => img.type === 'detail').map((image, index) => (
-                    <motion.div
-                      key={image.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="group"
-                    >
-                      <div className="relative overflow-hidden rounded-xl shadow-md">
-                        <img
-                          src={image.url}
-                          alt={image.caption}
-                          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                      </div>
-                      <p className="text-sm text-gray-600 mt-2 text-center">{image.caption}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <DynamicGallery 
+              projectId={project.id}
+              title={`${project.title} Gallery`}
+              description="See the transformation from concept to completion through our detailed project photography."
+            />
           )}
         </motion.div>
       </div>

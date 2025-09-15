@@ -183,7 +183,8 @@ const EnhancedServicesPage: React.FC<EnhancedServicesPageProps> = ({ openConsult
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
+                onClick={() => window.location.href = `/enhanced-service/${service.id}`}
               >
                 {/* Service Image */}
                 <div className="relative h-64 overflow-hidden">
@@ -235,7 +236,7 @@ const EnhancedServicesPage: React.FC<EnhancedServicesPageProps> = ({ openConsult
                   </div>
 
                   {/* CTA */}
-                  <div className="flex gap-3">
+                  <div className="flex gap-3" onClick={(e) => e.stopPropagation()}>
                     <Link
                       to={`/enhanced-service/${service.id}`}
                       className="flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium"
@@ -243,7 +244,10 @@ const EnhancedServicesPage: React.FC<EnhancedServicesPageProps> = ({ openConsult
                       Explore Features
                     </Link>
                     <button
-                      onClick={() => openConsultationForm(service.title)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openConsultationForm(service.title);
+                      }}
                       className="bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors"
                     >
                       <PhoneIcon className="h-4 w-4" />

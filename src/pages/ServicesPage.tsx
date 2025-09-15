@@ -58,7 +58,7 @@ const ServicesPage: React.FC = () => {
       <section className="relative bg-gray-900 py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+            src="/images/full-home-remodel/1.jpg"
             alt="Luxury home renovation"
             className="w-full h-full object-cover opacity-40"
           />
@@ -111,9 +111,9 @@ const ServicesPage: React.FC = () => {
               <Link to="/contact" className="btn-primary">
                 Schedule Luxury Consultation
               </Link>
-              <Link to="/portfolio" className="btn-outline border-white text-white hover:bg-white hover:text-gray-900">
+              {/* <Link to="/portfolio" className="btn-outline border-white text-white hover:bg-white hover:text-gray-900">
                 View Million-Dollar Projects
-              </Link>
+              </Link> */}
             </div>
           </motion.div>
         </div>

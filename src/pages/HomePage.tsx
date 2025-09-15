@@ -7,9 +7,6 @@ import {
   WrenchScrewdriverIcon,
   Cog6ToothIcon,
   BuildingOfficeIcon,
-  TruckIcon,
-  ClockIcon,
-  ShieldCheckIcon,
   HeartIcon,
   SparklesIcon,
   CpuChipIcon
@@ -19,9 +16,9 @@ import {
 } from '@heroicons/react/24/solid';
 
 import HeroSlider from '../components/ui/HeroSlider';
+import PortfolioShowcase from '../components/ui/PortfolioShowcase';
 import { testimonials } from '../data/content';
 import { enhancedServices } from '../data/enhancedServices';
-import engineeringImage from '../assets/images/engineering.png';
 
 interface HomePageProps {
   openConsultationForm: (serviceType?: string) => void;
@@ -138,7 +135,7 @@ const HomePage: React.FC<HomePageProps> = ({ openConsultationForm }) => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/enhanced-services" className="btn-primary">
-                Explore 2025 Innovations
+                Our Services
                 <ArrowRightIcon className="h-5 w-5 ml-2" />
               </Link>
               <button 
@@ -160,7 +157,8 @@ const HomePage: React.FC<HomePageProps> = ({ openConsultationForm }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
+                onClick={() => window.location.href = `/enhanced-service/${service.id}`}
               >
                 {/* Service Image */}
                 <div className="relative h-64 overflow-hidden">
@@ -204,15 +202,9 @@ const HomePage: React.FC<HomePageProps> = ({ openConsultationForm }) => {
                     </div>
                   </div>
 
-                  {/* Competitive Advantage */}
-                  <div className="bg-amber-50 border-l-4 border-amber-400 p-3 mb-4">
-                    <p className="text-sm text-amber-800 font-medium">
-                      🏆 {service.competitorAdvantage}
-                    </p>
-                  </div>
 
                   {/* CTA */}
-                  <div className="flex gap-3">
+                  <div className="flex gap-3" onClick={(e) => e.stopPropagation()}>
                     <Link
                       to={`/enhanced-service/${service.id}`}
                       className="flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium"
@@ -220,7 +212,10 @@ const HomePage: React.FC<HomePageProps> = ({ openConsultationForm }) => {
                       Explore Features
                     </Link>
                     <button
-                      onClick={() => openConsultationForm(service.title)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openConsultationForm(service.title);
+                      }}
                       className="bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors"
                     >
                       <PhoneIcon className="h-4 w-4" />
@@ -277,79 +272,26 @@ const HomePage: React.FC<HomePageProps> = ({ openConsultationForm }) => {
         </div>
       </section>
 
-      {/* Equipment Advantage Section */}
-      <section className="section-padding bg-blue-50">
+      {/* Portfolio Showcase Section */}
+      <section className="section-padding bg-gray-50">
         <div className="section-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="grid lg:grid-cols-2 gap-12 items-center"
+            className="text-center mb-16"
           >
-            <div>
-              <h2 className="font-display text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Our Equipment Advantage = Your Project Advantage
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                While competitors scramble for rental equipment, causing delays and cost overruns, 
-                our $200K+ owned fleet keeps your project on schedule.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <TruckIcon className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Immediate Availability
-                    </h3>
-                    <p className="text-gray-600">
-                      No waiting for rental availability. Our equipment is ready when your project demands it.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <ClockIcon className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Schedule Certainty
-                    </h3>
-                    <p className="text-gray-600">
-                      Eliminate the #1 cause of construction delays: equipment rental conflicts.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <ShieldCheckIcon className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Cost Predictability
-                    </h3>
-                    <p className="text-gray-600">
-                      No surprise rental fees or availability surcharges. Fixed pricing you can count on.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="relative">
-              <img
-                src={engineeringImage}
-                alt="Professional construction equipment fleet"
-                className="rounded-xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent rounded-xl" />
-            </div>
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Our Latest Transformations
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              See how we've transformed luxury homes across the tri-state area. 
+              From wellness kitchens to spa bathrooms, every project showcases our commitment to excellence.
+            </p>
           </motion.div>
+          
+          <PortfolioShowcase />
         </div>
       </section>
 

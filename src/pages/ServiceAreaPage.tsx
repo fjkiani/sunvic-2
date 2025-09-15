@@ -49,7 +49,7 @@ const serviceAreaData: Record<string, ServiceAreaData> = {
       author: "Sarah M.",
       location: "Princeton, NJ"
     },
-    coverImage: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&h=600&fit=crop',
+    coverImage: '/images/full-home-remodel/1.jpg',
     localInfo: {
       permits: 'We handle all municipal permits and inspections',
       codes: 'Expert knowledge of NJ Uniform Construction Code',
@@ -73,7 +73,7 @@ const serviceAreaData: Record<string, ServiceAreaData> = {
       'Historic Restorations',
       'Commercial Build-outs'
     ],
-    coverImage: 'https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?w=1200&h=600&fit=crop',
+    coverImage: '/images/full-home-remodel/fullHome.png',
     localInfo: {
       permits: 'DOB permit applications and expediting',
       codes: 'NYC Building Code and Fire Code compliance',
@@ -97,7 +97,7 @@ const serviceAreaData: Record<string, ServiceAreaData> = {
       'Basement Conversions',
       'Roof Deck Construction'
     ],
-    coverImage: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1200&h=600&fit=crop',
+    coverImage: '/images/full-home-remodel/kitchen/1.png',
     localInfo: {
       permits: 'L&I permit processing and inspections',
       codes: 'Philadelphia Building Code compliance',
@@ -121,7 +121,7 @@ const serviceAreaData: Record<string, ServiceAreaData> = {
       'Basement Finishing',
       'Outdoor Living Spaces'
     ],
-    coverImage: 'https://images.unsplash.com/photo-1617581629397-a72507c3de9e?w=1200&h=600&fit=crop',
+    coverImage: '/images/full-home-remodel/kitchen/2.png',
     localInfo: {
       permits: 'DCRA permit applications and approvals',
       codes: 'DC Construction Code and Energy Code',
@@ -145,7 +145,7 @@ const serviceAreaData: Record<string, ServiceAreaData> = {
       'Home Additions',
       'Deck & Patio Construction'
     ],
-    coverImage: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1200&h=600&fit=crop',
+    coverImage: '/images/full-home-remodel/kitchen/3.png',
     localInfo: {
       permits: 'County and municipal permit processing',
       codes: 'Maryland Building Code compliance',
@@ -169,7 +169,7 @@ const serviceAreaData: Record<string, ServiceAreaData> = {
       'Home Additions',
       'Outdoor Living Spaces'
     ],
-    coverImage: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1200&h=600&fit=crop',
+    coverImage: '/images/bathroom/1.jpeg',
     localInfo: {
       permits: 'County and city permit applications',
       codes: 'Virginia Uniform Statewide Building Code',
